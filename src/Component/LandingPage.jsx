@@ -8,6 +8,7 @@ import lehenga from './lehenga.jpg';
 import fashion from './fashion.jpg';
 import unsplash from './unsplash.jpg';
 import model from './model.jpg';
+import banner from './saree_banner.jpg';
 // import womanoutdoors from './womanoutdoors.jpg';
 import floralwoman from './floralwoman.jpg';
 
@@ -63,7 +64,7 @@ class Home extends React.Component {
                     <img
                       className="d-block w-100 img-height-custom position-top"
                       src={lehenga}
-                      alt="Third slide"
+                      alt="Second slide"
                     />
 
                     <Carousel.Caption>
@@ -130,8 +131,7 @@ class Home extends React.Component {
 
                 <div class="container-fluid mb-5">
                   <div class="row bg-black text-white">
-                    <div class="col">Splash Screen banner</div>
-                    <div class="col">Column</div>
+                    <div class="col"><img src={banner} className="img-responsive" width="100%" /></div>
                   </div>
                 </div>
     </div>);
