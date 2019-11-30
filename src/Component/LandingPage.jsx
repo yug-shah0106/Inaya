@@ -95,7 +95,7 @@ class Home extends React.Component {
                             <div className="content">
                               <span className="heading">Sarees</span>
                               <span className="subheading">Collection to look beautiful in</span>
-                              <a className="photo-link" tabindex="0">Shop Now</a>
+                              <a href="/productListing/saree" className="photo-link" tabindex="0">Shop Now</a>
                             </div>
                           </div>
                         </div>
@@ -108,7 +108,7 @@ class Home extends React.Component {
                             <div className="content">
                               <span className="heading">Sarees</span>
                               <span className="subheading">Collection to look beautiful in</span>
-                              <a className="photo-link" tabindex="0">Shop Now</a>
+                              <a href="/productListing/salwar" className="photo-link" tabindex="0">Shop Now</a>
                             </div>
                           </div>
                         </div>
@@ -121,7 +121,7 @@ class Home extends React.Component {
                             <div className="content">
                               <span className="heading">Sarees</span>
                               <span className="subheading">Collection to look beautiful in</span>
-                              <a className="photo-link" tabindex="0">Shop Now</a>
+                              <a href="/productListing/unique" className="photo-link" tabindex="0">Shop Now</a>
                             </div>
                           </div>
                         </div>

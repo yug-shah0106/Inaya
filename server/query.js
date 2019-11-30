@@ -80,11 +80,33 @@ const getProduct = (request, response) => {
   })
 }
 
+const getAllProduct = (request,response) => {
+  pool.query('SELECT * from product_kurtis_details',(error,results) =>{
+    if(error){
+      throw error
+    }
+    response.status(200).json(results.rows)
+  })
+}
+
+const getSpecificProduct = (request,response) => {
+  const id = parseInt(request.params.id)
+
+  pool.query('SELECT * from product_kurtis_details WHERE category = $1',(error,results) =>{
+    if(error){
+      throw error
+    }
+    response.status(200).json(results.rows)
+  })
+}
+
 module.exports = {
   getUsers,
   getUserById,
   createUser,
   updateUser,
   deleteUser,
-  getProduct
+  getProduct,
+  getAllProduct,
+  getSpecificProduct
 }
