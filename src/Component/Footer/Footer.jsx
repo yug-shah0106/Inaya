@@ -10,29 +10,25 @@ const Footer = function() {
   return (<div className="footer">
     <div className="footer_container">
         <div className="row">
-            <div className="column">
+            <div className="col">
                 <h3>Occasion</h3>
-                <a href="#">Party</a>
-                <a href="#">Wedding</a>
-                <a href="#">Festive</a>
-                <a href="#">Party</a>
-                <a href="#">Wedding</a>
-                <a href="#">Festive</a>
+                <ul>
+                <li><a href="#">Party</a></li>
+                <li><a href="#">Wedding</a></li>
+                <li><a href="#">Festive</a></li>
+                </ul>
             </div>
-            <div className="column">
+            <div className="col">
                 <h3>Occasion</h3>
-                <a href="#">Party</a>
-                <a href="#">Wedding</a>
-                <a href="#">Festive</a>
+                <li><a href="#">Party</a></li>
+                <li><a href="#">Wedding</a></li>
+                <li><a href="#">Festive</a></li>
             </div>
-            <div className="column">
+            <div className="col">
                 <h3>Occasion</h3>
-                <a href="#">Party</a>
-                <a href="#">Wedding</a>
-                <a href="#">Festive</a>
-                <a href="#">Party</a>
-                <a href="#">Wedding</a>
-                <a href="#">Festive</a>
+                <li><a href="#">Party</a></li>
+                <li><a href="#">Wedding</a></li>
+                <li><a href="#">Festive</a></li>
             </div>
         </div>
     </div>
