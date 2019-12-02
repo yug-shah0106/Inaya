@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './../LandingPage.jsx';
 import ProductDetail from './../ProductDetail.jsx';
 import ProductListing from './../ProductListing.jsx';
+import CartView from "../cart_details/CartView";
 // import Lisitingpage from './../Listingpage.jsx';
 // import Form from './../Form.jsx';
 
@@ -14,10 +15,11 @@ import ProductListing from './../ProductListing.jsx';
 const Main = () => (
   <main>
     <Switch>
-      <Route exact path='/' component={Home}/>
-      <Route exact path='/product/:id' component={ProductDetail}/>
-      <Route exact path='/productListing' component={ProductListing}/>
-      <Route exact path='/productListing/:name' component={ProductListing}/>
+      <Route exact path='/' component={Home} />
+      <Route exact path='/product/:id' component={ProductDetail} />
+      <Route exact path='/productListing' component={ProductListing} />
+      <Route exact path='/productListing/:name' component={ProductListing} />
+      <Route exact path="/cart" component={CartView} />
     </Switch>
   </main>
 )
