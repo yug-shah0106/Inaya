@@ -1,32 +1,21 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const db = require('./query')
-const app = express()
-const port = 3001
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
 
-app.use(bodyParser.json())
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  })
-)
+//Database
+const db = require('./config/database');
 
+db.authenticate().then(()=> console.log('Database connected ....'))
+.catch(err => console.log('error while connecting'))
 
-app.listen(port, () => {
-  console.log(`App running on port ${port}.`)
+const app = express();
+
+app.get('/',(req,res) => {
+res.send('INDEX');
 })
 
-app.get('/api/users', db.getUsers)
-app.get('/api/users/:id', db.getUserById)
-app.post('/api/users', db.createUser)
-app.put('/api/users/:id', db.updateUser)
-app.delete('/api/users/:id', db.deleteUser)
+app.use('/users', require('./routes/users'));
 
+const PORT = 3001;
 
-app.get('/api/product/:id', db.getProduct)
-app.get('/api/productListing', db.getAllProduct)
-app.get('/api/productListing/:id', db.getSpecificProduct)
-
-app.get('/', (request, response) => {
-  response.json({ info: 'Node.js, Express, and Postgres API' })
-})
+app.listen(PORT,console.log(`server started at port ${PORT}`));

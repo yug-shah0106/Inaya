@@ -40,54 +40,53 @@ const Header = function() {
                   <a href="/productlisting">Suits</a>
                     <ul>
                       <li class="dropdown-link-list-item submenu-item ">
-                        <a href="#">Sarees</a>
+                        <a href="/productListing/saree">Sarees</a>
                       </li>
-                                
+
                       <li class="dropdown-link-list-item submenu-item ">
-                        <a href="">Lehengas</a>
+                        <a href="/productListing/lehenga">Lehengas</a>
                       </li>
                     </ul>
                   </li>
                 </ul>
                 <ul class="dropdown-column-category">
                   <li class="dropdown-column-header has-children">
-                    <a href="#">Tops</a>
-                    <ul>    
+                    <a href="/productListing/tops">Tops</a>
+                    <ul>
                       <li class="dropdown-link-list-item submenu-item ">
-                        <a href="#">Hoodies</a>
+                        <a href="/productListing/hoodies">Hoodies</a>
                       </li>
                       <li class="dropdown-link-list-item submenu-item ">
-                        <a href="#">T-Shirts</a>
+                        <a href="/productListing/tshirt">T-Shirts</a>
                       </li>
                       <li class="dropdown-link-list-item submenu-item ">
-                        <a href="#">Shirts</a>
+                        <a href="/productListing/shirts">Shirts</a>
                       </li>
                     </ul>
                   </li>
                 </ul>
                 <ul class="dropdown-column-category">
                   <li class="dropdown-column-header has-children">
-                    <a href="#">New Releases</a>
-                      <ul>          
+                    <a href="/productListing/saree">New Releases</a>
+                      <ul>
                         <li class="dropdown-link-list-item submenu-item ">
-                          <a href="#">Bridals</a>
+                          <a href="/productListing/saree">Bridals</a>
                         </li>
                         <li class="dropdown-link-list-item submenu-item ">
-                          <a href="#">Tailormade</a>
+                          <a href="/productListing/saree">Tailormade</a>
                         </li>
                       </ul>
                     </li>
                   </ul>
-                  <ul class="dropdown-column-category">            
+                  <ul class="dropdown-column-category">
                     <li class="dropdown-column-header ">
-                      <a href="#">Accessories</a>
+                      <a href="/productListing/saree">Accessories</a>
                     </li>
                   </ul>
-                  <ul class="dropdown-column-category">            
+                  <ul class="dropdown-column-category">
                     <li class="dropdown-column-header has-children">
-                      <a href="#">Collections</a>
+                      <a href="/productListing/saree">Collections</a>
                         <ul>
-      
                         </ul>
                     </li>
                   </ul>
