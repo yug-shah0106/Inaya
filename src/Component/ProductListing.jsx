@@ -18,11 +18,11 @@ export default class ProductListing extends React.Component {
                         <div className="filter-list">
                             <h5>Shop by Category</h5>
                             <ul className="category-selector">
-                                <li className="active">Sarees</li>
-                                <li>Lehengas</li>
-                                <li>Kurtis</li>
-                                <li>Accessories</li>
-                                <li>More Clothing</li>
+                                <li className="active"><a>Sarees</a></li>
+                                <li><a>Lehengas</a></li>
+                                <li><a>Kurtis</a></li>
+                                <li><a>Accessories</a></li>
+                                <li><a>More Clothing</a></li>
                             </ul>
                             <h5>Filter By</h5>
                             <div className="price-selector">
@@ -32,21 +32,21 @@ export default class ProductListing extends React.Component {
                             <div className="discount-selector">
                                 <h6>Discounts</h6>
                                 <ul>
-                                    <li className="active">10% and above</li>
-                                    <li>20% and above</li>
-                                    <li>30% and above</li>
-                                    <li>40% and above</li>
-                                    <li>50% and above</li>
+                                    <li className="active"><a>10% and above</a></li>
+                                    <li><a>20% and above</a></li>
+                                    <li><a>30% and above</a></li>
+                                    <li><a>40% and above</a></li>
+                                    <li><a>50% and above</a></li>
                                 </ul>
                             </div>
                                 <div className="size-selector">
                                 <h6>Size</h6>
                                 <ul className="size-selector">
-                                    <li><input type="checkbox" className="fa-fw"/> xs(6)</li>
-                                    <li><input type="checkbox" className="fa-fw"/> s(6)</li>
-                                    <li><input type="checkbox" className="fa-fw"/> m(6)</li>
-                                    <li><input type="checkbox" className="fa-fw"/> l(6)</li>
-                                    <li><input type="checkbox" className="fa-fw"/> xl(6)</li>
+                                    <li><input type="checkbox" className="fa-fw"/><a> xs(6)</a></li>
+                                    <li><input type="checkbox" className="fa-fw"/><a> s(6)</a></li>
+                                    <li><input type="checkbox" className="fa-fw"/><a> m(6)</a></li>
+                                    <li><input type="checkbox" className="fa-fw"/><a> l(6)</a></li>
+                                    <li><input type="checkbox" className="fa-fw"/><a> xl(6)</a></li>
                                 </ul>
                                 </div>
                                 <div className="colour-selector">

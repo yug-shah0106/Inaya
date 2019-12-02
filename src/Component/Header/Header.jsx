@@ -73,19 +73,19 @@ const Header = function() {
                           <a href="#">Bridals</a>
                         </li>
                         <li class="dropdown-link-list-item submenu-item ">
-                          <a href="https://www.physiqapparel.com/womens-new-releases/">Tailormade</a>
+                          <a href="#">Tailormade</a>
                         </li>
                       </ul>
                     </li>
                   </ul>
                   <ul class="dropdown-column-category">            
                     <li class="dropdown-column-header ">
-                      <a href="https://www.physiqapparel.com/accessories/">Accessories</a>
+                      <a href="#">Accessories</a>
                     </li>
                   </ul>
                   <ul class="dropdown-column-category">            
                     <li class="dropdown-column-header has-children">
-                      <a href="https://www.physiqapparel.com/collections/">Collections</a>
+                      <a href="#">Collections</a>
                         <ul>
       
                         </ul>
