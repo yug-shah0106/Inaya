@@ -12,10 +12,39 @@ export default class ProductDetail extends React.Component {
         }
     }
 
-    componentWillMount() {
-        axios.get(`/product/${this.props.match.params.id}`).then((res) => {
-            this.state.data = res.data;
+    componentWillMount(){
+
+      axios({
+  method: 'get',
+  url: "/api/products/details",
+  params:{filters:{id:1}}
+      }).then((res)=>{
+        this.state.data = res.data;
+        this.state.size = 'XL';
+        console.log(res);
+      },(err)=>{
+        console.log(err)
+      })
+    }
+
+    addInCart = () =>{
+      let data = this.state.data;
+      data.size = this.state.size;
+       localStorage.setItem('cartItems', data);
+
+       axios({
+   method: 'post',
+   url: "/api/cart/add",
+   data
+ }).then((res)=>{
+        this.setState({
+          addedSuccess:true
+        })
+      },(err)=>{
+        this.setState({
+          addedSuccess:false
         });
+      })
     }
 
     render() {
@@ -79,7 +108,7 @@ export default class ProductDetail extends React.Component {
                       </div>
                       <div className="row mb-3">
                         <div className= "col-md-8">
-                            <div><label class="product-field mb-1"><span class="">Select Size</span></label></div> 
+                            <div><label class="product-field mb-1"><span class="">Select Size</span></label></div>
                             <div className="size-error">Please select a size</div>
                             <div className="size-buttons">
                               <a className="btn btn-default btn-sm active">S</a>
@@ -98,7 +127,7 @@ export default class ProductDetail extends React.Component {
                               <div className="offer-card">
                               <div className="offer-card-header mb-3">Buy 2 get 1 free</div>
                               <div className="offer-card-body">
-                                Buy 2 of this item to get any 1 of this item for free 
+                                Buy 2 of this item to get any 1 of this item for free
                               </div>
                               <div className="offer-card-button text-right">
                                 <a>More Info +</a>
@@ -129,11 +158,11 @@ export default class ProductDetail extends React.Component {
                         <div className="row m-b-3 mt-3">
                         <div className= "col-md-8">
                           <div className="cart-buttons">
-                            <button className="btn btn-primary mr-2">Add to cart</button>
+                            <button className="btn btn-primary mr-2" onClick={this.addInCart}>Add to cart</button>
                             <button className="btn btn-default ml-2 active text-primary pull-right">Wishlist +</button>
                           </div>
                         </div>
-                      </div> 
+                      </div>
                       <div className="row m-b-3 mt-2">
                         <div className= "col-md-8">
                             <small className="product-field">

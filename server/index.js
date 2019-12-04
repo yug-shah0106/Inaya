@@ -14,7 +14,12 @@ app.get('/',(req,res) => {
 res.send('INDEX');
 })
 
+// Body Parser
+app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use('/users', require('./routes/users'));
+app.use('/api/products', require('./routes/product'));
+app.use('/api/cart', require('./routes/cart'));
 
 const PORT = 3001;
 

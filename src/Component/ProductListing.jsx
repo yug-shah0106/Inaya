@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 export default class ProductListing extends React.Component {
     constructor(props) {
@@ -10,8 +11,7 @@ export default class ProductListing extends React.Component {
     }
 
     render() {
-        return ( <
-            >
+        return ( <>
             <div className="listing-page-container mt-3">
                 <div className="listing-box">
                     <div className="filter-side hidden-xs">
@@ -28,7 +28,7 @@ export default class ProductListing extends React.Component {
                             <div className="price-selector">
                                 <h6>Price</h6>
                                 (Slider goes here)
-                            </div>                
+                            </div>
                             <div className="discount-selector">
                                 <h6>Discounts</h6>
                                 <ul>
@@ -235,7 +235,7 @@ export default class ProductListing extends React.Component {
                 </div>
             </div>
             <div className="cart-side">
-            
+
             <h5>Cart
                 <div><small>1 Item</small></div>
             </h5>
@@ -291,7 +291,7 @@ export default class ProductListing extends React.Component {
                 </ul>
             </div>
         </div>
-    </div> 
+    </div>
             </>
         );
     }
