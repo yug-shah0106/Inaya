@@ -936,6 +936,7 @@ div.content h3 {
 }
 
 .filter-list h5,
+.cart-side h5,
 .filter-list h6{
     font-weight: 400;
     margin: 10px 0;
@@ -1041,16 +1042,16 @@ div.content h3 {
 
 .product-details-container .product-details-image img{
     width: 100%;
-    height: auto;
+    height: 600px;
+    object-fit: cover;
     
 }
 .product-details-container .product-details-thumb ul li a img{
-    border: 2px solid transparent;
-    padding: 2px;
+    margin-top: 1px;
 }
 
 .product-details-container .product-details-thumb ul li.active a img {
-    border: 2px solid #2d2d2d;
+    box-shadow: 0px 0px 5px 1px #b70521;
 }
 
 .product-field{
@@ -1097,4 +1098,117 @@ table.noborder.condensed th{
 
 .colour-selector .fa-square.active:before{
     content:"\f14a";
+}
+
+.navbar.navbar-light{
+    box-shadow: 0px 3px 6px #00000029;
+}
+
+.filter-side{
+    width: 300px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.listing-list{
+    width: calc(100% - 600px);
+    display:inline-block;
+    vertical-align: top;
+}
+
+.cart-side{
+    width: 300px;
+    display: inline-block;
+}
+
+@media (max-width: 992px){
+    .cart-side{
+        display: none;
+        width: 0;
+    }
+    .listing-list{
+        width: calc(100% - 300px);
+    }
+}
+
+.product-row {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-content:space-around;
+}
+
+.product-item{
+    width: 250px;
+    margin: auto;
+}
+
+.cart-side h5{
+    color: #666666;
+    font-size: 1.5em;
+}
+
+
+.cart-item{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-content: space-around;
+    align-items: center;
+}
+
+.item-text{
+    flex-grow: 2;
+    position: relative;
+    font-weight: 400;
+    font-size: 14px;
+    
+}
+
+.item-price{
+    text-align: right;
+    flex-grow: 1;
+    position: relative;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.item-quantity {
+    width: 60px;
+    position: relative;
+    font-weight: 400;
+}
+
+.item-quantity .plus,
+.item-quantity .minus{
+    position: absolute;
+    top: 2px;
+    font-size: 8px;
+    padding: 5px;
+}
+
+.item-quantity .minus{
+    left: 0;
+}
+
+.item-quantity .plus{
+    right : 0;
+}
+
+.item-quantity input{
+    font-size: 12px;
+    padding: 0;
+    border-radius: 0;
+    line-height: 0;
+    text-align: center;
+    height: 25px;
+    font-weight: bold;
+}
+
+.item-quantity > a.active{
+    color: #b10A25;
+}
+
+.nopadding{
+    padding: 0 !important;
 }

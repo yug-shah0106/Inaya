@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 const Footer = function() {
 
-
   return (<div className="footer">
     <div className="footer_container">
         <div className="row">

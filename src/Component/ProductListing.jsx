@@ -12,9 +12,9 @@ export default class ProductListing extends React.Component {
     render() {
         return ( <
             >
-            <div className="listing-page-container">
-                <div className="row">
-                    <div className="col-md-3 col-sm-4 hidden-xs">
+            <div className="listing-page-container mt-3">
+                <div className="listing-box">
+                    <div className="filter-side hidden-xs">
                         <div className="filter-list">
                             <h5>Shop by Category</h5>
                             <ul className="category-selector">
@@ -58,28 +58,151 @@ export default class ProductListing extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-9">
+                    <div className="listing-list">
                         <div id="listProducts" className="products-container">
-                    <div className="products-section nopadding">
-                        <div className="product-row row">
-                            <div className="col-md-3" data-id="6221239" data-url-path="craftsvilla-black-banarasi-silk-designer-saree-with-unstitched-blouse-material">
-                                <div className="product">
-                                    <div className="product-img">
-                                        <a className="product-image" href="/product/1" onclick="dataLayer.push({'event':'ProductDetailsViewedEvent','eventName':'ProductDetailsViewed','eventAction':'4599','eventLabel':'6221239','discountPercentage':'75','category':'NA','subCategory':'NA','price':'1105','productId':'6221239','positionOnPage':'1' });">
-                                            <img src="https://img6.craftsvilla.com/image/upload/w_300,h_450/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" data-src="https://img6.craftsvilla.com/image/upload/w_300,h_450/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" data-list-src="https://img6.craftsvilla.com/image/upload/w_500,h_500/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" alt="Craftsvilla ..." title="Craftsvilla ..." className="product-image"/>
+                    <div className="products-section nopadding mt-2">
+                        <div className="product-row">
+                            <div className="product-item">
+                                <div class="ibox">
+                                    <div class="ibox-content product-box">
+                                        <div class="product-imitation">
+                                            <a className="product-image" href="/product/1" onclick="dataLayer.push({'event':'ProductDetailsViewedEvent','eventName':'ProductDetailsViewed','eventAction':'4599','eventLabel':'6221239','discountPercentage':'75','category':'NA','subCategory':'NA','price':'1105','productId':'6221239','positionOnPage':'1' });">
+                                            <img src="https://img6.craftsvilla.com/image/upload/w_300,h_450/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" data-src="https://img6.craftsvilla.com/image/upload/w_300,h_450/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" data-list-src="https://img6.craftsvilla.com/image/upload/w_500,h_500/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" className="img-height-custom"/>
                                         </a>
-                                        <div className="wishit wishlist-product" onclick="dataLayer.push({'event':'ProductBookmarkedEvent','eventName':'ProductBookmarked','productId':'6221239','type':'addedToWishlist','category':'NA','subCategory':'NA','source':'listingView'});">
-                                            <a id="wishicon-6221239">
-                                                <i className="icon cv-wishlist-icon"></i>
-                                            </a>
+                                        <div className="hover-buttons">
+                                            <a className="btn btn-primary pull-left btn-sm">Add to Cart</a>
+                                            <a className="btn btn-default pull-right btn-sm">Wishlist</a>
                                         </div>
-                                        <div className="quickView hidden-xs" data-toggle="modal" data-target="#quickViewModal" data-id="quickView_6221239_craftsvilla-black-banarasi-silk-designer-saree-with-unstitched-blouse-material" data-position="1">
-                                            <a href="/product/1">Quick View</a>
+                                        </div>
+                                        <div class="product-desc">
+                                            <span class="product-price">
+                                                <i className="fa fa-square fa-fw" style={{color:"#EBE6C8"}}></i>
+                                                <i className="fa fa-square fa-fw" style={{color:"#3DDBD0"}}></i>
+                                                <i className="fa fa-square fa-fw" style={{color:"#D26576"}}></i>
+                                                <i className="fa fa-square fa-fw" style={{color:"#000000"}}></i>
+                                            </span>
+                                            <a href="#" class="product-name"> Product</a>
+                                            <h5>Special Weave Saree</h5>
+                                            <div class="small m-t-sm">
+                                                $500
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-md-3">
+                            <div className="product-item">
+                                <div class="ibox">
+                                    <div class="ibox-content product-box">
+                                        <div class="product-imitation">
+                                            <a className="product-image" href="/product/1" onclick="dataLayer.push({'event':'ProductDetailsViewedEvent','eventName':'ProductDetailsViewed','eventAction':'4599','eventLabel':'6221239','discountPercentage':'75','category':'NA','subCategory':'NA','price':'1105','productId':'6221239','positionOnPage':'1' });">
+                                            <img src="https://img6.craftsvilla.com/image/upload/w_300,h_450/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" data-src="https://img6.craftsvilla.com/image/upload/w_300,h_450/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" data-list-src="https://img6.craftsvilla.com/image/upload/w_500,h_500/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" className="img-height-custom"/>
+                                        </a>
+                                        <div className="hover-buttons">
+                                            <a className="btn btn-primary pull-left btn-sm">Add to Cart</a>
+                                            <a className="btn btn-default pull-right btn-sm">Wishlist</a>
+                                        </div>
+                                        </div>
+                                        <div class="product-desc">
+                                            <span class="product-price">
+                                                <i className="fa fa-square fa-fw" style={{color:"#EBE6C8"}}></i>
+                                                <i className="fa fa-square fa-fw" style={{color:"#3DDBD0"}}></i>
+                                                <i className="fa fa-square fa-fw" style={{color:"#D26576"}}></i>
+                                                <i className="fa fa-square fa-fw" style={{color:"#000000"}}></i>
+                                            </span>
+                                            <a href="#" class="product-name"> Product</a>
+                                            <h5>Special Weave Saree</h5>
+                                            <div class="small m-t-sm">
+                                                $500
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="product-item">
+                                <div class="ibox">
+                                    <div class="ibox-content product-box">
+                                        <div class="product-imitation">
+                                            <a className="product-image" href="/product/1" onclick="dataLayer.push({'event':'ProductDetailsViewedEvent','eventName':'ProductDetailsViewed','eventAction':'4599','eventLabel':'6221239','discountPercentage':'75','category':'NA','subCategory':'NA','price':'1105','productId':'6221239','positionOnPage':'1' });">
+                                            <img src="https://img6.craftsvilla.com/image/upload/w_300,h_450/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" data-src="https://img6.craftsvilla.com/image/upload/w_300,h_450/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" data-list-src="https://img6.craftsvilla.com/image/upload/w_500,h_500/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" className="img-height-custom"/>
+                                        </a>
+                                        <div className="hover-buttons">
+                                            <a className="btn btn-primary pull-left btn-sm">Add to Cart</a>
+                                            <a className="btn btn-default pull-right btn-sm">Wishlist</a>
+                                        </div>
+                                        </div>
+                                        <div class="product-desc">
+                                            <span class="product-price">
+                                                <i className="fa fa-square fa-fw" style={{color:"#EBE6C8"}}></i>
+                                                <i className="fa fa-square fa-fw" style={{color:"#3DDBD0"}}></i>
+                                                <i className="fa fa-square fa-fw" style={{color:"#D26576"}}></i>
+                                                <i className="fa fa-square fa-fw" style={{color:"#000000"}}></i>
+                                            </span>
+                                            <a href="#" class="product-name"> Product</a>
+                                            <h5>Special Weave Saree</h5>
+                                            <div class="small m-t-sm">
+                                                $500
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="product-item">
+                                <div class="ibox">
+                                    <div class="ibox-content product-box">
+                                        <div class="product-imitation">
+                                            <a className="product-image" href="/product/1" onclick="dataLayer.push({'event':'ProductDetailsViewedEvent','eventName':'ProductDetailsViewed','eventAction':'4599','eventLabel':'6221239','discountPercentage':'75','category':'NA','subCategory':'NA','price':'1105','productId':'6221239','positionOnPage':'1' });">
+                                            <img src="https://img6.craftsvilla.com/image/upload/w_300,h_450/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" data-src="https://img6.craftsvilla.com/image/upload/w_300,h_450/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" data-list-src="https://img6.craftsvilla.com/image/upload/w_500,h_500/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" className="img-height-custom"/>
+                                        </a>
+                                        <div className="hover-buttons">
+                                            <a className="btn btn-primary pull-left btn-sm">Add to Cart</a>
+                                            <a className="btn btn-default pull-right btn-sm">Wishlist</a>
+                                        </div>
+                                        </div>
+                                        <div class="product-desc">
+                                            <span class="product-price">
+                                                <i className="fa fa-square fa-fw" style={{color:"#EBE6C8"}}></i>
+                                                <i className="fa fa-square fa-fw" style={{color:"#3DDBD0"}}></i>
+                                                <i className="fa fa-square fa-fw" style={{color:"#D26576"}}></i>
+                                                <i className="fa fa-square fa-fw" style={{color:"#000000"}}></i>
+                                            </span>
+                                            <a href="#" class="product-name"> Product</a>
+                                            <h5>Special Weave Saree</h5>
+                                            <div class="small m-t-sm">
+                                                $500
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="product-item">
+                                <div class="ibox">
+                                    <div class="ibox-content product-box">
+                                        <div class="product-imitation">
+                                            <a className="product-image" href="/product/1" onclick="dataLayer.push({'event':'ProductDetailsViewedEvent','eventName':'ProductDetailsViewed','eventAction':'4599','eventLabel':'6221239','discountPercentage':'75','category':'NA','subCategory':'NA','price':'1105','productId':'6221239','positionOnPage':'1' });">
+                                            <img src="https://img6.craftsvilla.com/image/upload/w_300,h_450/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" data-src="https://img6.craftsvilla.com/image/upload/w_300,h_450/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" data-list-src="https://img6.craftsvilla.com/image/upload/w_500,h_500/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" className="img-height-custom"/>
+                                        </a>
+                                        <div className="hover-buttons">
+                                            <a className="btn btn-primary pull-left btn-sm">Add to Cart</a>
+                                            <a className="btn btn-default pull-right btn-sm">Wishlist</a>
+                                        </div>
+                                        </div>
+                                        <div class="product-desc">
+                                            <span class="product-price">
+                                                <i className="fa fa-square fa-fw" style={{color:"#EBE6C8"}}></i>
+                                                <i className="fa fa-square fa-fw" style={{color:"#3DDBD0"}}></i>
+                                                <i className="fa fa-square fa-fw" style={{color:"#D26576"}}></i>
+                                                <i className="fa fa-square fa-fw" style={{color:"#000000"}}></i>
+                                            </span>
+                                            <a href="#" class="product-name"> Product</a>
+                                            <h5>Special Weave Saree</h5>
+                                            <div class="small m-t-sm">
+                                                $500
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="product-item">
                                 <div class="ibox">
                                     <div class="ibox-content product-box">
                                         <div class="product-imitation">
@@ -109,11 +232,67 @@ export default class ProductListing extends React.Component {
                             </div>
                         </div>
                     </div>
-                        </div>
-                    </div>
+                </div>
             </div>
-        </div> <
-            />
+            <div className="cart-side">
+            
+            <h5>Cart
+                <div><small>1 Item</small></div>
+            </h5>
+                <ul className="cart-listing">
+                    <li className="mt-3 mb-3">
+                        <div className="cart-item">
+                            <div className="item-text">
+                                Special Weave Saree
+                            </div>
+                            <div className="item-quantity">
+                                <a className="plus active"><i className="fa fa-plus"></i></a>
+                                <input className="form-control text-primary"  value="1"/>
+                                <a className="minus"><i className="fa fa-minus"></i></a>
+                            </div>
+                            <div className="item-price">
+                                $200
+                            </div>
+                        </div>
+                    </li>
+                    <li className="mt-3 mb-3">
+                        <div className="cart-item">
+                            <div className="item-text">
+                                Special Weave Saree
+                            </div>
+                            <div className="item-quantity">
+                                <a className="plus active"><i className="fa fa-plus"></i></a>
+                                <input className="form-control text-primary"  value="1"/>
+                                <a className="minus"><i className="fa fa-minus"></i></a>
+                            </div>
+                            <div className="item-price">
+                                $200
+                            </div>
+                        </div>
+                    </li>
+                    <li className="mt-3 mb-3 subtotal">
+                        <div className="cart-item">
+                            <div className="col nopadding">
+                                <strong>Subtotal</strong>
+                            </div>
+                            <div className="col text-right nopadding">
+                                <strong>$400</strong>
+                            </div>
+                        </div>
+                        <div>
+                            Extra charges may apply
+                        </div>
+                    </li>
+                    <li className="mt-5 mb-3 checkout">
+                        <div className="cart-item">
+                            <a className="btn btn-block btn-primary">Checkout <i className="fa fa-long-arrow-right fa-fw"></i></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div> 
+            </>
         );
     }
 }
