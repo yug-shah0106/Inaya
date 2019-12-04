@@ -7,6 +7,8 @@
 body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
+    -moz-osx-font-smoothing: grayscale;   /* Firefox */
+    -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -517,7 +519,6 @@ div.content h3 {
     color: #707070;
     font-size: 20px;
     height: auto;
-    font-weight: 400;
     margin: 0;
     text-transform: initial;
     width: auto;
@@ -646,6 +647,10 @@ div.content h3 {
 .product-field-value {
     width: 200px;
     text-align: center;
+}
+
+.product-field .underline{
+    font-size: 70%;
 }
 
 
@@ -1024,24 +1029,27 @@ div.content h3 {
 .product-details-container .product-details-image{
     display: table-cell;
     vertical-align: top;
-
+    width: 40%;
 }
 
 .product-details-container .product-details-thumb{
-    width: 30%;
+    width: 40%;
     text-align: right;
 }
 
 .product-details-container .listing-page-side-image{
-    height: 100px;
-    width: auto;
+    height: 125px;
     margin: 0;
-    margin-bottom: 30px;
-    margin-right: 30px;
+    margin-bottom: 10px;
+    margin-right: 25px;
+    width: auto;
+    max-width: 90px;
+    border: 2px solid #999;
+    object-fit: cover;
 }
 
 .product-details-container .product-details-image img{
-    width: 100%;
+    width: auto;
     height: 600px;
     object-fit: cover;
     
@@ -1051,16 +1059,12 @@ div.content h3 {
 }
 
 .product-details-container .product-details-thumb ul li.active a img {
-    box-shadow: 0px 0px 5px 1px #b70521;
+    box-shadow: 0px 0px 4px 0px #b70521;
+    border-color: #b70521;
 }
 
 .product-field{
     font-weight: normal;
-}
-
-.product-field ~ div b{
-    color: #B70521;
-    font-size: 110%;
 }
 
 .strikethrough{
@@ -1140,7 +1144,8 @@ table.noborder.condensed th{
 
 .product-item{
     width: 250px;
-    margin: auto;
+    /*margin: auto;   Only use if you want a proper flex-wrap*/
+    margin: 0 20px;
 }
 
 .cart-side h5{
@@ -1211,4 +1216,171 @@ table.noborder.condensed th{
 
 .nopadding{
     padding: 0 !important;
+}
+
+.product-details-thumb ul li.arrow{
+    margin-right: 57px;
+}
+
+.details-wrapper{
+    width: 80%;
+    margin-left: 50px;
+}
+
+.text-grey {
+    color: grey;
+}
+
+.label-primary {
+    background-color: #B70521;
+    padding: 5px;
+    color: white;
+    font-size: 70%;
+    border-radius: 1px 1px 5px 1px;
+}
+
+big {
+    font-size: larger;
+}
+
+.product-cost-table b.pricing {
+    font-size: 1.25em;
+}
+
+.size-buttons .btn-default{
+    min-width: 2.5em;
+}
+
+.size-buttons .btn-default.active{
+    border-color: #B70521;
+    box-shadow: 0px 0px 2px 0px #b70521;
+}
+
+.cart-buttons .btn-default.active{
+    border-color: #B70521;
+    width: 30%;
+}
+
+.cart-buttons .btn-primary{
+    width: 60%;
+}
+
+.size-error{
+    /*display: none; Toggle this*/
+    color: red;
+    font-size: 80%;
+}
+
+.bg-primary {
+    background-color: #b70521!important;
+}
+
+b.pricing {
+    position: relative;
+    top: 2px;
+}
+
+.offer-card {
+    background-color: #f4f4f4;
+    box-shadow: 0px 0px 1px 1px #ddd;
+    border-radius: 2px;
+    font-size: 12px;
+    padding: 10px;
+    display: block;
+    width: 100%;
+}
+
+.offer-card-header {
+    display:block;
+    font-weight: bold;
+}
+
+.offer-card-body{
+    display: inline-block;
+    width: calc(100% - 80px);
+    padding-right: 5px;
+}
+
+.offer-card-button{
+    width: 80px;
+    display: inline-block;
+}
+
+.sticky-container{
+  display: flex;
+  overflow: auto;
+}
+
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  align-self: flex-start; /* <-- this is the fix */
+}
+
+.header-search{
+    width: 30%;
+}
+
+input.light-grey-bg{
+    background-color: #efefef;
+    border: none;
+    border-radius: 0;
+    color: #ddd;
+}
+
+.product-detail-thingy b{
+    width: 200px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.product-detail-thingy {
+    font-size: 14px;
+}
+
+.inline-block{
+    display: inline-block;
+}
+
+.product-detail-thingy > .inline-block {
+    width: calc(100% - 200px);
+    max-width: 100%;
+    word-break: break-word;
+    vertical-align: top;
+}
+
+.details-wrapper hr {
+    border-width: 2px;
+    border-color: grey;
+}
+
+.extra-product-container {
+    margin: 0 10%;
+    background-color: #f4f4f4;
+    padding: 20px 30px;
+    /*display: table;*/
+    /*width: 80%;*/
+    /*table-layout: fixed;*/
+}
+
+.extra-product-container .extra-product-box{
+    display: inline-block;
+    vertical-align: middle;
+    width: 20%;
+}
+
+.extra-product-container .min-width h1{
+    max-width: 200px;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.extra-product-container .extra-product-image{
+    width: auto;
+    border: 2px solid #999;
+    object-fit: cover;
+    height: 300px;
+    box-shadow: 1px 1px 5px 1px #999;
 }

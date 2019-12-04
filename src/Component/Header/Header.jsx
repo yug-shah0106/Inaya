@@ -95,6 +95,7 @@ const Header = function() {
           </NavDropdown>
           <Nav.Link href="#">Blog</Nav.Link>
         </Nav>
+        <div className="text-right header-search"><input className="form-control light-grey-bg" placeholder="search" /></div>
       </Navbar.Collapse>
     </Navbar>
     )

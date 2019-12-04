@@ -5,7 +5,7 @@ import React from 'react';
 const SuperHeader = function() {
 
   return(
-    <div className="bg-black text-center">
+    <div className="bg-primary text-center">
         <div className="promo-text">Free Shipping for all orders!</div>
      </div>)
 }
