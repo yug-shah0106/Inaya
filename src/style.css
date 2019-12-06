@@ -29,11 +29,11 @@ a {
 }
 
 .text-primary{
-    color: #B70521 !important; 
+    color: #B70521 !important;
 }
 
-.btn-primary:not(:disabled):not(.disabled).active, 
-.btn-primary:not(:disabled):not(.disabled):active, 
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
 .show>.btn-primary.dropdown-toggle,
 .btn-primary{
     background-color: #B70521;
@@ -492,6 +492,14 @@ div.content h3 {
     margin-left: 15px;
 }
 
+.m-l-lg{
+  margin-left: 20px;
+}
+
+.m-r-lg{
+  margin-left:20px;
+}
+
 .listing-page-main-image {
     height: auto;
     width: 100%;
@@ -516,12 +524,13 @@ div.content h3 {
 }
 
 .product-heading {
-    color: #707070;
+    color: #444;
     font-size: 20px;
     height: auto;
     margin: 0;
     text-transform: initial;
     width: auto;
+    font-weight: 500;
 }
 
 .filter-container {
@@ -617,11 +626,6 @@ div.content h3 {
     vertical-align: center;
 }
 
-.m-l-md {
-    margin-left: 15px;
-}
-
-
 .size-button {
     background-color: grey;
     color: black;
@@ -650,7 +654,7 @@ div.content h3 {
 }
 
 .product-field .underline{
-    font-size: 70%;
+    font-size: 80%;
 }
 
 
@@ -720,7 +724,7 @@ div.content h3 {
     width: 100%;
     display: block;
     padding: 2rem;
-    text-shadow: 0 0 0.5rem rgba(0, 0, 0, .5);
+    text-shadow: 0 0 0.8em rgba(0, 0, 0, .8);
 }
 
 .card-collection .heading {
@@ -923,7 +927,7 @@ div.content h3 {
 .listing-page-container{
     width: 100%;
     padding:0 30px;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
 
 .listing-page-container > .row{
@@ -1049,10 +1053,10 @@ div.content h3 {
 }
 
 .product-details-container .product-details-image img{
-    width: auto;
+    width: 34em;
     height: 600px;
     object-fit: cover;
-    
+
 }
 .product-details-container .product-details-thumb ul li a img{
     margin-top: 1px;
@@ -1075,7 +1079,7 @@ small{
     font-size: 85%;
 }
 
-table.noborder.condensed td, 
+table.noborder.condensed td,
 table.noborder.condensed th{
     border: none;
     white-space: nowrap;
@@ -1089,9 +1093,9 @@ table.noborder.condensed th{
 }
 
 .pointer{
-    cursor: pointer !important; 
+    cursor: pointer !important;
 }
- 
+
 .underline{
     text-decoration: underline !important;
 }
@@ -1167,7 +1171,7 @@ table.noborder.condensed th{
     position: relative;
     font-weight: 400;
     font-size: 14px;
-    
+
 }
 
 .item-price{
@@ -1248,7 +1252,8 @@ big {
 }
 
 .size-buttons .btn-default{
-    min-width: 2.5em;
+    min-height: 2.5em;
+    min-width: 3.0em;
 }
 
 .size-buttons .btn-default.active{
@@ -1383,4 +1388,38 @@ input.light-grey-bg{
     object-fit: cover;
     height: 300px;
     box-shadow: 1px 1px 5px 1px #999;
+}
+
+.logo{
+  height:20px;
+  width:150px;
+}
+
+.navbar-light .navbar-nav .nav-link{
+      color: rgba(0,0,0,.8);
+}
+
+.zero-padding{
+  padding:0px;
+}
+
+.btn-group-sm>.btn .btn-sm{
+  padding: .25rem .5rem;
+}
+
+.disabled{
+  cursor: not-allowed;
+  background-color: grey;
+}
+
+.fluid__image-container{
+  z-index:999;
+}
+
+.enlargeImage{
+  z-index:999;
+}
+
+.decrease-z-index{
+  z-index: 0;
 }

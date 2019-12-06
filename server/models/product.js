@@ -37,6 +37,9 @@ const product = db.define('product_listing',{
   },
   coupon_id:{
     type:Sequelize.INTEGER
+  },
+  size:{
+    type:Sequelize.TEXT
   }
 },{timestamps: false,
 freezeTableName: true})

@@ -17,6 +17,8 @@ res.send('INDEX');
 // Body Parser
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(bodyParser.json());
+
 app.use('/users', require('./routes/users'));
 app.use('/api/products', require('./routes/product'));
 app.use('/api/cart', require('./routes/cart'));
