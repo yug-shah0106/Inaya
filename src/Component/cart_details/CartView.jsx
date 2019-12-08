@@ -8,6 +8,7 @@ import {
 } from "react-bootstrap";
 import { cloneDeep } from "lodash";
 import axios from 'axios';
+import Select from 'react-select';
 
 export default class CartView extends React.Component {
   constructor(props){
@@ -26,6 +27,25 @@ export default class CartView extends React.Component {
         cartItem:res.data
       })
     },(error)=>{
+      let res = {};
+      res.data= [{
+        color: "Red",
+description: "",
+design_code: "10AB20",
+designer_id: 12793,
+discount_percent: 15,
+discount_price: 850,
+id: 1,
+price: 999,
+quantity: 2,
+size: "S",
+title: "red plain festival danglers drops",
+weight: 200,
+}];
+
+this.setState({
+  cartItem:res.data
+})
       console.log(error);
     })
   }
@@ -50,18 +70,19 @@ export default class CartView extends React.Component {
   // }
 
   render(){
-    let cartItem = this.state.cartItems;
+    let cartItem = this.state.cartItem;
     return(
-      <>
+      <div className="">
       {
         cartItem ?
-      <div className="text-center">
+      <div className="text-center overflow-hidden">
         <h5>Your Cart</h5>
         <Table>
           <thead>
             <tr>
               <th>Item</th>
               <th>Price</th>
+              <th>Size</th>
               <th>Quantity</th>
               <th>Total</th>
             </tr>
@@ -72,6 +93,7 @@ export default class CartView extends React.Component {
                 <tr key={obj.name}>
                   <td>Image</td>
                   <td>{obj.price || 999}</td>
+                  <td>{obj.size || "L"}</td>
                   <td>
                     <Button size="xs" onClick={(e) => { this.handleAddQty(obj) }}>+</Button>
                     {obj.qty || 1}
@@ -109,7 +131,7 @@ export default class CartView extends React.Component {
           <Button>Checkout</Button>
         </div>
       </div> : null }
-      </>
+      </div>
     );
   }
 }

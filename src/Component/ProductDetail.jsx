@@ -6,6 +6,7 @@ import floral from './floralwoman.jpg';
 import fashion from './fashion.jpg';
 import lehenga from './lehenga.jpg';
 import ReactImageMagnify from 'react-image-magnify';
+import { cloneDeep } from "lodash";
 
 export default class ProductDetail extends React.Component {
     constructor(props) {
@@ -30,12 +31,35 @@ componentWillMount(){
       selectedImage:res.data.imagePath[0]
     })
   },(err)=>{
-    console.log(err)
+    let res = {};
+    res.data =
+    {color: "Red",
+coupon_id: 2,
+description: "",
+design_code: "10AB20",
+designer_id: 12793,
+discount_percent: 15,
+discount_price: 850,
+id: 1,
+price: 999,
+quantity: 2,
+sell_count: 0,
+size: '{"size":["S","L","XL"]}',
+title: "red plain festival danglers drops",
+weight: 200};
+res.data.imagePath = [unsplash,floral,fashion,lehenga];
+res.data.size = JSON.parse(res.data.size);
+this.setState({
+  data:res.data,
+  selectedImage:res.data.imagePath[0]
+})
+    console.log(err);
+
   })
 }
 
     addInCart = () =>{
-      let data = this.state.data;
+      let data = cloneDeep(this.state.data);
       data.size = this.state.selectedSize;
        localStorage.setItem('cartItems', data);
 
