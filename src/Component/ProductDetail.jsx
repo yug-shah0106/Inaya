@@ -72,7 +72,7 @@ componentWillMount(){
           {this.state.data ?
             <div className="container-fluid">
               <div className="row mb-5 mt-5">
-                <div className="col-md-6 ">
+                <div className="col-md-6 increase-z-index">
                   <div className="product-details-container sticky">
                     <div className="product-details-thumb" >
                         <ul>
@@ -82,7 +82,7 @@ componentWillMount(){
                             {
                               this.state.data.imagePath.map((o)=>{
                                 return (<li className={this.state.selectedImage === o ? "active" : ""} onClick={this.onImageChnage.bind(this,o)}>
-                                    <a><img className="listing-page-side-image" src={o} data-id={o} /></a>
+                                    <a><img alt="gift for me" className="listing-page-side-image" src={o} data-id={o} /></a>
                                 </li>)
                               })
                             }
@@ -118,7 +118,7 @@ componentWillMount(){
                     </div>
                   </div>
                 </div>
-                <div className="col-md-6 zero-padding decrease-z-index">
+                <div className="col-md-6 zero-padding">
                     <div className="details-wrapper">
                       <div className="row">
                           <div className="col-md-12">
@@ -231,16 +231,16 @@ componentWillMount(){
                           <h1>Product</h1>
                         </div>
                         <div className="extra-product-box">
-                          <a><img className="extra-product-image" src={unsplash} /></a>
+                          <a><img alt="gift for me" className="extra-product-image" src={unsplash} /></a>
                         </div>
                         <div className="extra-product-box">
-                          <a><img className="extra-product-image" src={unsplash} /></a>
+                          <a><img alt="gift for me" className="extra-product-image" src={unsplash} /></a>
                         </div>
                         <div className="extra-product-box">
-                          <a><img className="extra-product-image" src={unsplash} /></a>
+                          <a><img alt="gift for me" className="extra-product-image" src={unsplash} /></a>
                         </div>
                         <div className="extra-product-box">
-                          <a><img className="extra-product-image" src={unsplash} /></a>
+                          <a><img alt="gift for me" className="extra-product-image" src={unsplash} /></a>
                         </div>
                   </div>
               </div>

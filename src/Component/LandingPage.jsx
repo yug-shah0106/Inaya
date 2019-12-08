@@ -1,8 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import Carousel from 'react-bootstrap/Carousel';
-import Boxes from './CommonComponent.jsx';
-import background from './background.png';
 import lehengastore from './lehengastore.jpg';
 import lehenga from './lehenga.jpg';
 import fashion from './fashion.jpg';
@@ -95,7 +93,7 @@ class Home extends React.Component {
                             <div className="content">
                               <span className="heading">Sarees</span>
                               <span className="subheading">Collection to look beautiful in</span>
-                              <a href="/productListing/saree" className="photo-link" tabindex="0">Shop Now</a>
+                              <a href="/productListing/saree" className="photo-link" tabIndex="0">Shop Now</a>
                             </div>
                           </div>
                         </div>
@@ -108,7 +106,7 @@ class Home extends React.Component {
                             <div className="content">
                               <span className="heading">Sarees</span>
                               <span className="subheading">Collection to look beautiful in</span>
-                              <a href="/productListing/salwar" className="photo-link" tabindex="0">Shop Now</a>
+                              <a href="/productListing/salwar" className="photo-link" tabIndex="0">Shop Now</a>
                             </div>
                           </div>
                         </div>
@@ -121,7 +119,7 @@ class Home extends React.Component {
                             <div className="content">
                               <span className="heading">Sarees</span>
                               <span className="subheading">Collection to look beautiful in</span>
-                              <a href="/productListing/unique" className="photo-link" tabindex="0">Shop Now</a>
+                              <a href="/productListing/unique" className="photo-link" tabIndex="0">Shop Now</a>
                             </div>
                           </div>
                         </div>
@@ -129,9 +127,9 @@ class Home extends React.Component {
                   </div>
                 </div>
 
-                <div class="container-fluid mb-5">
-                  <div class="row bg-black text-white">
-                    <div class="col"><img src={banner} className="img-responsive" width="100%" /></div>
+                <div className="container-fluid mb-5">
+                  <div className="row bg-black text-white">
+                    <div className="col"><img alt="gift for me" src={banner} className="img-responsive" width="100%" /></div>
                   </div>
                 </div>
     </div>);

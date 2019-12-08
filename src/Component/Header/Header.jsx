@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import logo from './logo.jpeg';
 
-import { Row, Col, Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 
 
 // The Header creates links that can be used to navigate
@@ -15,7 +14,7 @@ const Header = function() {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="#"><img src={logo} className="m-r-lg m-l-lg logo"/></Nav.Link>
+          <Nav.Link href="#"><img src={logo} alt="gift for me" className="m-r-lg m-l-lg logo"/></Nav.Link>
           <Nav.Link href="#" className="m-r-lg m-l-lg"><b>Home</b></Nav.Link>
           <Nav.Link href="#" className="m-r-lg m-l-lg hidden-md-up ">Shop</Nav.Link>
           <NavDropdown title="Shop" id="collasible-nav-dropdown" className="hidden-sm-down">
@@ -24,7 +23,7 @@ const Header = function() {
             <div className="navbar-custom-container">
                 <div className="dropdown-column dropdown-column-featured-product">
                   <a className="dropdown-featured-product" href="#" title="Protein Shaker - White/Red" style={{backgroundImage:"url(https://via.placeholder.com/150)"}}>
-                      <img src="" alt=""Nav/>
+                      <img src="" alt="" Nav/>
 
                     <div className="dropdown-product-overlay"></div>
 
@@ -98,8 +97,10 @@ const Header = function() {
           <Nav.Link href="#" className="m-r-lg m-l-lg">lehengas</Nav.Link>
           <Nav.Link href="#" className="m-r-lg m-l-lg">Kurtis</Nav.Link>
           <Nav.Link href="#" className="m-r-lg m-l-lg">Men</Nav.Link>
+          <div className="text-right header-search"><input className="form-control light-grey-bg" placeholder="search" /></div>
+          <Nav.Link href="/cart" className="m-r-lg m-l-lg">
+          <i className="fa fa-shopping-cart pull-right"></i></Nav.Link>
         </Nav>
-        <div className="text-right header-search"><input className="form-control light-grey-bg" placeholder="search" /></div>
       </Navbar.Collapse>
     </Navbar>
     )

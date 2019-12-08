@@ -5,13 +5,13 @@ const product = require('../models/product');
 
 router.get('/',(req,res) => product.findAll(
   {
-    where:res.query.filters || {},
-    limit: res.query.limit || 40,
-    page: res.query.page || 0
+    where: (res.query && res.query.filters) || {},
+    limit: (res.query && res.query.limit) || 40,
+    page: (res.query && res.query.page) || 0
   }
 )
-.then( user => {console.log(user)
-  res.sendStatus(200);
+.then( products => {
+  res.status(200).send(products)
 })
 .catch(err => console.log(err)));
 

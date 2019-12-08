@@ -960,6 +960,7 @@ div.content h3 {
 
 .product-box {
     padding: 0;
+    border:2px solid;
 }
 .ibox-content {
     clear: both;
@@ -1116,10 +1117,11 @@ table.noborder.condensed th{
     width: 300px;
     display: inline-block;
     vertical-align: top;
+    border-right: 2px solid;
 }
 
 .listing-list{
-    width: calc(100% - 600px);
+    /* width: calc(100% - 600px); */
     display:inline-block;
     vertical-align: top;
 }
@@ -1146,8 +1148,13 @@ table.noborder.condensed th{
     align-content:space-around;
 }
 
+
+  .m-l-xs{
+    margin-left: 5px;
+  }
+
 .product-item{
-    width: 250px;
+    width: 280px;
     /*margin: auto;   Only use if you want a proper flex-wrap*/
     margin: 0 20px;
 }
@@ -1421,5 +1428,21 @@ input.light-grey-bg{
 }
 
 .decrease-z-index{
-  z-index: 0;
+  z-index: -1;
+}
+
+.increase-z-index{
+  z-index: 1;
+}
+
+.m-b-md{
+  margin-bottom: 15px;
+}
+
+.m-l-xs{
+  margin-left: 5px;
+}
+
+.pull-right{
+  float:right;
 }

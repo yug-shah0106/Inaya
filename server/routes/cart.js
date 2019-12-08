@@ -11,17 +11,23 @@ req.body
 .catch(err => console.log(err)));
 
 router.delete('/delete',(req,res) => cart.destroy(
-{where:res.body.filter}
+{where:res.body && res.body.filter}
 ).then(cart => {
   res.status(200).send(cart);
 }).catch(err => console.log(err)));
 
 router.put('/update',(req,res) => cart.update(res.body.data,{
-    where:res.body.filter
+    where: res.body && res.body.filter
 }).then((cart)=>{
   res.status(200).send(cart);
 },(error)=>{
   console.log(error)
 }) );
+
+router.get('/',(req,res) => cart.findAll(
+  {where:res.body && res.body.filter}
+  ).then(cart => {
+    res.status(200).send(cart);
+  }).catch(err => console.log(err)));
 
 module.exports = router;
