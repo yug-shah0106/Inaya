@@ -275,6 +275,8 @@ div.content {
     padding-top: 50px;
 }
 
+
+
 div.content h3 {
     margin: 5px 0 20px 0;
 }
@@ -1449,4 +1451,544 @@ input.light-grey-bg{
 
 .overflow-hidden{
     overflow: hidden;
+}
+
+.box-1{
+  position: relative;
+   margin-bottom: 15px;
+   border-radius: 4px;
+   border-width: 1px;
+   border-style: solid;
+   border-color: rgb(252, 223, 78);
+   background-color: rgb(255, 255, 255);
+   line-height: 1.4;
+   padding: 5px 11px;
+}
+
+.box-2{
+  width: calc(100% - 50px);
+  font-family: Montserrat-Regular;
+  font-size: 12px;
+  color: rgb(45, 45, 45);
+}
+
+.image-1{
+  height:16px;
+  margin:0 5px -1px 0;
+  vertical-align:middle;
+}
+
+.box-3{
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  padding: 5px 11px;
+}
+
+.box-4{
+  margin-bottom: 15px;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(111, 186, 30);
+  background-color: rgb(255, 255, 255);
+  color: rgb(45, 45, 45);
+  font-family: Montserrat-Regular;
+  padding: 5px 15px;
+}
+
+.box-5{
+  border-bottom: solid 0px rgba(0, 0, 0, 0.12);
+  padding: 10px 0;
+}
+
+.box-6{
+  font-size: 13px;
+  color: #2d2d2d;
+  line-height: 15px;
+  padding-bottom: 7px;
+  display: block;
+}
+
+.box-7{
+  font-size: 10px; color: #2d2d2d; line-height: 15px; display: block;
+}
+
+.box-8{
+  margin-bottom: 15px; padding: 11px; border-style: solid; border-color: rgb(234, 234, 234); border-width: 1px; border-radius: 4px; background-color: rgb(255, 255, 255); font-size: 12px; font-family: Montserrat-Bold; letter-spacing: 0.5px; font-weight: bold; color: rgb(81, 204, 204); cursor: pointer;
+}
+
+.box-9{
+  width: 100%; margin-bottom: 0px; font-size: 12px; font-family: Montserrat; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); float: left; padding: 5px; border-top: 1px solid rgb(234, 234, 234); border-right: 1px solid rgb(234, 234, 234); border-bottom: none; border-left: 1px solid rgb(234, 234, 234); border-top-left-radius: 4px; border-top-right-radius: 4px;
+}
+
+.box-10{
+  width: 100%; background-color: rgb(255, 255, 255); border-left: 1px solid rgb(234, 234, 234); border-right: 1px solid rgb(234, 234, 234); border-top-style: solid; border-bottom-style: solid; border-top-color: rgb(234, 234, 234); border-bottom-color: rgb(234, 234, 234); float: left; padding: 10px 15px;
+}
+
+.box-11{
+font-family: Montserrat-Bold; font-size: 14px; font-weight: bold; color: rgb(69, 69, 69); float: left;
+}
+
+.box-12{
+width: 100%; background-color: rgb(255, 255, 255); border-left: 1px solid rgb(234, 234, 234); border-right: 1px solid rgb(234, 234, 234); border-top-style: solid; border-bottom-style: solid; border-top-color: rgb(234, 234, 234); border-bottom-color: rgb(234, 234, 234); float: left; padding: 10px 15px;
+}
+
+.box-13{
+font-family: Montserrat-Regular; font-size: 12px; color: rgb(69, 69, 69); float: left;
+}
+
+.box-14{
+font-family: Montserrat-Regular; font-size: 12px; color: rgb(69, 69, 69); float: right;
+}
+
+.box-15{
+width: 100%; background-color: rgb(255, 255, 255); border-left: 1px solid rgb(234, 234, 234); border-right: 1px solid rgb(234, 234, 234); border-top-style: solid; border-bottom-style: solid; border-top-color: rgb(234, 234, 234); border-bottom-color: rgb(234, 234, 234); float: left; padding: 10px 15px;
+}
+
+.box-16{
+font-family: Montserrat-Regular; font-size: 12px; color: rgb(69, 69, 69); float: left;
+}
+
+.box-17{
+font-family: Montserrat-Bold; font-size: 12px; font-weight: bold; color: rgb(111, 186, 49); float: right;
+}
+
+.box-18{
+width: 100%; background-color: rgb(255, 255, 255); border-left: 1px solid rgb(234, 234, 234); border-right: 1px solid rgb(234, 234, 234); border-top-style: solid; border-bottom-style: solid; border-top-color: rgb(234, 234, 234); border-bottom-color: rgb(234, 234, 234); float: left; padding: 10px 15px;
+}
+
+.box-19{
+font-family: Montserrat-Regular; font-size: 12px; color: rgb(69, 69, 69); float: left;font-family: Montserrat-Bold; font-size: 12px; font-weight: bold; color: rgb(111, 186, 49); float: right;
+}
+
+.box-20{
+font-family: Montserrat-Bold; font-size: 12px; font-weight: bold; color: rgb(111, 186, 49); float: right;
+}
+
+.box-21{
+width: 100%; background-color: rgb(255, 255, 255); border-left: 1px solid rgb(234, 234, 234); border-right: 1px solid rgb(234, 234, 234); border-top-style: solid; border-bottom-style: solid; border-top-color: rgb(234, 234, 234); border-bottom-color: rgb(234, 234, 234); float: left; padding: 10px 15px;
+}
+
+.box-22{
+font-family: Montserrat-Bold; font-size: 12px; font-weight: bold; color: rgb(69, 69, 69); float: left;
+}
+
+.box-23{
+font-family: Montserrat-Bold; font-size: 12px; font-weight: bold; color: rgb(69, 69, 69); float: right;
+}
+
+.box-24{
+width: 100%; font-family: Montserrat-Bold; font-size: 12px; background-color: rgb(255, 255, 255); border-left: 1px solid rgb(234, 234, 234); border-right: 1px solid rgb(234, 234, 234); border-top-style: solid; border-bottom-style: solid; border-top-color: rgb(234, 234, 234); border-bottom-color: rgb(234, 234, 234); font-weight: bold; color: rgb(111, 186, 30); float: left; padding: 10px 15px;
+}
+
+.box-25{
+width: 100%; background-color: rgb(255, 255, 255); border-left: 1px solid rgb(234, 234, 234); border-right: 1px solid rgb(234, 234, 234); border-top: 1px solid rgb(234, 234, 234); border-bottom-style: solid; border-bottom-color: rgb(234, 234, 234); float: left; padding: 15px;
+}
+
+.box-26{
+  color: rgb(24, 24, 24); font-family: Montserrat-Bold; font-size: 14px; font-weight: bold; float: left;
+}
+
+.box-27{
+  color: rgb(24, 24, 24); font-family: Montserrat-Bold; font-size: 14px; font-weight: bold; float: right;
+}
+.box-28{
+width: 100%; background-color: rgb(255, 255, 255); border-left: 1px solid rgb(234, 234, 234); border-right: 1px solid rgb(234, 234, 234); border-top-style: solid; border-bottom-style: solid; border-top-color: rgb(234, 234, 234); border-bottom-color: rgb(234, 234, 234); float: left; padding: 15px;
+}
+
+.bagWapperWithItems{
+  background: #f8f8f8;
+    padding-top: 35px;
+    padding-bottom: 100px;
+}
+
+.container-cart{
+  width:1170px;
+  margin-right: auto;
+margin-left: auto;
+padding-left: 15px;
+padding-right: 15px;
+}
+
+.container-fluid{
+  margin-right: auto;
+    margin-left: auto;
+}
+
+.noPd{
+padding: 0;
+}
+
+.leftSection{
+
+}
+.cartTotal{
+  width: 100%;
+  line-height: normal;
+  margin: 0 0 12px;
+}
+
+.qty{
+  font-size: 14px;
+font-family: montserrat-regular,sans-serif;
+color: #181818;
+padding-left: 5px;
+}
+
+.cartProductBorder{
+
+  }
+
+  .cartProduct{
+    width: 100%;
+    height: 188px;
+    margin: 0 0 12px;
+    padding: 10px 0;
+  }
+
+  .cartProductBorder .cartProduct {
+    margin-top: 0;
+    position: relative;
+    border-radius: 4px;
+    border: 1px solid #eaeaea;
+    background: #fff;
+    overflow: hidden;
+}
+
+  .cartProductInner{
+
+  }
+
+  .cartProductImg{
+    width: 150px;
+        height: 100%;
+        position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .cartProductImg a img {
+    width: 100%;
+}
+
+.cartProductImg a {
+  display: block;
+}
+  .cartProductRight{
+padding-left: 168px;
+padding-right: 10px;
+  }
+  .cartProductName{
+    display: block;
+        font-family: montserrat-regular,sans-serif;
+        color: #000;
+        text-transform: capitalize;
+        margin-bottom: 8px;
+        font-size: 14px;
+    line-height: normal;
+  }
+  .productPriceDetails{
+    margin-bottom: 16px;
+  }
+  .cartProductPrice{
+font-family: montserrat,sans-serif;
+  }
+
+  .productPriceDetails span {
+    margin-right: 15px;
+    font-size: 14px;
+    line-height: normal;
+    color: #000;
+    padding-bottom: 0;
+  }
+  .productPriceDetails span {
+    display: inline-block;
+    font-size: 12px;
+    margin-right: 8px;
+    line-height: 18px;
+    color: #2d2d2d;
+    font-family: montserrat-regular,sans-serif;
+    padding-bottom: 7px;
+}
+  .icon_rupee{
+font-size: 11px;
+  }
+
+  .productPriceDetails span .icon_rupee {
+    font-size: 10px;
+    vertical-align: middle;
+}
+
+[class*=" icon_"], [class*=icon_] {
+    font-family: icomoon!important;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.productPriceDetails span:last-child {
+    margin-right: 0;
+}
+@media only screen and (min-width: 769px)
+.productPriceDetails .cartProductMrp {
+    color: #9c9c9c;
+}
+.productPriceDetails .cartProductMrp {
+    color: rgba(45,45,45,.5);
+    position: relative;
+}
+@media only screen and (min-width: 769px)
+.productPriceDetails span {
+    margin-right: 15px;
+    font-size: 14px;
+    line-height: normal;
+    color: #000;
+    padding-bottom: 0;
+}
+.productPriceDetails span {
+    display: inline-block;
+    font-size: 12px;
+    margin-right: 8px;
+    line-height: 18px;
+    color: #2d2d2d;
+    font-family: montserrat-regular,sans-serif;
+    padding-bottom: 7px;
+}
+
+  .cartProductMrp{
+
+  }
+
+  @media only screen and (min-width: 769px)
+  .cartProductSize {
+      padding-bottom: 16px;
+  }
+  .cartProductSize {
+      float: left;
+      width: 100%;
+      padding-bottom: 6px;
+  }
+
+  .cartProductSize .cartSizeQtyHolder {
+      float: left;
+      margin-right: 16px;
+      font-size: 12px;
+      font-family: montserrat-regular,sans-serif;
+      padding: 0;
+  }
+
+  .cartProductSize .cartSizeQtyHolder b {
+      font-family: montserrat-bold,sans-serif;
+  }
+
+  cartProductSize .cartSizeQtyHolder .icon_down {
+    vertical-align: middle;
+    font-size: 8px;
+    padding-left: 3px;
+}
+
+[class*=" icon_"], [class*=icon_] {
+    font-family: icomoon!important;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;}
+
+    .cartProductSize .cartSizeQtyHolder:last-child {
+      margin-right: 0;
+  }
+  .cartProductSize .cartSizeQtyHolder {
+      float: left;
+      margin-right: 16px;
+      font-size: 12px;
+      font-family: montserrat-regular,sans-serif;
+      padding: 0;
+    }
+
+    @media only screen and (min-width: 769px)
+    .cartErrorAction {
+        padding-bottom: 10px;
+    }
+    .cartErrorAction {
+        color: #db3236;
+        font-size: 12px;
+        font-family: montserrat-regular,sans-serif;
+        line-height: 13px;
+        padding-bottom: 6px;
+        clear: both;
+    }
+    .error {
+        color: #db3236;
+    }
+
+    @media only screen and (min-width: 769px)
+    .cartBottomAction {
+        position: absolute;
+        bottom: 0;
+        left: 168px;
+        right: 0;
+    }
+    .cartBottomAction {
+        border-top: 1px solid #eaeaea;
+    }
+
+@media only screen and (min-width: 769px)
+.cartBottomAction span:last-child {
+  margin-right: 0;
+  position: relative;
+}
+@media only screen and (min-width: 769px)
+.cartBottomAction span {
+  font-size: 10px;
+  font-family: montserrat,sans-serif;
+  color: #464646;
+  text-transform: uppercase;
+  display: inline-block;
+  line-height: normal;
+  margin-right: 37px;
+  padding: 12px 0;
+}
+
+@media only screen and (min-width: 769px)
+.cartProductBorder .cartProduct {
+    width: 100%;
+    height: 188px;
+    margin: 0 0 12px;
+    padding: 10px 0;
+}
+.cartProductBorder .cartProduct {
+    margin-top: 0;
+    position: relative;
+    border-radius: 4px;
+    border: 1px solid #eaeaea;
+    background: #fff;
+    overflow: hidden;
+}
+
+@media only screen and (min-width: 769px)
+.cartProductImg {
+    width: 150px;
+    height: 100%;
+}
+.cartProductImg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 108px;
+}
+
+.cartProductImg a img {
+    width: 100%;
+}
+
+.cartProductImg a {
+    display: block;
+}
+
+@media only screen and (min-width: 769px)
+.summaryBox {
+    margin-top: 32px;
+}
+@media (min-width: 769px)
+.noPdRight {
+    padding-right: 0;
+}
+@media (min-width: 769px)
+.col-sm-5 {
+    width: 41.66666667%;
+}
+
+@media (min-width: 769px)
+.membershipPriceBox {
+    margin: 0 0 15px;
+}
+.membershipPriceBox {
+    width: 100%;
+    border-radius: 3px;
+    background-color: #2d2d2d;
+    padding: 15px;
+}
+
+hr, ul {
+    display: block;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+}
+
+@media (min-width: 769px)
+.membershipPriceInner ul li {
+    width: 50%;
+    float: left;
+    border: none;
+    margin-left: 0;
+}
+.membershipPriceInner ul li {
+    position: relative;
+    border-bottom: 1px solid rgba(234,195,35,.3);
+    padding: 20px 0;
+    margin-left: 30px;
+}
+
+@media (min-width: 769px)
+.membershipPriceInner ul li .selectPriceBtn {
+    top: 22px;
+    left: 0;
+}
+.membershipPriceInner ul li .selectPriceBtn {
+    position: absolute;
+    top: 25px;
+    left: -30px;
+}
+
+.membershipPriceInner ul li .selectPriceBtn input {
+    margin: 4px;
+}
+input[type=checkbox], input[type=radio] {
+    box-sizing: border-box;
+    padding: 0;
+}
+input, select {
+    vertical-align: middle;
+}
+
+@media (min-width: 769px)
+.membershipPriceInner ul li .planPackage h4 {
+    font-size: 12px;
+    line-height: normal;
+}
+.membershipPriceInner ul li .planPackage h4 {
+    font-size: 13px;
+    font-family: montserrat,sans-serif;
+    line-height: 15px;
+    color: #fec226;
+}
+
+@media (min-width: 769px)
+.membershipPriceInner ul li .planPackage {
+    float: left;
+    padding-left: 25px;
+}
+.membershipPriceInner ul li .planPackage {
+    cursor: pointer;
+}
+
+.membershipPriceBox p {
+    font-size: 11px;
+    font-family: montserrat,sans-serif;
+    color: #fff;
+    line-height: 15px;
+}
+
+@media (min-width: 769px)
+.col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+    float: left;
 }
