@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.jpeg';
 
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, form } from 'react-bootstrap';
 
 
 // The Header creates links that can be used to navigate
@@ -97,10 +97,13 @@ const Header = function() {
           <Nav.Link href="#" className="m-r-lg m-l-lg">lehengas</Nav.Link>
           <Nav.Link href="#" className="m-r-lg m-l-lg">Kurtis</Nav.Link>
           <Nav.Link href="#" className="m-r-lg m-l-lg">Men</Nav.Link>
-          <div className="text-right header-search"><input className="form-control light-grey-bg" placeholder="search" /></div>
-          <Nav.Link href="/cart" className="m-r-lg m-l-lg">
-          <i className="fa fa-shopping-cart pull-right"></i></Nav.Link>
         </Nav>
+        <form class="form-inline my-2 my-lg-0">
+          <input className="form-control light-grey-bg" placeholder="search" />
+            <Nav.Link href="/cart" className="">
+              <i className="fa fa-shopping-cart"></i>
+            </Nav.Link>
+        </form>
       </Navbar.Collapse>
     </Navbar>
     )
