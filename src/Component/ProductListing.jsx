@@ -94,7 +94,7 @@ export default class ProductListing extends React.Component {
                                               </span>
                                               <a href="#" className="product-name"> Product</a>
                                                   */}
-                                              <h5> kapde kapde kapde kapde kapde </h5>
+                                              <h6> kapde kapde kapde kapde kapde </h6>
 
                                               <div className="small m-t-sm">
                                                   <div className="strikethrough text-grey">₹999</div>

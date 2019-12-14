@@ -1,0 +1,8 @@
+create table Users(User_ID integer PRIMARY KEY, Design_ID integer NOT NULL UNIQUE, User_Name text NOT NULL);
+create table UserAddress( Address_ID serial PRIMARY KEY, User_ID integer NOT NULL UNIQUE REFERENCES Users(User_ID), Street text, State text, Country text, Created_At timestamp DEFAULT NULL, Updated_At timestamp DEFAULT NULL);
+create table Orders( Order_ID serial PRIMARY KEY, Order_Number integer NOT NULL UNIQUE, Order_User_ID integer REFERENCES Users(User_ID), Order_Amount float NOT NULL, Order_Ship_Street text, Order_Ship_State text, Order_Ship_Country text DEFAULT NULL, Geo text DEFAULT NULL, Order_Created_At timestamp DEFAULT NULL, Order_Confirmed_At timestamp DEFAULT NULL, Order_Updated_At timestamp DEFAULT NULL);
+create table Designers(Designer_ID serial PRIMARY KEY, Designer_State text);
+create table Designs(Design_ID serial PRIMARY KEY, Designer_ID integer NOT NULL REFERENCES Designers(Designer_ID));
+create table Designer_Orders(Designer_Order_ID serial PRIMARY KEY, Order_ID integer NOT NULL UNIQUE REFERENCES Orders(Order_ID), Designer_ID integer NOT NULL UNIQUE REFERENCES Designers(Designer_ID)); 
+create table Cart( Cart_ID integer PRIMARY KEY, Design_ID integer NOT NULL UNIQUE REFERENCES Designs(Design_ID)); 
+create table Line_Items( Cart_ID integer NOT NULL REFERENCES Cart(Cart_ID), Designer_Order_ID integer NOT NULL REFERENCES Designer_Orders(Designer_Order_ID), Design_ID integer NOT NULL REFERENCES Designs(Design_ID), Created_At timestamp DEFAULT NULL, Updated_At DEFAULT NULL);

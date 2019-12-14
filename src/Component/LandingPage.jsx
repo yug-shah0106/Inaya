@@ -132,6 +132,30 @@ class Home extends React.Component {
                     <div className="col"><img alt="gift for me" src={banner} className="img-responsive" width="100%" /></div>
                   </div>
                 </div>
+                
+                <div className="container-fluid mb-5 product-type">
+                  <h3 className="product-type-heading">Sarees by Ocassion</h3>
+                  <div className="row">
+                    <div className="col">
+                      <img src={unsplash} alt="" className="img-responsive"></img>
+                      <div className="product-type-desc">Ethnic motives</div>
+                    </div>
+                    <div className="col">
+                      <img src={unsplash} alt="" className="img-responsive"></img>
+                      <div className="product-type-desc">Ethnic motives</div>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col">
+                      <img src={unsplash} alt="" className="img-responsive"></img>
+                      <div className="product-type-desc">Ethnic motives</div>
+                    </div>
+                    <div className="col">
+                      <img src={unsplash} alt="" className="img-responsive"></img>
+                      <div className="product-type-desc">Ethnic motives</div>
+                    </div>
+                  </div>
+                </div>
     </div>);
     }
 }
