@@ -248,11 +248,14 @@ this.setState({
                     </div>
                   </div>
                   <div className="extra-product-container  mt-3 mb-5">
-                        <div className="extra-product-box min-width">
+                        {/*<div className="extra-product-box min-width">
                           <h1>More</h1>
                           <h1>Like</h1>
                           <h1>This</h1>
                           <h1>Product</h1>
+                        </div>*/}
+                        <div className="extra-product-box">
+                          <a><img alt="gift for me" className="extra-product-image" src={unsplash} /></a>
                         </div>
                         <div className="extra-product-box">
                           <a><img alt="gift for me" className="extra-product-image" src={unsplash} /></a>

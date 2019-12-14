@@ -8,7 +8,10 @@ const Footer = function() {
   return (<div className="footer">
     <div className="footer_container">
         <div className="row">
-            <div className="col">
+            <div className="col text-right">
+                <small><div className="inline-block"><b>Copyright</b> Inaya®</div></small>
+            </div>
+            {/*<div className="col">
                 <h3>Occasion</h3>
                 <ul>
                 <li><a href="#">Party</a></li>
@@ -27,7 +30,7 @@ const Footer = function() {
                 <li><a href="#">Party</a></li>
                 <li><a href="#">Wedding</a></li>
                 <li><a href="#">Festive</a></li>
-            </div>
+            </div>*/}
         </div>
     </div>
 </div>)

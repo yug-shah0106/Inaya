@@ -93,10 +93,10 @@ const Header = function() {
                 </div>
               </div>
             </NavDropdown>
-            <Nav.Link href="#" className="m-r-lg m-l-lg">Jewellery</Nav.Link>
+          {/*<Nav.Link href="#" className="m-r-lg m-l-lg">Jewellery</Nav.Link>
           <Nav.Link href="#" className="m-r-lg m-l-lg">lehengas</Nav.Link>
           <Nav.Link href="#" className="m-r-lg m-l-lg">Kurtis</Nav.Link>
-          <Nav.Link href="#" className="m-r-lg m-l-lg">Men</Nav.Link>
+          <Nav.Link href="#" className="m-r-lg m-l-lg">Men</Nav.Link>*/}
         </Nav>
         <form class="form-inline my-2 my-lg-0">
           <input className="form-control light-grey-bg" placeholder="search" />
