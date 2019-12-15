@@ -14,15 +14,15 @@ const Header = function() {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="#"><img src={logo} alt="gift for me" className="m-r-lg m-l-lg logo"/></Nav.Link>
-          <Nav.Link href="#" className="m-r-lg m-l-lg"><b>Home</b></Nav.Link>
+          <Nav.Link href="/"><img src={logo} alt="gift for me" className="m-r-lg m-l-lg logo"/></Nav.Link>
+          <Nav.Link href="/" className="m-r-lg m-l-lg"><b>Home</b></Nav.Link>
           <Nav.Link href="#" className="m-r-lg m-l-lg hidden-md-up ">Shop</Nav.Link>
           <NavDropdown title="Shop" id="collasible-nav-dropdown" className="hidden-sm-down">
             {/*<NavDropdown.Item href="/productlisting">Action</NavDropdown.Item>
             <NavDropdown.Divider />*/}
             <div className="navbar-custom-container">
                 <div className="dropdown-column dropdown-column-featured-product">
-                  <a className="dropdown-featured-product" href="#" title="Protein Shaker - White/Red" style={{backgroundImage:"url(https://via.placeholder.com/150)"}}>
+                  <a className="dropdown-featured-product" href="/productListing/saree" title="title" style={{backgroundImage:"image"}}>
                       <img src="" alt="" Nav/>
 
                     <div className="dropdown-product-overlay"></div>
@@ -37,7 +37,7 @@ const Header = function() {
             <div className="dropdown-column dropdown-column-products">
               <ul className="dropdown-column-category">
                 <li className="dropdown-column-header has-children">
-                  <a href="/productlisting">Suits</a>
+                  <a href="/productlisting/suits">Suits</a>
                     <ul>
                       <li className="dropdown-link-list-item submenu-item ">
                         <a href="/productListing/saree">Sarees</a>
@@ -51,10 +51,10 @@ const Header = function() {
                 </ul>
                 <ul className="dropdown-column-category">
                   <li className="dropdown-column-header has-children">
-                    <a href="/productListing/tops">Tops</a>
+                    <a href="/productListing/kurtis">Kurtis</a>
                     <ul>
                       <li className="dropdown-link-list-item submenu-item ">
-                        <a href="/productListing/hoodies">Hoodies</a>
+                        <a href="/productListing/dupatta">Dupatta</a>
                       </li>
                       <li className="dropdown-link-list-item submenu-item ">
                         <a href="/productListing/tshirt">T-Shirts</a>
@@ -70,17 +70,17 @@ const Header = function() {
                     <a href="/productListing/saree">New Releases</a>
                       <ul>
                         <li className="dropdown-link-list-item submenu-item ">
-                          <a href="/productListing/saree">Bridals</a>
+                          <a href="/productListing/bridals">Bridals</a>
                         </li>
                         <li className="dropdown-link-list-item submenu-item ">
-                          <a href="/productListing/saree">Tailormade</a>
+                          <a href="/productListing/tailormade">Tailormade</a>
                         </li>
                       </ul>
                     </li>
                   </ul>
                   <ul className="dropdown-column-category">
                     <li className="dropdown-column-header ">
-                      <a href="/productListing/saree">Accessories</a>
+                      <a href="/productListing/accessories">Accessories</a>
                     </li>
                   </ul>
                   <ul className="dropdown-column-category">
@@ -93,10 +93,10 @@ const Header = function() {
                 </div>
               </div>
             </NavDropdown>
-          {/*<Nav.Link href="#" className="m-r-lg m-l-lg">Jewellery</Nav.Link>
+          <Nav.Link href="#" className="m-r-lg m-l-lg">Jewellery</Nav.Link>
           <Nav.Link href="#" className="m-r-lg m-l-lg">lehengas</Nav.Link>
           <Nav.Link href="#" className="m-r-lg m-l-lg">Kurtis</Nav.Link>
-          <Nav.Link href="#" className="m-r-lg m-l-lg">Men</Nav.Link>*/}
+          <Nav.Link href="#" className="m-r-lg m-l-lg">Men</Nav.Link>
         </Nav>
         <form class="form-inline my-2 my-lg-0">
           <input className="form-control light-grey-bg" placeholder="search" />

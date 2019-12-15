@@ -5,10 +5,19 @@ export default class ProductListing extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+          selectedSize:"s",
+          selectedCategory:"Sarees"
         }
     }
 
     componentWillMount(){
+this.getDisplayeProduct();
+this.getCategory(5);
+this.getDiscountPercent();
+this.getSize();
+    }
+
+    getDisplayeProduct = () =>{
       axios({
         method: 'get',
         url: "/api/products"
@@ -17,7 +26,56 @@ export default class ProductListing extends React.Component {
           data:res.data
         })
       },()=>{
+      })
+    }
 
+    getCategory = (limit) =>{
+      axios({
+        method: 'get',
+        url: "/api/products/category",
+        limit:limit
+      }).then((res)=>{
+        this.setState({
+          category:res.data
+        })
+      },(err)=>{
+        this.setState({
+          category:["Sarees","Lehengas","Kurtis","Accessories"]
+        })
+      })
+    }
+
+    getDiscountPercent = () =>{
+      axios({
+        method: 'get',
+        url: "/api/products/discountPercentage",
+        limit:5
+      }).then((res)=>{
+        this.setState({
+          discountPercentage:res.data
+        })
+      },()=>{
+      })
+    }
+
+    getSize = () =>{
+      axios({
+        method: 'get',
+        url: "/api/products/size"
+      }).then((res)=>{
+        this.setState({
+          size:res.data
+        })
+      },(err)=>{
+        this.setState({
+          size:["xs","s","m","l","xl"]
+        })
+      })
+    }
+
+    setCategory = (e) =>{
+      this.setState({
+        selectedCategory:e.target.text
       })
     }
 
@@ -29,11 +87,14 @@ export default class ProductListing extends React.Component {
                         <div className="filter-list">
                             <h5>Shop by Category</h5>
                             <ul className="category-selector">
-                                <li className="active"><a>Sarees</a></li>
-                                <li><a>Lehengas</a></li>
-                                <li><a>Kurtis</a></li>
-                                <li><a>Accessories</a></li>
-                                <li><a>More Clothing</a></li>
+                              {
+                                this.state.category ?
+                                this.state.category.map((o)=>{
+                                  return (<li className={this.state.selectedCategory === o ? "active" : ""} onClick={this.setCategory.bind(this)}><a>{o}</a></li>)
+                                })
+                                :null
+                              }
+                              <li><a onClick={this.getCategory.bind(this)}>More Clothing</a></li>
                             </ul>
                             <h5>Filter By</h5>
                             <div className="price-selector">
@@ -53,11 +114,14 @@ export default class ProductListing extends React.Component {
                                 <div className="size-selector">
                                 <h6>Size</h6>
                                 <ul className="size-selector">
+                                {
+                                  this.state.size ?
+                                  this.state.size.map((o)=>{
+                                    return (<li type="checkbox" className="fa-fw" className={this.state.selectedSize === o ? "checked" : ""}><a>{o}</a></li>)
+                                  })
+                                  :null
+                                }
                                     <li><input type="checkbox" className="fa-fw"/><a> xs(6)</a></li>
-                                    <li><input type="checkbox" className="fa-fw"/><a> s(6)</a></li>
-                                    <li><input type="checkbox" className="fa-fw"/><a> m(6)</a></li>
-                                    <li><input type="checkbox" className="fa-fw"/><a> l(6)</a></li>
-                                    <li><input type="checkbox" className="fa-fw"/><a> xl(6)</a></li>
                                 </ul>
                                 </div>
                                 <div className="colour-selector">
