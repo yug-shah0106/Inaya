@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../config/database');
 
-const cart = db.define('cart_list',{
+const cart = db.define('line_items',{
   description:{
     type:Sequelize.TEXT
   },

@@ -93,12 +93,12 @@ const Header = function() {
                 </div>
               </div>
             </NavDropdown>
-          <Nav.Link href="#" className="m-r-lg m-l-lg">Jewellery</Nav.Link>
-          <Nav.Link href="#" className="m-r-lg m-l-lg">lehengas</Nav.Link>
-          <Nav.Link href="#" className="m-r-lg m-l-lg">Kurtis</Nav.Link>
-          <Nav.Link href="#" className="m-r-lg m-l-lg">Men</Nav.Link>
+          <Nav.Link href="/productListing/jewellery" className="m-r-lg m-l-lg">Jewellery</Nav.Link>
+          <Nav.Link href="/productListing/lehengas" className="m-r-lg m-l-lg">lehengas</Nav.Link>
+          <Nav.Link href="/productListing/kurtis" className="m-r-lg m-l-lg">Kurtis</Nav.Link>
+          <Nav.Link href="/productListing/men" className="m-r-lg m-l-lg">Men</Nav.Link>
         </Nav>
-        <form class="form-inline my-2 my-lg-0">
+        <form className="form-inline my-2 my-lg-0">
           <input className="form-control light-grey-bg" placeholder="search" />
             <Nav.Link href="/cart" className="">
               <i className="fa fa-shopping-cart"></i>

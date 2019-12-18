@@ -6,8 +6,8 @@
 
 body {
     margin: 0;
-    font-family: 'Open Sans', sans-serif;
-    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Josefin Sans', sans-serif;
+    ]-moz-osx-font-smoothing: grayscale;
     /* Firefox */
     -webkit-font-smoothing: antialiased;
 }
@@ -1793,25 +1793,6 @@ input.light-grey-bg {
     padding-left: 5px;
 }
 
-.cartProductBorder {}
-
-.cartProduct {
-    width: 100%;
-    height: 188px;
-    margin: 0 0 12px;
-    padding: 10px 0;
-}
-
-.cartProductBorder .cartProduct {
-    margin-top: 0;
-    position: relative;
-    border-radius: 4px;
-    border: 1px solid #eaeaea;
-    background: #fff;
-    overflow: hidden;
-}
-
-.cartProductInner {}
 
 .cartProductImg {
     width: 150px;
