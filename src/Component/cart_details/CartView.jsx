@@ -232,7 +232,7 @@ weight: 200,
                               <div className="box-15">
                               <div className="box-16">Shipping Charges
                               </div>
-                              <div className="box-17">FREE
+                              <div className="box-17">Free
                               </div>
                               </div>
                               <div className="box-18">
@@ -257,7 +257,9 @@ weight: 200,
                               </div>
                               </div>
                               <div className="box-28">
-                              <button className="continueButtonCss">Select Delivery Address
+                              <button className="continueButtonCss" onClick={()=>{
+                                this.props.history.push("/checkout");
+                              }}>Select Delivery Address
                               </button>
                               </div>
                               <div className="box-29">

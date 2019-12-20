@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../config/database');
-const cart = require('../models/cart');
+const cart = require('../models/line_items');
 
 router.post('/add',(req,res) => cart.create(
 req.body

@@ -1,26 +1,46 @@
 import React from 'react';
 import axios from 'axios';
+import InputRange from "react-input-range";
+import "react-input-range/lib/css/index.css";
 
 export default class ProductListing extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          selectedSize:"s",
-          selectedCategory:"Sarees"
+          selectedSize:[],
+          selectedCategory:"Sarees",
+          rangeValue: {
+        min: 500,
+        max: 9000,
+      },
+      maxPrice:10000,
+      minPrice:400
         }
     }
 
     componentWillMount(){
-this.getDisplayeProduct();
-this.getCategory(5);
-this.getDiscountPercent();
-this.getSize();
+      this.getDisplayeProduct();
+      this.getCategory(5);
+      this.getDiscountPercent();
+      this.getSize();
+    }
+
+    getProductFromURL = () =>{
+      let url = this.props.location.pathname.split("/");
+      return url[url.length-1];
     }
 
     getDisplayeProduct = () =>{
+      let params={
+        priceRange:this.state.rangeValue,
+        category:this.state.selectedCategory,
+        size:this.state.selectedSize,
+        discount:this.state.dis
+      }
+      let url = this.getProductFromURL();
       axios({
         method: 'get',
-        url: "/api/products"
+        url: `/api/products/${url}`
       }).then((res)=>{
         this.setState({
           data:res.data
@@ -33,7 +53,9 @@ this.getSize();
       axios({
         method: 'get',
         url: "/api/products/category",
-        limit:limit
+        params:{
+              limit:limit
+        }
       }).then((res)=>{
         this.setState({
           category:res.data
@@ -79,6 +101,17 @@ this.getSize();
       })
     }
 
+    onRangeChanged = (value) =>{
+      this.setState({ rangeValue: value},()=>{
+        this.getDisplayeProduct();
+      });
+    }
+
+    onSizeChange = (e) =>{
+      this.state.selectedSize.push(e.target.value);
+      this.getDisplayeProduct();
+    }
+
     render() {
         return ( <>
             <div className="listing-page-container mt-3">
@@ -90,18 +123,24 @@ this.getSize();
                               {
                                 this.state.category ?
                                 this.state.category.map((o)=>{
-                                  return (<li className={this.state.selectedCategory === o ? "active" : ""} onClick={this.setCategory.bind(this)}><a>{o}</a></li>)
+                                  return (<li key={o} className={this.state.selectedCategory === o ? "active" : ""} onClick={this.setCategory.bind(this)}><a>{o}</a></li>)
                                 })
                                 :null
                               }
-                              <li><a onClick={this.getCategory.bind(this)}>More Clothing</a></li>
+                              <li><a onClick={()=>{this.getCategory()}}>More Clothing</a></li>
                             </ul>
                             <h5>Filter By</h5>
+                              <h6>Price</h6>
                             <div className="price-selector">
-                                <h6>Price</h6>
-                                (Slider goes here)
+                                <InputRange
+                                    maxValue={this.state.maxPrice}
+                                    minValue={this.state.minPrice}
+                                    formatLabel={value => `${value} Rs`}
+                                    value={this.state.rangeValue}
+                                    onChange={value => {this.onRangeChanged(value)}}
+                                    onChangeComplete={value => console.log(value)} />
                             </div>
-                            <div className="discount-selector">
+                        {  /*  <div className="discount-selector">
                                 <h6>Discounts</h6>
                                 <ul>
                                     <li className="active"><a>10% and above</a></li>
@@ -110,18 +149,17 @@ this.getSize();
                                     <li><a>40% and above</a></li>
                                     <li><a>50% and above</a></li>
                                 </ul>
-                            </div>
-                                <div className="size-selector">
-                                <h6>Size</h6>
+                            </div> */}
+                                <div className="size-selector m-t-md">
+                                <h6 className="m-t-md">Size</h6>
                                 <ul className="size-selector">
                                 {
                                   this.state.size ?
                                   this.state.size.map((o)=>{
-                                    return (<li type="checkbox" className="fa-fw" className={this.state.selectedSize === o ? "checked" : ""}><a>{o}</a></li>)
+                                    return (<li key={o}><input type="checkbox" className="fa-fw" checked={this.state.selectedSize.includes(o) ? true : false} onClick={this.onSizeChange.bind(this)} onChange={this.onSizeChange.bind(this)}/>{o}</li>)
                                   })
                                   :null
                                 }
-                                    <li><input type="checkbox" className="fa-fw"/><a> xs(6)</a></li>
                                 </ul>
                                 </div>
                                 <div className="colour-selector">
@@ -141,7 +179,7 @@ this.getSize();
                                   <div className="ibox">
                                       <div className="ibox-content product-box">
                                           <div className="product-imitation">
-                                              <a className="product-image" href="/product/1" onclick="dataLayer.push({'event':'ProductDetailsViewedEvent','eventName':'ProductDetailsViewed','eventAction':'4599','eventLabel':'6221239','discountPercentage':'75','category':'NA','subCategory':'NA','price':'1105','productId':'6221239','positionOnPage':'1' });">
+                                              <a className="product-image" href="/product/1" onClick="dataLayer.push({'event':'ProductDetailsViewedEvent','eventName':'ProductDetailsViewed','eventAction':'4599','eventLabel':'6221239','discountPercentage':'75','category':'NA','subCategory':'NA','price':'1105','productId':'6221239','positionOnPage':'1' });">
                                               <img alt="gift for me" src="https://img6.craftsvilla.com/image/upload/w_300,h_450/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" data-src="https://img6.craftsvilla.com/image/upload/w_300,h_450/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" data-list-src="https://img6.craftsvilla.com/image/upload/w_500,h_500/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" className="img-height-custom"/>
                                           </a>
                                           <div className="hover-buttons">
@@ -173,13 +211,13 @@ this.getSize();
                           { this.state.data ?
                             this.state.data.map((o)=>{
                               return (
-                              <div className="products-section nopadding mt-2">
+                              <div key={o.id} className="products-section nopadding mt-2">
                                 <div className="product-row">
                                     <div className="product-item m-b-md">
                                         <div className="ibox">
                                             <div className="ibox-content product-box">
                                                 <div className="product-imitation">
-                                                    <a className="product-image" href="/product/1" onclick="dataLayer.push({'event':'ProductDetailsViewedEvent','eventName':'ProductDetailsViewed','eventAction':'4599','eventLabel':'6221239','discountPercentage':'75','category':'NA','subCategory':'NA','price':'1105','productId':'6221239','positionOnPage':'1' });">
+                                                    <a className="product-image" href="/product/1" >
                                                     <img alt="gift for me" src="https://img6.craftsvilla.com/image/upload/w_300,h_450/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" data-src="https://img6.craftsvilla.com/image/upload/w_300,h_450/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" data-list-src="https://img6.craftsvilla.com/image/upload/w_500,h_500/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" className="img-height-custom"/>
                                                 </a>
                                                 <div className="hover-buttons">

@@ -22,6 +22,8 @@ app.use(bodyParser.json());
 app.use('/users', require('./routes/users'));
 app.use('/api/products', require('./routes/product'));
 app.use('/api/cart', require('./routes/cart'));
+app.use('/api/products/sarees', require('./routes/saree'));
+app.use('/api/products/jewellery', require('./routes/jewellery'));
 
 const PORT = 3001;
 

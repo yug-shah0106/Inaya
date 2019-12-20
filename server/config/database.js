@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-module.exports = new Sequelize('demo', 'moxesh', 'password', {
+module.exports = new Sequelize('inaya', 'inaya', 'password', {
   host: 'localhost',
   dialect: 'postgres',
 
