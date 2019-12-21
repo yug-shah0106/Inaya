@@ -2,7 +2,7 @@ ALTER TABLE "designer_orders" ADD FOREIGN KEY ("order_id") REFERENCES "orders" (
 
 ALTER TABLE "orders" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
 
-ALTER TABLE "designer_orders" ADD FOREIGN KEY ("id") REFERENCES "line_items" ("designer_order_id");
+ALTER TABLE "line_items" ADD FOREIGN KEY ("designer_order_id") REFERENCES "designer_orders" ("id");
 
 ALTER TABLE "line_items" ADD FOREIGN KEY ("design_id") REFERENCES "designs" ("id");
 
@@ -23,3 +23,7 @@ ALTER TABLE "addresses" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
 ALTER TABLE "jewellery" ADD FOREIGN KEY ("id") REFERENCES "designs" ("id");
 
 ALTER TABLE "sarees" ADD FOREIGN KEY ("id") REFERENCES "designs" ("id");
+
+ALTER TABLE "carts" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
+
+ALTER TABLE "line_items" ADD FOREIGN KEY ("cart_id") REFERENCES "carts" ("id");

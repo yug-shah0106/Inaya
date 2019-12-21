@@ -1,5 +1,5 @@
 CREATE TABLE "orders" (
-  "id" serial PRIMARY KEY,
+  "id" int PRIMARY KEY,
   "number" varchar UNIQUE,
   "user_id" int,
   "status" varchar,
@@ -35,7 +35,7 @@ CREATE TABLE "orders" (
 );
 
 CREATE TABLE "designer_orders" (
-  "id" serial PRIMARY KEY,
+  "id" int PRIMARY KEY,
   "order_id" int,
   "design_id" int,
   "designer_id" int,
@@ -57,8 +57,9 @@ CREATE TABLE "designer_orders" (
 );
 
 CREATE TABLE "line_items" (
-  "id" serial PRIMARY KEY,
+  "id" int PRIMARY KEY,
   "designer_order_id" int,
+  "cart_id" int,
   "design_id" int,
   "status" varchar,
   "quantity" int4,
@@ -70,14 +71,14 @@ CREATE TABLE "line_items" (
 );
 
 CREATE TABLE "designs" (
-  "id" serial PRIMARY KEY,
+  "id" int PRIMARY KEY,
   "designer_id" int,
   "quantity" int,
+  "price" int4,
+  "discount_price" int4,
   "coupon_id" int,
   "created_at" varchar,
   "updated_at" varchar,
-  "price"varchar,
-  "discount_price" varchar,
   "status" varchar,
   "designable_type" varchar,
   "last_stocked_in_at" varchar,
@@ -85,27 +86,27 @@ CREATE TABLE "designs" (
 );
 
 CREATE TABLE "designers" (
-  "id" serial PRIMARY KEY,
+  "id" int PRIMARY KEY,
   "quantity" int,
-  "email" varchar,
-  "phone" varchar,
+  "email" int,
+  "phone" int,
   "user_id" int,
   "status" varchar,
-  "coupon_id" int,
+  "coupon_id" varchar,
   "created_at" varchar,
   "updated_at" varchar
 );
 
 CREATE TABLE "users" (
-  "id" serial PRIMARY KEY,
+  "id" int PRIMARY KEY,
   "user_type" varchar,
-  "email" varchar,
-  "phone" varchar,
+  "email" int,
+  "phone" int,
   "status" varchar
 );
 
 CREATE TABLE "addresses" (
-  "id" serial PRIMARY KEY,
+  "id" int PRIMARY KEY,
   "user_id" int,
   "street" varchar,
   "city" varchar,
@@ -115,7 +116,7 @@ CREATE TABLE "addresses" (
 );
 
 CREATE TABLE "coupons" (
-  "id" serial PRIMARY KEY,
+  "id" int PRIMARY KEY,
   "start_date" varchar,
   "end_date" varchar,
   "coupon_owner" varchar,
@@ -124,52 +125,44 @@ CREATE TABLE "coupons" (
 );
 
 CREATE TABLE "sarees" (
-  "id" int4,
-  "blouse_available" varchar,
+  "id" int4 PRIMARY KEY,
+  "type" varchar,
+  "blouse" varchar,
+  "print_or_pattern_type" varchar,
+  "ocassion" varchar,
+  "ornamentation" varchar,
+  "border" varchar,
   "blouse_color" varchar,
   "blouse_fabric" varchar,
-  "blouse_image" varchar,
-  "blouse_length" varchar,
-  "blouse_size" varchar,
   "blouse_work" varchar,
   "created_at" timestamp,
-  "length" varchar,
+  "saree_length" varchar,
   "petticoat_available" varchar,
   "petticoat_color" varchar,
   "petticoat_fabric" varchar,
   "petticoat_size" varchar,
+  "saree_fabric" varchar,
   "saree_color" varchar,
-  "updated_at" timestamp,
-  "width" varchar,
-  "price" int,
-  "discount_price" int
+  "updated_at" timestamp
 );
 
 CREATE TABLE "jewellery" (
-  "id" int4,
-  "occassion" varchar,
+  "id" int4 PRIMARY KEY,
+  "ocassion" varchar,
   "base_metal" varchar,
   "stone_type" varchar,
   "type" varchar,
+  "trends" varchar,
   "plating" varchar,
   "carat" varchar,
   "care" varchar,
   "created_at" timestamp,
-  "earings_height" varchar,
-  "earings_width" varchar,
-  "finish" varchar,
-  "height" varchar,
-  "setting" varchar,
-  "speciality" varchar,
-  "updated_at" timestamp,
-  "width" varchar,
+  "updated_at" timestamp
 );
 
 CREATE TABLE "carts" (
-  "id" int4,
+  "id" int4 PRIMARY KEY,
   "user_id" int4,
-  "user_type" varchar,
-  "line_item_id" varchar,
   "created_at" varchar,
   "updated_at" varchar
 );
