@@ -183,8 +183,8 @@ export default class ProductListing extends React.Component {
                                               <img alt="gift for me" src="https://img6.craftsvilla.com/image/upload/w_300,h_450/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" data-src="https://img6.craftsvilla.com/image/upload/w_300,h_450/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" data-list-src="https://img6.craftsvilla.com/image/upload/w_500,h_500/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" className="img-height-custom"/>
                                           </a>
                                           <div className="hover-buttons">
-                                              <a className="btn btn-primary pull-left btn-sm">Add to Cart</a>
-                                              <a className="btn btn-default pull-right btn-sm">Wishlist</a>
+                                              <a className="plp-wishlist btn btn-default pull-left btn-sm">Wishlist</a>
+                                              <a className="plp-atc btn btn-primary pull-right btn-sm">Add to Cart</a>
                                           </div>
                                           </div>
                                           <div className="product-desc">

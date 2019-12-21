@@ -1003,14 +1003,14 @@ div.content h3 {
 .product-box.active {
     -webkit-box-shadow: 0 3px 7px 0 #a8a8a8;
     -moz-box-shadow: 0 3px 7px 0 #a8a8a8;
-    box-shadow: 0 3px 7px 0 #a8a8a8;
+    box-shadow: 3px 3px 20px #e7e7e7;
+    transition-duration: 0.2s;
 }
 
 .hover-buttons {
     background-color: transparent;
     height: 50px;
-    padding: 10px;
-    padding-bottom: 0;
+    padding: 10px 20px 0px 20px;
     position: absolute;
     width: 100%;
     bottom: 0;
@@ -1018,6 +1018,14 @@ div.content h3 {
 
 .hover-buttons a {
     display: none;
+}
+
+.plp-wishlist{
+    padding: 8px 25px 8px 25px;
+}
+
+.plp-atc{
+    padding: 8px 30px 8px 30px;
 }
 
 .ibox:hover .hover-buttons {
@@ -1267,7 +1275,7 @@ big {
 }
 
 .size-buttons .btn-default {
-    min-height: 2.5em;
+    min-height: 2em;
     min-width: 3.0em;
 }
 
