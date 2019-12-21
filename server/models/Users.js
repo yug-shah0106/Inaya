@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../config/database');
 
-const Users = db.define('user',{
+const Users = db.define('users',{
   user_type:{
     type:Sequelize.STRING
   },
@@ -9,7 +9,7 @@ const Users = db.define('user',{
     type:Sequelize.INTEGER
   },
   email:{
-    type:Sequelize.STRING
+    type:Sequelize.INTEGER
   },
   status:{
     type:Sequelize.STRING
@@ -17,3 +17,5 @@ const Users = db.define('user',{
 },{timestamps: false})
 
 module.exports = Users;
+  // 
+  // insert into users(user_type,phone,email,status) values('vendors',7021,123,'working');

@@ -26,7 +26,7 @@ const designers = db.define('designers',{
   updated_at:{
     type:Sequelize.STRING
   }
-},{timestamps: false})
+},{timestamps: false});
 
 module.exports = designers;
 
@@ -43,3 +43,6 @@ module.exports = designers;
 //   "created_at" varchar,
 //   "updated_at" varchar
 // );
+// 
+// insert into designers (id,quantity,email,phone,user_id,status,coupon_id,created_at,updated_at) values(123,10,12,0000,1,
+//   'working',0,'10-12-2019','10-12-2019');

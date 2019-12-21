@@ -34,6 +34,12 @@ const jewellery = db.define('jewellery',{
   },
   width:{
     type:Sequelize.STRING
+  },
+  price:{
+    type:Sequelize.INTEGER
+  },
+  discount_price:{
+    type:Sequelize.INTEGER
   }
 },{timestamps: false,freezeTableName:true})
 

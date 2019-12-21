@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../config/database');
-const product = require('../models/product');
+const product = require('../models/designs');
+const Util = require('../Util/util');
 
 router.get('/',(req,res) => product.findAll(
   {
@@ -18,8 +19,14 @@ router.get('/',(req,res) => product.findAll(
 router.get('/details',(req,res) => { product.findOne({
   where: res.query
 })
-.then( products =>
-  res.status(200).send(products)
+.then( products =>{
+  let db = Util.getProductTable(products);
+  db.findOne({
+    where: res.query
+  }).then( specificProduct =>{
+    res.status(200).send(specificProduct);
+  })
+}
 )
 .catch( error =>{
   console.log(error);

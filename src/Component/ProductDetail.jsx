@@ -25,7 +25,8 @@ componentWillMount(){
     params:{filters:{id:this.state.getId}}
   }).then((res)=>{
     res.data.imagePath = [unsplash,floral,fashion,lehenga];
-    res.data.size = JSON.parse(res.data.size);
+    res.data.size = ['x','xs','xl','l'];
+    // JSON.parse(res.data.size)
     this.setState({
       data:res.data,
       selectedImage:res.data.imagePath[0]

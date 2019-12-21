@@ -76,6 +76,8 @@ CREATE TABLE "designs" (
   "coupon_id" int,
   "created_at" varchar,
   "updated_at" varchar,
+  "price"varchar,
+  "discount_price" varchar,
   "status" varchar,
   "designable_type" varchar,
   "last_stocked_in_at" varchar,
@@ -85,8 +87,8 @@ CREATE TABLE "designs" (
 CREATE TABLE "designers" (
   "id" serial PRIMARY KEY,
   "quantity" int,
-  "email" int,
-  "phone" int,
+  "email" varchar,
+  "phone" varchar,
   "user_id" int,
   "status" varchar,
   "coupon_id" int,
@@ -97,8 +99,8 @@ CREATE TABLE "designers" (
 CREATE TABLE "users" (
   "id" serial PRIMARY KEY,
   "user_type" varchar,
-  "email" int,
-  "phone" int,
+  "email" varchar,
+  "phone" varchar,
   "status" varchar
 );
 
@@ -138,11 +140,18 @@ CREATE TABLE "sarees" (
   "petticoat_size" varchar,
   "saree_color" varchar,
   "updated_at" timestamp,
-  "width" varchar
+  "width" varchar,
+  "price" int,
+  "discount_price" int
 );
 
 CREATE TABLE "jewellery" (
   "id" int4,
+  "occassion" varchar,
+  "base_metal" varchar,
+  "stone_type" varchar,
+  "type" varchar,
+  "plating" varchar,
   "carat" varchar,
   "care" varchar,
   "created_at" timestamp,
@@ -153,31 +162,14 @@ CREATE TABLE "jewellery" (
   "setting" varchar,
   "speciality" varchar,
   "updated_at" timestamp,
-  "width" varchar
+  "width" varchar,
 );
 
-ALTER TABLE "designer_orders" ADD FOREIGN KEY ("order_id") REFERENCES "orders" ("id");
-
-ALTER TABLE "orders" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
-
-ALTER TABLE "designer_orders" ADD FOREIGN KEY ("id") REFERENCES "line_items" ("designer_order_id");
-
-ALTER TABLE "line_items" ADD FOREIGN KEY ("design_id") REFERENCES "designs" ("id");
-
-ALTER TABLE "designs" ADD FOREIGN KEY ("designer_id") REFERENCES "designers" ("id");
-
-ALTER TABLE "designer_orders" ADD FOREIGN KEY ("designer_id") REFERENCES "designers" ("id");
-
-ALTER TABLE "designers" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
-
-ALTER TABLE "orders" ADD FOREIGN KEY ("coupon_id") REFERENCES "coupons" ("id");
-
-ALTER TABLE "designer_orders" ADD FOREIGN KEY ("coupon_id") REFERENCES "coupons" ("id");
-
-ALTER TABLE "line_items" ADD FOREIGN KEY ("coupon_id") REFERENCES "coupons" ("id");
-
-ALTER TABLE "addresses" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
-
-ALTER TABLE "jewellery" ADD FOREIGN KEY ("id") REFERENCES "designs" ("id");
-
-ALTER TABLE "sarees" ADD FOREIGN KEY ("id") REFERENCES "designs" ("id");
+CREATE TABLE "carts" (
+  "id" int4,
+  "user_id" int4,
+  "user_type" varchar,
+  "line_item_id" varchar,
+  "created_at" varchar,
+  "updated_at" varchar
+);

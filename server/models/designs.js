@@ -44,3 +44,18 @@ module.exports = designs;
 //   "last_stocked_in_at" varchar,
 //   "last_out_of_stock_at" varchar
 // );
+//
+// insert into designs (designer_id,quantity,coupon_id,created_at,updated_at,status,designable_type,last_stocked_in_at,last_out_of_stock_at)
+// values (123,10,0,'10-12-2019','10-12-2019','good','saree','10-12-2019','10-12-2019');
+//
+// insert into designs (designer_id,quantity,coupon_id,created_at,updated_at,status,designable_type,last_stocked_in_at,last_out_of_stock_at)
+// values (124,0,0,'10-12-2019','10-12-2019','good','saree','10-12-2019','10-12-2019');
+//
+// insert into designs (designer_id,quantity,coupon_id,created_at,updated_at,status,designable_type,last_stocked_in_at,last_out_of_stock_at)
+// values (125,5,0,'10-12-2019','10-12-2019','good','saree','10-12-2019','10-12-2019');
+//
+// insert into designs (designer_id,quantity,coupon_id,created_at,updated_at,status,designable_type,last_stocked_in_at,last_out_of_stock_at)
+// values (126,10,0,'10-12-2019','10-12-2019','good','jewellery','10-12-2019','10-12-2019');
+//
+// insert into designs (designer_id,quantity,coupon_id,created_at,updated_at,status,designable_type,last_stocked_in_at,last_out_of_stock_at)
+// values (127,0,0,'10-12-2019','10-12-2019','good','jewellery','10-12-2019','10-12-2019');
