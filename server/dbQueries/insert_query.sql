@@ -20,8 +20,16 @@ values (4,10,'in_stock','Jewellery','Green Metallic Necklace Sets'),
 (2,10,'in_stock','Jewellery','White Kundan Necklace Sets'),
 (3,10,'in_stock','saree','Printed Mysore Silk Saree');
 
-insert into sarees (id,type,blouse,print_or_pattern_type,ocassion,ornamentation,border,blouse_color,blouse_fabric,blouse_work,created_at,saree_length,petticoat_available,petticoat_color,petticoat_fabric,petticoat_size,saree_fabric,saree_color,updated_at)
-values(101,'banrasi','blouse piece','abstract','party wear',null,'no border','black','silk',null,'10-20-2019','5.2','yes','red','cotton','2.5','silk','red','10-20-2019');
+insert into sarees(id,type,blouse,print_or_pattern_type,ocassion,ornamentation,border,blouse_color,blouse_fabric,blouse_work,saree_length,
+petticoat_available,petticoat_color,petticoat_fabric,petticoat_size,saree_fabric,saree_color)
+values (2,'Banrasi silk','blouse piece','abstract','party wear','','no border','black','silk','','5.2','yes','Red','Cotton','2.5','Silk','Black'),
+(3,'Georgette','blouse piece','floral','Traditional','','Solid','Gold','Cotton','Border','5.2','yes','Navy Blue','Cotton','2.5','Georgette','Navy Blue'),
+(6,'Mysore silk','blouse piece','No print','Traditional','square diamonds','Solid','Orange','silk','','5.2','yes','Yellow','Cotton','2.5','Silk','Yellow');
+
+insert into jewellery(id,ocassion,base_metal,stone_type,type,trends,plating)
+values(1,'party wear','alloy','kundan','necklace','handcrafted','gold-plated'),
+(4,'traditional','silver','','bangles','antique','gold-plated'),
+(5,'traditional','alloy','kundan','necklace','antique','gold-plated');
 
 -- insert into sarees (id,blouse_available,blouse_color,blouse_fabric,blouse_image,blouse_length,blouse_size,blouse_work,
 -- created_at,length,petticoat_available,petticoat_color,petticoat_fabric,petticoat_size,saree_color,updated_at,width) values
