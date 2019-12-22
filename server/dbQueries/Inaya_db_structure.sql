@@ -82,8 +82,8 @@ CREATE TABLE "designs" (
   "updated_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
   "status" varchar,
   "designable_type" varchar,
-  "last_stocked_in_at" varchar,
-  "last_out_of_stock_at" varchar
+  "last_stocked_in_at" timestamptz,
+  "last_out_of_stock_at" timestamptz
 );
 
 CREATE TABLE "designers" (
@@ -170,6 +170,30 @@ CREATE TABLE "jewellery" (
 CREATE TABLE "carts" (
   "id" serial,
   "user_id" int4,
+  "created_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" timestamptz DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE "variants" (
+  "id" serial PRIMARY KEY,
+  "design_id" int,
+  "vaiant_show" int,
+  "created_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" timestamptz DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE "option_type_values" (
+  "id" serial PRIMARY KEY,
+  "name" varchar,
+  "created_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" timestamptz DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE "option_type_values_variants" (
+  "id" serial PRIMARY KEY,
+  "variant_id" int,
+  "option_type_value_id" int,
   "created_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
   "updated_at" timestamptz DEFAULT CURRENT_TIMESTAMP
 );

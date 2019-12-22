@@ -27,3 +27,13 @@ ALTER TABLE "sarees" ADD FOREIGN KEY ("id") REFERENCES "designs" ("id");
 ALTER TABLE "carts" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
 
 ALTER TABLE "line_items" ADD FOREIGN KEY ("cart_id") REFERENCES "carts" ("id");
+
+ALTER TABLE "variants" ADD FOREIGN KEY ("design_id") REFERENCES "designs" ("id");
+
+ALTER TABLE "option_type_values_variants" ADD FOREIGN KEY ("variant_id") REFERENCES "variants" ("id");
+
+ALTER TABLE "variants" ADD FOREIGN KEY ("design_id") REFERENCES "designs" ("id");
+
+ALTER TABLE "option_type_values_variants" ADD FOREIGN KEY ("variant_id") REFERENCES "variants" ("id");
+
+ALTER TABLE "option_type_values_variants" ADD FOREIGN KEY ("option_type_value_id") REFERENCES "option_type_values" ("id");
