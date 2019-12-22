@@ -50,8 +50,8 @@ CREATE TABLE "designer_orders" (
   "status" varchar,
   "discount" int4,
   "total" int4,
-  "payout" int4,
   "shipper_id" int4,
+  "payout" int4,
   "shipper_name" varchar,
   "awb_number" varchar
 );
@@ -88,7 +88,7 @@ CREATE TABLE "designs" (
 
 CREATE TABLE "designers" (
   "id" serial,
-  "email" int,
+  "email" varchar,
   "phone" varchar,
   "user_id" int,
   "status" varchar,
@@ -100,7 +100,7 @@ CREATE TABLE "designers" (
 CREATE TABLE "users" (
   "id" serial,
   "user_type" varchar,
-  "email" int,
+  "email" varchar,
   "phone" varchar,
   "status" varchar,
   "created_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
