@@ -88,9 +88,8 @@ CREATE TABLE "designs" (
 
 CREATE TABLE "designers" (
   "id" serial,
-  "quantity" int,
   "email" int,
-  "phone" int,
+  "phone" varchar,
   "user_id" int,
   "status" varchar,
   "coupon_id" varchar,
@@ -102,7 +101,7 @@ CREATE TABLE "users" (
   "id" serial,
   "user_type" varchar,
   "email" int,
-  "phone" int,
+  "phone" varchar,
   "status" varchar,
   "created_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
   "updated_at" timestamptz DEFAULT CURRENT_TIMESTAMP
