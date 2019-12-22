@@ -1,7 +1,7 @@
 insert into users(user_type,phone,email,status) values('vendors',7021435236,123,'working');
 
-  insert into designers (id,quantity,email,phone,user_id,status,coupon_id,created_at,updated_at) values(123,10,12,0000,1,
-  'working',0,'10-12-2019','10-12-2019');
+insert into designers (id,quantity,email,phone,user_id,status,coupon_id,created_at,updated_at) values(123,10,12,0000,1,
+'working',0,'10-12-2019','10-12-2019');
 
 insert into designs (id,designer_id,quantity,coupon_id,created_at,updated_at,status,designable_type,last_stocked_in_at,last_out_of_stock_at)
 values (101,123,10,0,'10-12-2019','10-12-2019','good','saree','10-12-2019','10-12-2019');

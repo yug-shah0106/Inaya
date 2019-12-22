@@ -61,24 +61,27 @@ const sarees = db.define('sarees',{
 module.exports = sarees;
 
 // CREATE TABLE "sarees" (
-//   "id" int4,
-//   "blouse_available" varchar,
+//   "id" int4 PRIMARY KEY,
+//   "type" varchar,
+//   "blouse" varchar,
+//   "print_or_pattern_type" varchar,
+//   "ocassion" varchar,
+//   "ornamentation" varchar,
+//   "border" varchar,
 //   "blouse_color" varchar,
 //   "blouse_fabric" varchar,
-//   "blouse_image" varchar,
-//   "blouse_length" varchar,
-//   "blouse_size" varchar,
 //   "blouse_work" varchar,
 //   "created_at" timestamp,
-//   "length" varchar,
+//   "saree_length" varchar,
 //   "petticoat_available" varchar,
 //   "petticoat_color" varchar,
 //   "petticoat_fabric" varchar,
 //   "petticoat_size" varchar,
+//   "saree_fabric" varchar,
 //   "saree_color" varchar,
-//   "updated_at" timestamp,
-//   "width" varchar
+//   "updated_at" timestamp
 // );
+
 
 
 // insert into sarees (blouse_available,blouse_color,blouse_fabric,blouse_image,blouse_length,blouse_size,blouse_work,

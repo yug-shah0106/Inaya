@@ -1,10 +1,10 @@
 CREATE TABLE "orders" (
-  "id" int PRIMARY KEY,
+  "id" serial,
   "number" varchar UNIQUE,
   "user_id" int,
   "status" varchar,
-  "created_at" varchar,
-  "updated_at" varchar,
+  "created_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
   "confirmed_at" varchar,
   "dispatched_at" varchar,
   "app_source" varchar,
@@ -35,12 +35,12 @@ CREATE TABLE "orders" (
 );
 
 CREATE TABLE "designer_orders" (
-  "id" int PRIMARY KEY,
+  "id" serial,
   "order_id" int,
   "design_id" int,
   "designer_id" int,
-  "created_at" varchar,
-  "updated_at" varchar,
+  "created_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
   "confirmed_at" varchar,
   "dispatched_at" varchar,
   "received_at" varchar,
@@ -57,7 +57,7 @@ CREATE TABLE "designer_orders" (
 );
 
 CREATE TABLE "line_items" (
-  "id" int PRIMARY KEY,
+  "id" serial,
   "designer_order_id" int,
   "cart_id" int,
   "design_id" int,
@@ -66,19 +66,20 @@ CREATE TABLE "line_items" (
   "total" int4,
   "discount" int4,
   "coupon_id" int,
-  "created_at" varchar,
+  "created_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
   "received_at" varchar
 );
 
 CREATE TABLE "designs" (
-  "id" int PRIMARY KEY,
+  "id" serial,
   "designer_id" int,
   "quantity" int,
   "price" int4,
   "discount_price" int4,
   "coupon_id" int,
-  "created_at" varchar,
-  "updated_at" varchar,
+  "created_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
   "status" varchar,
   "designable_type" varchar,
   "last_stocked_in_at" varchar,
@@ -86,46 +87,52 @@ CREATE TABLE "designs" (
 );
 
 CREATE TABLE "designers" (
-  "id" int PRIMARY KEY,
+  "id" serial,
   "quantity" int,
   "email" int,
   "phone" int,
   "user_id" int,
   "status" varchar,
   "coupon_id" varchar,
-  "created_at" varchar,
-  "updated_at" varchar
+  "created_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" timestamptz DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE "users" (
-  "id" int PRIMARY KEY,
+  "id" serial,
   "user_type" varchar,
   "email" int,
   "phone" int,
-  "status" varchar
+  "status" varchar,
+  "created_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" timestamptz DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE "addresses" (
-  "id" int PRIMARY KEY,
+  "id" serial,
   "user_id" int,
   "street" varchar,
   "city" varchar,
   "state" varchar,
   "pincode" varchar,
-  "country" varchar
+  "country" varchar,
+  "created_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" timestamptz DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE "coupons" (
-  "id" int PRIMARY KEY,
+  "id" serial,
   "start_date" varchar,
   "end_date" varchar,
   "coupon_owner" varchar,
   "coupon_type" varchar,
-  "coupon_unit" int
+  "coupon_unit" int,
+  "created_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" timestamptz DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE "sarees" (
-  "id" int4 PRIMARY KEY,
+  "id" serial,
   "type" varchar,
   "blouse" varchar,
   "print_or_pattern_type" varchar,
@@ -135,7 +142,6 @@ CREATE TABLE "sarees" (
   "blouse_color" varchar,
   "blouse_fabric" varchar,
   "blouse_work" varchar,
-  "created_at" timestamp,
   "saree_length" varchar,
   "petticoat_available" varchar,
   "petticoat_color" varchar,
@@ -143,11 +149,12 @@ CREATE TABLE "sarees" (
   "petticoat_size" varchar,
   "saree_fabric" varchar,
   "saree_color" varchar,
-  "updated_at" timestamp
+  "created_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" timestamptz DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE "jewellery" (
-  "id" int4 PRIMARY KEY,
+  "id" serial,
   "ocassion" varchar,
   "base_metal" varchar,
   "stone_type" varchar,
@@ -156,13 +163,13 @@ CREATE TABLE "jewellery" (
   "plating" varchar,
   "carat" varchar,
   "care" varchar,
-  "created_at" timestamp,
-  "updated_at" timestamp
+  "created_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" timestamptz DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE "carts" (
-  "id" int4 PRIMARY KEY,
+  "id" serial,
   "user_id" int4,
-  "created_at" varchar,
-  "updated_at" varchar
+  "created_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" timestamptz DEFAULT CURRENT_TIMESTAMP
 );

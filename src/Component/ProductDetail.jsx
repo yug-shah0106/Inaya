@@ -171,10 +171,10 @@ componentWillMount(){
                             <div><label class="product-field mb-1"><span class="">Select Size</span></label></div>
                             {/*<div className="size-error">Please select a size</div>*/}
                             <div className="size-buttons">
-                            {
+                            {/*
                               this.state.defaultSize.map((o)=>{
                                   return <a className = {this.state.data.size.size.includes(o) ? this.state.selectedSize === o ? "btn btn-default btn-sm ml-2 active" : "btn btn-default btn-sm ml-2" : "btn btn-default btn-sm ml-2 grey disabled"} onClick={this.sizeChanged}>{o}</a>
-                              })
+                              })*/
                             }
                               </div>
                             <label className="product-field text-primary mt-2"><small><b><a className="underline pointer">View Size Chart +</a></b></small></label>

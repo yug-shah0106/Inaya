@@ -217,7 +217,7 @@ export default class ProductListing extends React.Component {
                                         <div className="ibox">
                                             <div className="ibox-content product-box">
                                                 <div className="product-imitation">
-                                                    <a className="product-image" href="/product/1" >
+                                                    <a className="product-image" href={`/product/${o.id}`} >
                                                     <img alt="gift for me" src="https://img6.craftsvilla.com/image/upload/w_300,h_450/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" data-src="https://img6.craftsvilla.com/image/upload/w_300,h_450/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" data-list-src="https://img6.craftsvilla.com/image/upload/w_500,h_500/C/V/CV-36267-MCRAF88922597130-1562745721-Craftsvilla_1.jpg" className="img-height-custom"/>
                                                 </a>
                                                 <div className="hover-buttons">
