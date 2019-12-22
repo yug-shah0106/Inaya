@@ -1,11 +1,24 @@
-insert into users(id,user_type,phone,email,status) 
-values(1,'vendors',5236,123,'working');
+insert into users(user_type,phone,email,status) 
+values('designer',7021435236,'test@test.com','active'),
+('buyer',9323135933,me@me.com,'new'),
+('designer',8983082331,you@you.com,'active'),
+('designer',9284469487,we@we.com,'active'),
+('buyer',9821435236,us@us.com,'new'),
+('designer',9856458425,inaya@inaya.com,'active');
 
-insert into designers (id,quantity,email,phone,user_id,status,coupon_id,created_at,updated_at) 
-values(123,10,12,0000,1,'working',0,'10-12-2019','10-12-2019');
+insert into designers (email,phone,user_id,status,coupon_id) 
+values('test@test.com',7021435236,1,'under_review',0),
+('you@you.com',8983082331,3,'blocked',0),
+('we@we.com',9284469487,4,'approved',0),
+('inaya@inaya.com',9856458425,6,'approved',0);
 
-insert into designs (id,designer_id,quantity,coupon_id,created_at,updated_at,status,designable_type,last_stocked_in_at,last_out_of_stock_at)
-values (101,123,10,0,'10-12-2019','10-12-2019','good','saree','10-12-2019','10-12-2019');
+insert into designs (designer_id,quantity,status,designable_type,name)
+values (4,10,'in_stock','Jewellery','Green Metallic Necklace Sets'),
+(3,0,'out_of_stock','saree','Black silk saree'),
+(1,10,'in_stock','saree','Navy blue and gold-coloured Banarasi woven design saree'),
+(4,10,'in_stock','Jewellery','Gold Plated 3 Layer Bangle'),
+(2,10,'in_stock','Jewellery','White Kundan Necklace Sets'),
+(3,10,'in_stock','saree','Printed Mysore Silk Saree');
 
 insert into sarees (id,type,blouse,print_or_pattern_type,ocassion,ornamentation,border,blouse_color,blouse_fabric,blouse_work,created_at,saree_length,petticoat_available,petticoat_color,petticoat_fabric,petticoat_size,saree_fabric,saree_color,updated_at)
 values(101,'banrasi','blouse piece','abstract','party wear',null,'no border','black','silk',null,'10-20-2019','5.2','yes','red','cotton','2.5','silk','red','10-20-2019');

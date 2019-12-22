@@ -73,6 +73,7 @@ CREATE TABLE "line_items" (
 
 CREATE TABLE "designs" (
   "id" serial,
+  "name" varchar,
   "designer_id" int,
   "quantity" int,
   "price" int4,
@@ -131,7 +132,7 @@ CREATE TABLE "coupons" (
 );
 
 CREATE TABLE "sarees" (
-  "id" serial,
+  "id" int,
   "type" varchar,
   "blouse" varchar,
   "print_or_pattern_type" varchar,
@@ -153,7 +154,7 @@ CREATE TABLE "sarees" (
 );
 
 CREATE TABLE "jewellery" (
-  "id" serial,
+  "id" int,
   "ocassion" varchar,
   "base_metal" varchar,
   "stone_type" varchar,
