@@ -3,6 +3,13 @@ import axios from 'axios';
 import InputRange from "react-input-range";
 import "react-input-range/lib/css/index.css";
 
+const navbarHeader = [{label:"Saree Fabric",name:"saree_fabric"},
+{label:"Pattern",name:"print_or_pattern_type"},
+{label:"Blouse Color",name:"blouse_color"},
+{label:"Blouse Fabric",name:"blouse_fabric"},
+{label:"Saree Color",name:"saree_color"}];
+
+
 export default class ProductListing extends React.Component {
     constructor(props) {
         super(props);
@@ -23,6 +30,24 @@ export default class ProductListing extends React.Component {
       this.getCategory(5);
       this.getDiscountPercent();
       this.getSize();
+    }
+
+    async componentDidMount(){
+      await navbarHeader.map(async(o)=>{
+    try{
+      let res = await axios.get('/api/products/sarees/getOptions',{
+          params:{
+            column:o.name
+        }
+      });
+      this.state[o.name] = res.data;
+      this.setState(this.state);
+      this.forceUpdate();
+    }
+    catch(err){
+      console.log(err);
+    }
+    });
     }
 
     getProductFromURL = () =>{
@@ -118,17 +143,22 @@ export default class ProductListing extends React.Component {
                 <div className="listing-box row">
                     <div className="filter-side hidden-xs col-md-2 zero-padding">
                         <div className="filter-list">
-                            <h5>Shop by Category</h5>
-                            <ul className="category-selector">
-                              {
-                                this.state.category ?
-                                this.state.category.map((o)=>{
-                                  return (<li key={o} className={this.state.selectedCategory === o ? "active" : ""} onClick={this.setCategory.bind(this)}><a>{o}</a></li>)
-                                })
-                                :null
-                              }
-                              <li><a onClick={()=>{this.getCategory()}}>More Clothing</a></li>
-                            </ul>
+                        {
+                          navbarHeader.map((o)=>{
+                            return (<>
+                              <h5>Shop by {o.name}</h5>
+                              <ul className="category-selector">
+                                {this.state[o.name] ?
+                                  this.state[o.name].map((type)=>{
+                                    return (<li key={type[o.name]} className={this.state.selectedCategory === o.name ? "active" : ""} onClick={this.setCategory.bind(this)}><a>{type[o.name]}</a></li>)
+                                  })
+                                  : null
+                                }
+                                <li><a onClick={()=>{this.getCategory()}}>More Clothing</a></li>
+                              </ul>
+                              </>)
+                          })
+                        }
                             <h5>Filter By</h5>
                               <h6>Price</h6>
                             <div className="price-selector">

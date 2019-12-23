@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../config/database');
 const jewellery = require('../models/jewellery');
+const Sequelize = require('sequelize');
 
 router.get('/',(req,res) => jewellery.findAll(
   {
@@ -15,6 +16,20 @@ router.get('/',(req,res) => jewellery.findAll(
 })
 .catch(err => console.log(err)));
 
+router.get('/getOptions',(req,res)=> jewellery.findAll({
+    attributes: [
+        // specify an array where the first element is the SQL function and the second is the alias
+        [Sequelize.fn('DISTINCT', Sequelize.col(req.query.column)) ,req.query.column],
+
+        // specify any additional columns, e.g. country_code
+        // 'country_code'
+
+    ]
+}).then((products) => {
+  res.status(200).send(products)
+},(error)=>{
+  console.log(error);
+}));
 // router.get('/details',(req,res) => { product.findOne({
 //   where: res.query
 // })

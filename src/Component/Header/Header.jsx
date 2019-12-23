@@ -8,14 +8,16 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 // The Header creates links that can be used to navigate
 // between routes.
 
-const navbarHeader = [{label:"Saree Fabric",name:"saree_fabric"},
-{label:"Pattern",name:"print_or_pattern_type"},
-{label:"Blouse Color",name:"blouse_color"},
-{label:"Blouse Fabric",name:"blouse_fabric"},
-{label:"Saree Color",name:"saree_color"}];
-
-const headers = [{label:"Saree",name:"saree"},
-{label:"Jewellery",name:"jewellery"}];
+const headers = [{label:"Saree",name:"saree",url:'/api/products/sarees/getOptions',category:[
+  {label:"Saree Type",name:"type"},
+{label:"Ocassion",name:"ocassion"},
+{label:"Ornamentation",name:"ornamentation"},
+{label:"Saree Fabric",name:"saree_fabric"}]}  ,
+{label:"Jewellery",name:"jewellery",url:'/api/products/jewellery/getOptions',category:[
+  {label:"Jewellery Type",name:"type"},
+{label:"ocassion",name:"ocassion"},
+{label:"Base Metal",name:"base_metal"},
+{label:"Trends",name:"trends"}]}];
 
 export default class Header extends React.Component {
     constructor(props) {
@@ -26,20 +28,22 @@ export default class Header extends React.Component {
     }
 
 async componentDidMount(){
-  await navbarHeader.map(async(o)=>{
-try{
-  let res = await axios.get('/api/products/sarees/getOptions',{
-      params:{
-        column:o.name
-    }
+  await headers.map(async(header)=>{
+    await header.category.map(async(o)=>{
+  try{
+    let res = await axios.get(header.url,{
+        params:{
+          column:o.name
+      }
+    });
+    this.state[o.label] = res.data;
+    this.setState(this.state);
+    this.forceUpdate();
+  }
+  catch(err){
+    console.log(err);
+  }
   });
-  this.state[o.name] = res.data;
-  this.setState(this.state);
-  this.forceUpdate();
-}
-catch(err){
-  console.log(err);
-}
 });
 }
 
@@ -69,16 +73,18 @@ render(){
               </div>
               <div className="dropdown-column dropdown-column-products">
               {
-                navbarHeader.map((o)=>{
+                header.category.map((o)=>{
                   return(<ul key={o.label} className="dropdown-column-category">
                     <li className="dropdown-column-header has-children">
                       <a href="/productlisting/suits">{o.label}</a>
                         <ul>
-                          {this.state && this.state.saree_fabric && this.state.saree_fabric.map((types)=>{
-                            return(<li key={types.name} className="dropdown-link-list-item submenu-item ">
-                              <a href="/productListing/saree">{types.name}</a>
+                          {this.state[o.label] ?
+                             this.state[o.label ].map((types)=>{
+                            return(<li key={types[o.name]} className="dropdown-link-list-item submenu-item ">
+                              <a href="/productListing/saree">{types[o.name]}</a>
                             </li>)
-                          })}
+                          }) : null
+                        }
                         </ul>
                       </li>
                     </ul>);
