@@ -1,5 +1,5 @@
 CREATE TABLE "orders" (
-  "id" serial,
+  "id" serial PRIMARY KEY,
   "number" varchar UNIQUE,
   "user_id" int,
   "status" varchar,
@@ -35,7 +35,7 @@ CREATE TABLE "orders" (
 );
 
 CREATE TABLE "designer_orders" (
-  "id" serial,
+  "id" serial PRIMARY KEY,
   "order_id" int,
   "design_id" int,
   "designer_id" int,
@@ -57,7 +57,7 @@ CREATE TABLE "designer_orders" (
 );
 
 CREATE TABLE "line_items" (
-  "id" serial,
+  "id" serial PRIMARY KEY,
   "designer_order_id" int,
   "cart_id" int,
   "design_id" int,
@@ -72,7 +72,7 @@ CREATE TABLE "line_items" (
 );
 
 CREATE TABLE "designs" (
-  "id" serial,
+  "id" serial PRIMARY KEY,
   "name" varchar,
   "designer_id" int,
   "quantity" int,
@@ -88,7 +88,7 @@ CREATE TABLE "designs" (
 );
 
 CREATE TABLE "designers" (
-  "id" serial,
+  "id" serial PRIMARY KEY,
   "email" varchar,
   "phone" varchar,
   "user_id" int,
@@ -99,7 +99,7 @@ CREATE TABLE "designers" (
 );
 
 CREATE TABLE "users" (
-  "id" serial,
+  "id" serial PRIMARY KEY,
   "user_type" varchar,
   "email" varchar,
   "phone" varchar,
@@ -109,7 +109,7 @@ CREATE TABLE "users" (
 );
 
 CREATE TABLE "addresses" (
-  "id" serial,
+  "id" serial PRIMARY KEY,
   "user_id" int,
   "street" varchar,
   "city" varchar,
@@ -121,7 +121,7 @@ CREATE TABLE "addresses" (
 );
 
 CREATE TABLE "coupons" (
-  "id" serial,
+  "id" serial PRIMARY KEY,
   "start_date" varchar,
   "end_date" varchar,
   "coupon_owner" varchar,
@@ -132,7 +132,7 @@ CREATE TABLE "coupons" (
 );
 
 CREATE TABLE "sarees" (
-  "id" int,
+  "id" int PRIMARY KEY,
   "type" varchar,
   "blouse" varchar,
   "print_or_pattern_type" varchar,
@@ -154,7 +154,7 @@ CREATE TABLE "sarees" (
 );
 
 CREATE TABLE "jewellery" (
-  "id" int,
+  "id" int PRIMARY KEY,
   "ocassion" varchar,
   "base_metal" varchar,
   "stone_type" varchar,
@@ -168,7 +168,7 @@ CREATE TABLE "jewellery" (
 );
 
 CREATE TABLE "carts" (
-  "id" serial,
+  "id" serial PRIMARY KEY,
   "user_id" int4,
   "created_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
   "updated_at" timestamptz DEFAULT CURRENT_TIMESTAMP

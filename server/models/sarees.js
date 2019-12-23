@@ -2,31 +2,40 @@ const Sequelize = require('sequelize');
 const db = require('../config/database');
 
 const sarees = db.define('sarees',{
-  blouse_available:{
+  type:{
     type:Sequelize.STRING
   },
-  blouse_color:{
+  blouse:{
+    type:Sequelize.STRING
+  },
+  print_or_pattern_type:{
+    type:Sequelize.STRING
+  },
+  ocassion:{
+    type:Sequelize.STRING
+  },
+  ornamentation:{
+    type:Sequelize.STRING
+  },
+  border:{
     type:Sequelize.STRING
   },
   blouse_fabric:{
     type:Sequelize.STRING
   },
-  blouse_image:{
-    type:Sequelize.STRING
-  },
-  blouse_length:{
-    type:Sequelize.STRING
-  },
-  blouse_size:{
+  blouse_color:{
     type:Sequelize.STRING
   },
   blouse_work:{
     type:Sequelize.STRING
   },
+  blouse_size:{
+    type:Sequelize.STRING
+  },
   created_at:{
     type:Sequelize.STRING
   },
-  length:{
+  saree_length:{
     type:Sequelize.STRING
   },
   petticoat_available:{
@@ -38,23 +47,20 @@ const sarees = db.define('sarees',{
   petticoat_fabric:{
     type:Sequelize.STRING
   },
-  saree_color:{
-    type:Sequelize.STRING
-  },
   petticoat_size:{
     type:Sequelize.STRING
   },
   updated_at:{
     type:Sequelize.STRING
   },
-  width:{
+  saree_fabric:{
     type:Sequelize.STRING
   },
-  price:{
-    type:Sequelize.INTEGER
+  saree_length:{
+    type:Sequelize.STRING
   },
-  discount_price:{
-    type:Sequelize.INTEGER
+  saree_color:{
+    type:Sequelize.STRING
   }
 },{timestamps: false})
 

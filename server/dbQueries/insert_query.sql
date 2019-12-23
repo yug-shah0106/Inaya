@@ -1,12 +1,12 @@
-insert into users(user_type,phone,email,status) 
+insert into users(user_type,phone,email,status)
 values('designer',7021435236,'test@test.com','active'),
-('buyer',9323135933,me@me.com,'new'),
-('designer',8983082331,you@you.com,'active'),
-('designer',9284469487,we@we.com,'active'),
-('buyer',9821435236,us@us.com,'new'),
-('designer',9856458425,inaya@inaya.com,'active');
+('buyer',9323135933,'me@me.com','new'),
+('designer',8983082331,'you@you.com','active'),
+('designer',9284469487,'we@we.com','active'),
+('buyer',9821435236,'us@us.com','new'),
+('designer',9856458425,'inaya@inaya.com','active');
 
-insert into designers (email,phone,user_id,status,coupon_id) 
+insert into designers (email,phone,user_id,status,coupon_id)
 values('test@test.com',7021435236,1,'under_review',0),
 ('you@you.com',8983082331,3,'blocked',0),
 ('we@we.com',9284469487,4,'approved',0),
