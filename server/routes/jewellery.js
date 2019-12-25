@@ -3,12 +3,17 @@ const router = express.Router();
 const db = require('../config/database');
 const jewellery = require('../models/jewellery');
 const Sequelize = require('sequelize');
+const product = require('../models/designs');
+// 
+// product.hasMany(jewellery, {foreignKey: 'id'});
+jewellery.belongsTo(product, {targetKey:'id',foreignKey: 'id'});
 
 router.get('/',(req,res) => jewellery.findAll(
   {
-    where: (res.query && res.query.filters) || {},
-    limit: (res.query && res.query.limit) || 40,
-    page: (res.query && res.query.page) || 0
+    include:product,
+    where: req.query || {},
+    limit: (req.query && req.query.limit) || 40,
+    page: (req.query && req.query.page) || 0
   }
 )
 .then( products => {

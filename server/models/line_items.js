@@ -8,6 +8,9 @@ const lineItems = db.define('line_items',{
   design_id:{
     type:Sequelize.INTEGER
   },
+  cart_id:{
+    type:Sequelize.INTEGER
+  },
   designer_id:{
     type:Sequelize.INTEGER
   },
@@ -29,6 +32,9 @@ const lineItems = db.define('line_items',{
   created_at:{
     type:Sequelize.STRING
   },
+  updated_at:{
+    type:Sequelize.STRING
+  },
   received_at:{
     type:Sequelize.STRING
   }
@@ -37,14 +43,16 @@ const lineItems = db.define('line_items',{
 module.exports = lineItems;
 
 // CREATE TABLE "line_items" (
-//   "id" serial PRIMARY KEY,
-//   "designer_order_id" int,
-//   "design_id" int,
-//   "status" varchar,
-//   "quantity" int4,
-//   "total" int4,
-//   "discount" int4,
-//   "coupon_id" int,
-//   "created_at" varchar,
-//   "received_at" varchar
+// "id" serial PRIMARY KEY,
+// "designer_order_id" int,
+// "cart_id" int,
+// "design_id" int,
+// "status" varchar,
+// "quantity" int4,
+// "total" int4,
+// "discount" int4,
+// "coupon_id" int,
+// "created_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
+// "updated_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
+// "received_at" varchar
 // );

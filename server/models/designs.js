@@ -2,10 +2,19 @@ const Sequelize = require('sequelize');
 const db = require('../config/database');
 
 const designs = db.define('designs',{
+    name:{
+      type:Sequelize.STRING
+    },
   designer_id:{
     type:Sequelize.INTEGER
   },
   quantity:{
+    type:Sequelize.INTEGER
+  },
+  price:{
+    type:Sequelize.INTEGER
+  },
+  discount_price:{
     type:Sequelize.INTEGER
   },
   coupon_id:{
@@ -33,16 +42,19 @@ const designs = db.define('designs',{
 
 module.exports = designs;
 // CREATE TABLE "designs" (
-//   "id" serial PRIMARY KEY,
-//   "designer_id" int,
-//   "quantity" int,
-//   "coupon_id" int,
-//   "created_at" varchar,
-//   "updated_at" varchar,
-//   "status" varchar,
-//   "designable_type" varchar,
-//   "last_stocked_in_at" varchar,
-//   "last_out_of_stock_at" varchar
+// "id" serial PRIMARY KEY,
+// "name" varchar,
+// "designer_id" int,
+// "quantity" int,
+// "price" int4,
+// "discount_price" int4,
+// "coupon_id" int,
+// "created_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
+// "updated_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
+// "status" varchar,
+// "designable_type" varchar,
+// "last_stocked_in_at" timestamptz,
+// "last_out_of_stock_at" timestamptz
 // );
 //
 // insert into designs (designer_id,quantity,coupon_id,created_at,updated_at,status,designable_type,last_stocked_in_at,last_out_of_stock_at)

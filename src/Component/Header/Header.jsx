@@ -3,12 +3,13 @@ import logo from './logo.jpeg';
 import axios from 'axios';
 
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import Util from '../Util/Util.jsx';
 
 
 // The Header creates links that can be used to navigate
 // between routes.
 
-const headers = [{label:"Saree",name:"saree",url:'/api/products/sarees/getOptions',category:[
+const headers = [{label:"Saree",name:"sarees",url:'/api/products/sarees/getOptions',category:[
   {label:"Saree Type",name:"type"},
 {label:"Ocassion",name:"ocassion"},
 {label:"Ornamentation",name:"ornamentation"},
@@ -81,7 +82,7 @@ render(){
                           {this.state[o.label] ?
                              this.state[o.label ].map((types)=>{
                             return(<li key={types[o.name]} className="dropdown-link-list-item submenu-item ">
-                              <a href="/productListing/saree">{types[o.name]}</a>
+                              <a href={`#/productListing/${header.name}?${Util.objectToQueryParams({[o.name]:types[o.name]})}`}>{types[o.name]}</a>
                             </li>)
                           }) : null
                         }
@@ -97,6 +98,12 @@ render(){
         })
       }
         </Nav>
+        <form className="form-inline my-2 my-lg-0">
+          <input className="form-control light-grey-bg" placeholder="search" />
+            <Nav.Link href="#/cart" className="">
+              <i className="fa fa-shopping-cart"></i>
+            </Nav.Link>
+        </form>
         </Navbar.Collapse>
       </Navbar>
     );

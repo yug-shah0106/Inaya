@@ -43,7 +43,7 @@ export default class CheckoutView extends Component {
                   Checking out as a <b>Guest</b>?
 
                   <div>You'll be able to save your details to create an account with us later.</div>
-                
+
                 <div className="mt-3">
                   <div className="form-inline">
                     <div className="form-group">

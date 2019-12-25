@@ -255,6 +255,13 @@ h1 {
     height: 30px;
 }
 
+h5{
+  color: #666;
+}
+h6{
+  color: #666;
+}
+
 .container {
     width: 96%;
     height: 350px;
@@ -2270,4 +2277,10 @@ select {
   margin-top: 10%;
   margin-bottom: 10%;
   width: 80%;
+}
+.thank-you-box{
+border:2px solid black;
+}
+.red{
+  color:"red" !important;
 }

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../config/database');
 const cart = require('../models/cart');
+const lineItems = require('../models/line_items');
 
 router.post('/add',(req,res) => cart.create(
 req.body
@@ -11,13 +12,13 @@ req.body
 .catch(err => console.log(err)));
 
 router.delete('/delete',(req,res) => cart.destroy(
-{where:res.body && res.body.filter}
+{where:req.body && req.body.filter}
 ).then(cart => {
   res.status(200).send(cart);
 }).catch(err => console.log(err)));
 
 router.put('/update',(req,res) => cart.update(res.body.data,{
-    where: res.body && res.body.filter
+    where: req.body && req.body.filter
 }).then((cart)=>{
   res.status(200).send(cart);
 },(error)=>{
@@ -25,20 +26,20 @@ router.put('/update',(req,res) => cart.update(res.body.data,{
 }) );
 
 router.get('/',(req,res) => cart.findAll(
-  {where:res.body && res.body.filter}
+  {where:req.body && req.body.filter}
   ).then(cart => {
     res.status(200).send(cart);
   }).catch(err => console.log(err)));
 
 router.get('/checkFromId',(req,res) => cart.findOne(
-  {where:res.query && res.query.filter}
+  {where: req.query}
 ).then(cart => {
   res.status(200).send(cart);
 }).catch(err => console.log(err)));
 
 router.get('/getItems',(req,res) =>{
   cart.findOne({
-    where:res.query && res.query.filter
+    where:req.query && req.query.filter
   }).then((success)=>{
     lineItems.findOne(
       {where:{cart_id:success.id}

@@ -4,7 +4,7 @@ const db = require('../config/database');
 const Users = require('../models/Users');
 
 router.get('/',(req,res) => Users.findAll()
-.then( user => {console.log(user)
+.then( user => {
   res.sendStatus(200);
 })
 .catch(err => console.log(err)));

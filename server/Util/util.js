@@ -10,7 +10,7 @@ const Util = {
       db = sarees;
       break;
 
-      case "jewellery":
+      case "Jewellery":
       db = jewellery;
       break;
 

@@ -29,9 +29,6 @@ const sarees = db.define('sarees',{
   blouse_work:{
     type:Sequelize.STRING
   },
-  blouse_size:{
-    type:Sequelize.STRING
-  },
   created_at:{
     type:Sequelize.STRING
   },

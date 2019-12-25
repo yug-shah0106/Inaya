@@ -1,4 +1,6 @@
 import React from 'react';
+import NotificationSystem from 'react-notification-system';
+import Notification from './Component/Util/Notification.jsx';
 import SuperHeader from './Component/SuperHeader/SuperHeader.jsx';
 import Header from './Component/Header/Header.jsx';
 import Routes from './Component/Router/Routes.jsx';
@@ -12,6 +14,7 @@ const Router = () => (
     {/*<Breadcrumbs />*/}
     <Routes />
     <Footer />
+    <NotificationSystem ref={(n) => Notification.setNotificationSystem(n)} />
   </div>
 )
 

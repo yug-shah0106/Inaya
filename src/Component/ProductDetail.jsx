@@ -7,6 +7,7 @@ import fashion from './fashion.jpg';
 import lehenga from './lehenga.jpg';
 import ReactImageMagnify from 'react-image-magnify';
 import { cloneDeep } from "lodash";
+import Notification from './Util/Notification.jsx';
 
 export default class ProductDetail extends React.Component {
     constructor(props) {
@@ -14,7 +15,13 @@ export default class ProductDetail extends React.Component {
         this.state = {
             getId: this.props.match.params.id,
             defaultSize: Util.sizes,
-            selectedSize:'S'
+            selectedSize:'S',
+            design_id:null,
+            status:null,
+            quantity:1,
+            total:0,
+            discount:0,
+            coupon_id:null
         }
     }
 
@@ -22,12 +29,14 @@ componentWillMount(){
   axios({
     method: 'get',
     url: "/api/products/details",
-    params:{filters:{id:this.state.getId}}
+    params:{id:parseInt(this.state.getId)}
   }).then((res)=>{
     res.data.imagePath = [unsplash,floral,fashion,lehenga];
     res.data.size = ['x','xs','xl','l'];
     // JSON.parse(res.data.size)
     this.setState({
+      design_id:res.data.id,
+      total:res.data.discount_price,
       data:res.data,
       selectedImage:res.data.imagePath[0]
     })
@@ -58,68 +67,89 @@ componentWillMount(){
   })
 }
 
-//     addInCart = () =>{
-//       let data = cloneDeep(this.state.data);
-//       data.size = this.state.selectedSize;
-//        localStorage.setItem('cartItems', data);
+ //    addInCart = () =>{
+ //      let data = cloneDeep(this.state.data);
+ //      data.size = this.state.selectedSize;
+ //       localStorage.setItem('cartItems', data);
+ //
+ //       axios({
+ //   method: 'post',
+ //   url: "/api/cart/add",
+ //   data
+ // }).then((res)=>{
+ //        this.setState({
+ //          addedSuccess:true
+ //        })
+ //      },(err)=>{
+ //        this.setState({
+ //          addedSuccess:false
+ //        });
+ //      })
+ //    }
 
-//        axios({
-//    method: 'post',
-//    url: "/api/cart/add",
-//    data
-//  }).then((res)=>{
-//         this.setState({
-//           addedSuccess:true
-//         })
-//       },(err)=>{
-//         this.setState({
-//           addedSuccess:false
-//         });
-//       })
-//     }
 
-createCart = () =>{
+
+createCart = (params) =>{
   axios({
     method:'post',
     url:"/api/cart/add",
-    data: {id:1,user_id:2,created_at:"12-22-2019", updated_at:"2019-12-22"}
+    data:  {id:1,user_id:2,created_at:"12-22-2019", updated_at:"2019-12-22"}
   }).then((res) => {
-    console.log(res);
+    return res.data;
+    },(err) => {
+      console.log(err);
+    });
+}
+
+postLineItem = (params) =>{
+  axios({
+    method:'post',
+    url:"/api/lineItems/add",
+    data: {
+      design_id:this.state.design_id,
+      status:this.state.status,
+      quantity:this.state.quantity,
+      total:this.state.total,
+      discount:this.state.discount,
+      coupon_id:this.state.coupon_id,
+      cart_id:params.id}
+  }).then((res) => {
+    Notification.notifySuccess("Added in Cart");
   },(err) => {
+    Notification.notifyError("Not Added in Cart");
     console.log(err);
   });
 }
 
-postLineItem = () =>{
-  axios({
-    method:'post',
-    url:"/api/lineItems/add",
-    data: {id:1,design_id:101,status:"processing",created_at:"12-22-2019", received_at:"2019-12-22"}
-  }).then((res) => {
-    console.log(res);
-  },(err) => {
-    console.log(err);
-  });
-}
+// addInCart = () =>{
+//   axios({
+//     method:'get',
+//     url:"/api/cart/checkFromId",
+//     queryParams:{filter:{id:2}},
+//   }).then((res)=>{
+//     console.log(res);
+//     if(res.data !== "")
+// }
 
 addInCart = () =>{
   axios({
     method:'get',
     url:"/api/cart/checkFromId",
-    queryParams:{filter:{id:2}},
+    queryParams:{id:2}
   }).then((res)=>{
     console.log(res);
     if(res.data !== "")
     {
-      this.postLineItem();
+      this.postLineItem(res.data);
     }else{
-      this.createCart();
-      this.postLineItem();
-    }
+      let cart = this.createCart();
+      this.postLineItem(cart);
+     }
   },(err)=>{
     console.log(err);
   });
 }
+
 
     sizeChanged = (e) =>{
       this.setState({
@@ -148,7 +178,7 @@ addInCart = () =>{
                             </li>
                             {
                               this.state.data.imagePath.map((o)=>{
-                                return (<li className={this.state.selectedImage === o ? "active" : ""} onClick={this.onImageChnage.bind(this,o)}>
+                                return (<li key={o.id} className={this.state.selectedImage === o ? "active" : ""} onClick={this.onImageChnage.bind(this,o)}>
                                     <a><img alt="gift for me" className="listing-page-side-image" src={o} data-id={o} /></a>
                                 </li>)
                               })
@@ -200,7 +230,7 @@ addInCart = () =>{
                             <table className="table noborder condensed product-cost-table">
                               <tbody>
                                 <tr>
-                                  <td><div class="strikethrough text-grey"><small>₹{this.state.data.price}</small></div></td>
+                                  <td><div className="strikethrough text-grey"><small>₹{this.state.data.price}</small></div></td>
                                 </tr>
                                 <tr>
                                   <td><b className="pricing">₹{this.state.data.discount_price}</b><span className="label-primary text-left ml-1">50% off</span></td>
@@ -211,7 +241,7 @@ addInCart = () =>{
                       </div>
                       <div className="row mb-3">
                         <div className= "col-md-10">
-                            <div><label class="product-field mb-1"><span class="">Select Size</span></label></div>
+                            <div><label className="product-field mb-1"><span className="">Select Size</span></label></div>
                             {/*<div className="size-error">Please select a size</div>*/}
                             <div className="size-buttons">
                             {/*
@@ -226,7 +256,7 @@ addInCart = () =>{
                       <div className="row mt-3">
                         <div className= "col-md-10">
                             <label className="product-field"><span className="">Available Offers:</span></label>
-                            <div clasNazaakatsName="offer-card-container">
+                            <div className="offer-card-container">
                               <div className="offer-card">
                               <div className="offer-card-header mb-3">Buy 2 get 1 free</div>
                               <div className="offer-card-body">
