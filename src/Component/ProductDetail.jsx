@@ -58,25 +58,68 @@ componentWillMount(){
   })
 }
 
-    addInCart = () =>{
-      let data = cloneDeep(this.state.data);
-      data.size = this.state.selectedSize;
-       localStorage.setItem('cartItems', data);
+//     addInCart = () =>{
+//       let data = cloneDeep(this.state.data);
+//       data.size = this.state.selectedSize;
+//        localStorage.setItem('cartItems', data);
 
-       axios({
-   method: 'post',
-   url: "/api/cart/add",
-   data
- }).then((res)=>{
-        this.setState({
-          addedSuccess:true
-        })
-      },(err)=>{
-        this.setState({
-          addedSuccess:false
-        });
-      })
+//        axios({
+//    method: 'post',
+//    url: "/api/cart/add",
+//    data
+//  }).then((res)=>{
+//         this.setState({
+//           addedSuccess:true
+//         })
+//       },(err)=>{
+//         this.setState({
+//           addedSuccess:false
+//         });
+//       })
+//     }
+
+createCart = () =>{
+  axios({
+    method:'post',
+    url:"/api/cart/add",
+    data: {id:1,user_id:2,created_at:"12-22-2019", updated_at:"2019-12-22"}
+  }).then((res) => {
+    console.log(res);
+  },(err) => {
+    console.log(err);
+  });
+}
+
+postLineItem = () =>{
+  axios({
+    method:'post',
+    url:"/api/lineItems/add",
+    data: {id:1,design_id:101,status:"processing",created_at:"12-22-2019", received_at:"2019-12-22"}
+  }).then((res) => {
+    console.log(res);
+  },(err) => {
+    console.log(err);
+  });
+}
+
+addInCart = () =>{
+  axios({
+    method:'get',
+    url:"/api/cart/checkFromId",
+    queryParams:{filter:{id:2}},
+  }).then((res)=>{
+    console.log(res);
+    if(res.data !== "")
+    {
+      this.postLineItem();
+    }else{
+      this.createCart();
+      this.postLineItem();
     }
+  },(err)=>{
+    console.log(err);
+  });
+}
 
     sizeChanged = (e) =>{
       this.setState({

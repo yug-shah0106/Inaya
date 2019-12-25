@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../config/database');
-const cart = require('../models/line_items');
+const cart = require('../models/cart');
 
 router.post('/add',(req,res) => cart.create(
 req.body
@@ -29,5 +29,27 @@ router.get('/',(req,res) => cart.findAll(
   ).then(cart => {
     res.status(200).send(cart);
   }).catch(err => console.log(err)));
+
+router.get('/checkFromId',(req,res) => cart.findOne(
+  {where:res.query && res.query.filter}
+).then(cart => {
+  res.status(200).send(cart);
+}).catch(err => console.log(err)));
+
+router.get('/getItems',(req,res) =>{
+  cart.findOne({
+    where:res.query && res.query.filter
+  }).then((success)=>{
+    lineItems.findOne(
+      {where:{cart_id:success.id}
+    }).then((lineItems)=>{
+      res.status(200).send(lineItems);
+    },(err)=>{
+      console.log(err)
+    })
+  },(error)=>{
+    console.log("Thrown exception while getting cart_id from lineItems");
+  })
+} );
 
 module.exports = router;

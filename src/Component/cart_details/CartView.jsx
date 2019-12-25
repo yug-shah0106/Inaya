@@ -19,35 +19,41 @@ export default class CartView extends React.Component {
   }
 
   componentWillMount(){
-    axios({
-      method: 'get',
-      url: "/api/cart"
-    }).then((res)=>{
-      this.setState({
-        cartItem:res.data
-      })
-    },(error)=>{
-      let res = {};
-      res.data= [{
-        color: "Red",
-description: "",
-design_code: "10AB20",
-designer_id: 12793,
-discount_percent: 15,
-discount_price: 850,
-id: 1,
-price: 999,
-quantity: 2,
-size: "S",
-title: "red plain festival danglers drops",
-weight: 200,
-}];
+//     axios({
+//       method: 'get',
+//       url: "/api/cart"
+//     }).then((res)=>{
+//       this.setState({
+//         cartItem:res.data
+//       })
+//     },(error)=>{
+//       let res = {};
+//       res.data= [{
+//         color: "Red",
+// description: "",
+// design_code: "10AB20",
+// designer_id: 12793,
+// discount_percent: 15,
+// discount_price: 850,
+// id: 1,
+// price: 999,
+// quantity: 2,
+// size: "S",
+// title: "red plain festival danglers drops",
+// weight: 200,
+// }];
 
-this.setState({
-  cartItem:res.data
-})
-      console.log(error);
-    })
+// this.setState({
+//   cartItem:res.data
+// })
+//       console.log(error);
+//     })
+
+axios({
+  method:'get',
+  url:"/api/cart/getItems",
+  queryParams:{filter:{id:2}}
+}).then((res)=>{console.log(res)},(err)=>{console.log(err)})
   }
 
   componentDidMount(){

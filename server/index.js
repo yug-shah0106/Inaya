@@ -24,6 +24,7 @@ app.use('/api/products', require('./routes/product'));
 app.use('/api/cart', require('./routes/cart'));
 app.use('/api/products/sarees', require('./routes/saree'));
 app.use('/api/products/jewellery', require('./routes/jewellery'));
+app.use('/api/lineItems', require('./routes/lineItems'));
 
 const PORT = 3001;
 
