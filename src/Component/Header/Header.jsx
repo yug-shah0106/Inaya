@@ -63,26 +63,26 @@ render(){
           <NavDropdown title={header.label} id="collasible-nav-dropdown" className="hidden-sm-down">
           <div className="navbar-custom-container">
               <div className="dropdown-column dropdown-column-featured-product">
-                <a className="dropdown-featured-product" href="/productListing/saree" title="title" style={{backgroundImage:"image"}}>
+                <Nav.Link className="dropdown-featured-product" href="/productListing/saree" title="title" style={{backgroundImage:"image"}}>
                     <img src="" alt="" Nav/>
                     <div className="dropdown-product-overlay"></div>
                     <div className="dropdown-badge">
                       <span className="dropdown-badge-subheading">Now in stock</span>
                       <span className="dropdown-badge-heading">Bridal Accessories</span>
                     </div>
-                </a>
+                </Nav.Link>
               </div>
               <div className="dropdown-column dropdown-column-products">
               {
                 header.category.map((o)=>{
                   return(<ul key={o.label} className="dropdown-column-category">
                     <li className="dropdown-column-header has-children">
-                      <a href="/productlisting/suits">{o.label}</a>
+                      <Nav.Link href="/productlisting/suits">{o.label}</Nav.Link>
                         <ul>
                           {this.state[o.label] ?
                              this.state[o.label ].map((types)=>{
                             return(<li key={types[o.name]} className="dropdown-link-list-item submenu-item ">
-                              <a href={`#/productListing/${header.name}?${Util.objectToQueryParams({[o.name]:types[o.name]})}`}>{types[o.name]}</a>
+                              <Nav.Link href={`#/productListing/${header.name}?${Util.objectToQueryParams({[o.name]:types[o.name]})}`}>{types[o.name]}</Nav.Link>
                             </li>)
                           }) : null
                         }

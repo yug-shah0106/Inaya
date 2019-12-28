@@ -23,9 +23,9 @@ export default class Rating extends React.Component {
             {this.state.options.map((option, i)=>{
                 const rdbId = "rdb" + option;
                 return(
-                    <span className="col-xs-12">
+                    <span key={rdbId} className="col-xs-12">
                         <label for={rdbId} className="ratings-content-icon">{option}</label>
-                        <input type="radio" name="rating" id={rdbId} value={option} className="ratings-radio-button" 
+                        <input type="radio" name="rating" id={rdbId} value={option} className="ratings-radio-button"
                         onChange={this.handleonClick} checked={this.state.selectedOption == option}></input>
                     </span>
                 )

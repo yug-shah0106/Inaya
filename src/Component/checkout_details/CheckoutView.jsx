@@ -6,17 +6,74 @@ import {
     Accordion,
     Card
 } from "react-bootstrap";
-import { Form, Field } from 'react-final-form'
+import { Form, Field } from 'react-final-form';
+import axios from 'axios';
 
 import checkout from "./checkout.css";
 
+// "id" serial PRIMARY KEY,
+// "number" varchar UNIQUE,
+// "user_id" int,
+// "status" varchar,
+// "created_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
+// "updated_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
+// "confirmed_at" varchar,
+// "dispatched_at" varchar,
+// "app_source" varchar,
+// "pincode" varchar,
+// "street" varchar,
+// "city" varchar,
+// "state" varchar,
+// "country" varchar,
+// "billing_pincode" varchar,
+// "billing_street" varchar,
+// "billing_city" varchar,
+// "billing_state" varchar,
+// "billing_country" varchar,
+// "name" varchar,
+// "email" varchar,
+// "phone" varchar,
+// "weight" float8,
+// "discount" int4,
+// "coupon_id" int,
+// "cart_id" int,
+// "ip_address" varchar,
+// "total" int4,
+// "paid_amount" int4,
+// "pay_type" varchar,
+// "payment_gateway" varchar,
+// "payment_status" varchar,
+// "order_details" hstore
+// );
 
 export default class CheckoutView extends Component {
 
 
-    handleSubmit = () => {
-
+    handleSubmit = (values) => {
+      let params = {
+        user_id: 2,
+        city: values.city,
+        country: values.country,
+        firstName: values.firstName,
+        lastName: values.lastName,
+        pinCode: values.pinCode,
+        state: values.state,
+        street: values.street,
+        pinCode:values.pinCode,
+        phoneNumber:values.number
+      }
+      axios.post('/api/orders/add',params).then((res)=>{
+        console.log(res);
+      },(err)=>{
+        console.log(err);
+      })
+      console.log(values);
     }
+
+    // componentDidMount() {
+    //   this.autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'), {});
+    //   this.autocomplete.addListener("place_changed", this.handlePlaceSelect);
+    // }
 
     render() {
         return (
@@ -108,14 +165,94 @@ export default class CheckoutView extends Component {
                         </Row>
                         <Row>
                           <Col>
-                            <label>Address</label>
+                            <label>Pin Code</label>
                             <div>
-                              <Field name="address">
+                              <Field name="pinCode">
                                 {
                                   ({input, meta}) => (
-                                    <textarea
+                                    <input
                                     {...input}
                                     className="form-control"
+                                    />
+                                  )
+                                }
+                              </Field>
+                            </div>
+                          </Col>
+                          <Col>
+                            <label>Street</label>
+                            <div>
+                              <Field name="street">
+                                {
+                                  ({input, meta}) => (
+                                    <input
+                                    {...input}
+                                    className="form-control"
+                                    />
+                                  )
+                                }
+                              </Field>
+                            </div>
+                          </Col>
+                        </Row>
+                        <Row>
+                          <Col>
+                            <label>City</label>
+                            <div>
+                              <Field name="city">
+                                {
+                                  ({input, meta}) => (
+                                    <input
+                                    {...input}
+                                    className="form-control"
+                                    />
+                                  )
+                                }
+                              </Field>
+                            </div>
+                          </Col>
+                          <Col>
+                            <label>State</label>
+                            <div>
+                              <Field name="state">
+                                {
+                                  ({input, meta}) => (
+                                    <input
+                                    {...input}
+                                    className="form-control"
+                                    />
+                                  )
+                                }
+                              </Field>
+                            </div>
+                          </Col>
+                        </Row>
+                        <Row>
+                          <Col>
+                            <label>Country</label>
+                            <div>
+                              <Field name="country">
+                                {
+                                  ({input, meta}) => (
+                                    <input
+                                    {...input}
+                                    className="form-control"
+                                    />
+                                  )
+                                }
+                              </Field>
+                            </div>
+                          </Col>
+                          <Col>
+                            <label>Country</label>
+                            <div>
+                              <Field name="button"  >
+                                {
+                                  ({button, meta}) => (
+                                    <button
+                                    {...button}
+                                    className="form-control"
+                                    type="Submit"
                                     />
                                   )
                                 }

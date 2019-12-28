@@ -89,16 +89,13 @@ componentWillMount(){
 
 
 
-createCart = (params) =>{
-  axios({
+createCart = async (params) =>{
+  let res = await axios({
     method:'post',
     url:"/api/cart/add",
     data:  {id:1,user_id:2,created_at:"12-22-2019", updated_at:"2019-12-22"}
-  }).then((res) => {
-    return res.data;
-    },(err) => {
-      console.log(err);
-    });
+  });
+  return res.data;
 }
 
 postLineItem = (params) =>{
@@ -131,18 +128,18 @@ postLineItem = (params) =>{
 //     if(res.data !== "")
 // }
 
-addInCart = () =>{
+addInCart = async () =>{
   axios({
     method:'get',
     url:"/api/cart/checkFromId",
     queryParams:{id:2}
-  }).then((res)=>{
+  }).then(async (res)=>{
     console.log(res);
     if(res.data !== "")
     {
       this.postLineItem(res.data);
     }else{
-      let cart = this.createCart();
+      let cart = await this.createCart();
       this.postLineItem(cart);
      }
   },(err)=>{

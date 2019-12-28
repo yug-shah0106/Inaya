@@ -40,7 +40,7 @@ export default class ProductRating extends React.Component {
             rating : this.state.rating,
         }
         axios.put('api/productRating{this.state.rating}', ProductRating)
-        .then(res => 
+        .then(res =>
             console.log(res.data));
     }
 
@@ -69,12 +69,11 @@ export default class ProductRating extends React.Component {
     render(){
         return(
                 <div>
-                    drop
-                    <div className="page-title">
+                  <div className="page-title">
                         Rate The Products
                     </div>
                     <div>
-                        
+
                     </div>
                     <div className="product-list-container">
                         <div className="row">

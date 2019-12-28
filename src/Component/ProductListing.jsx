@@ -1,5 +1,12 @@
 import React from 'react';
 import axios from 'axios';
+import {
+    Badge,
+    Row,
+    Col,
+    Accordion,
+    Card
+} from "react-bootstrap";
 import InputRange from "react-input-range";
 import "react-input-range/lib/css/index.css";
 import Util from './Util/Util.jsx';
@@ -91,11 +98,15 @@ export default class ProductListing extends React.Component {
             <div className="listing-page-container mt-3">
                 <div className="listing-box row">
                     <div className="filter-side hidden-xs col-md-2 zero-padding">
+                    <Accordion defaultActiveKey={0} className="checkout-container">
                         <div className="filter-list">
+
                         {
                           navbarHeader.map((o)=>{
-                            return (<>
-                              <h5>Shop by {o.name}</h5>
+                            return (<Card key={o.id}>
+                            <Accordion.Collapse eventKey={0}>
+                              <Card.Body>
+                              <h5>{o.label}</h5>
                               <ul className="category-selector">
                                 {this.state[o.name] ?
                                   this.state[o.name].map((type)=>{
@@ -105,9 +116,13 @@ export default class ProductListing extends React.Component {
                                 }
                                 <li><a onClick={()=>{this.getCategory()}}>More Clothing</a></li>
                               </ul>
-                              </>)
+                              </Card.Body>
+                            </Accordion.Collapse>
+                            </Card>)
                           })
                         }
+
+
                             <h5>Filter By</h5>
                               <h6>Price</h6>
                             <div className="price-selector">
@@ -149,6 +164,7 @@ export default class ProductListing extends React.Component {
                                 <i className="fa fa-square fa-fw" style={{color:"#000000"}}></i>
                             </div>
                         </div>
+                        </Accordion>
                     </div>
                     <div className="listing-list col-md-10">
                         <div id="listProducts" className="products-container">

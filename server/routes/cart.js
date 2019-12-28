@@ -41,7 +41,7 @@ router.get('/getItems',(req,res) =>{
   cart.findOne({
     where:req.query && req.query.filter
   }).then((success)=>{
-    lineItems.findOne(
+    lineItems.findAll(
       {where:{cart_id:success.id}
     }).then((lineItems)=>{
       res.status(200).send(lineItems);

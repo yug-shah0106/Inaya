@@ -5,13 +5,10 @@ const lineItems = db.define('line_items',{
   designer_order_id:{
     type:Sequelize.INTEGER
   },
-  design_id:{
-    type:Sequelize.INTEGER
-  },
   cart_id:{
     type:Sequelize.INTEGER
   },
-  designer_id:{
+  design_id:{
     type:Sequelize.INTEGER
   },
   status:{
