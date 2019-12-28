@@ -1,0 +1,53 @@
+.page-title
+{
+    color: #fff;
+    background-color: maroon;
+    font-size: 12pt;
+    line-height: 20px;
+    padding:5px;
+    text-align: center;
+}
+
+.product-list-container, .rating-options
+{
+    width:90%;
+    margin:5%;
+}
+
+.product-box
+{
+    margin-bottom: 3rem;
+}
+.product-image
+{
+    min-height:200px;
+    margin:1rem;
+}
+.product-text
+{
+    color:maroon;
+    text-align: center;
+}
+.product-rating-box{
+    align-self: center;
+}
+
+button
+{
+    background-color: maroon;
+    color: #fff;
+    padding: 5px 10px;
+    box-shadow: 2px 2px 2px 2px maroon;
+    border-color:transparent;
+}
+.ratings-content-icon{
+    width: 8%;
+    border: 1px solid maroon;
+    background-color: maroon;
+    color: #fff;
+    text-align: center;
+}
+.ratings-radio-button{
+    height:0px;
+    width:2%;
+}

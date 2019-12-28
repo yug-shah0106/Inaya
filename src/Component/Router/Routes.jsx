@@ -6,6 +6,7 @@ import ProductListing from './../ProductListing.jsx';
 import CartView from "../cart_details/CartView";
 import CheckoutView from "../checkout_details/CheckoutView";
 import Thankyou from "../thankyou_details/Thankyou";
+import ProductRating from "../ProductRatings/ProductRating";
 // import Lisitingpage from './../Listingpage.jsx';
 // import Form from './../Form.jsx';
 
@@ -24,6 +25,7 @@ const Main = () => (
       <Route exact path="/cart" component={CartView} />
       <Route exact path="/checkout" component={CheckoutView} />
       <Route exact path="/thankyou" component={Thankyou} />
+      <Route exact path="/productRating" component={ProductRating} />
     </Switch>
   </main>
 )

@@ -37,3 +37,5 @@ ALTER TABLE "variants" ADD FOREIGN KEY ("design_id") REFERENCES "designs" ("id")
 ALTER TABLE "option_type_values_variants" ADD FOREIGN KEY ("variant_id") REFERENCES "variants" ("id");
 
 ALTER TABLE "option_type_values_variants" ADD FOREIGN KEY ("option_type_value_id") REFERENCES "option_type_values" ("id");
+
+ALTER TABLE "product_ratings" ADD FOREIGN KEY ("id") REFERENCES "designs" ("id");

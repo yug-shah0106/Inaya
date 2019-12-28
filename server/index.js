@@ -25,7 +25,7 @@ app.use('/api/cart', require('./routes/cart'));
 app.use('/api/products/sarees', require('./routes/saree'));
 app.use('/api/products/jewellery', require('./routes/jewellery'));
 app.use('/api/lineItems', require('./routes/lineItems'));
-
+app.use('/api/productRating', require('./routes/productRating'));
 const PORT = 3001;
 
 app.listen(PORT,console.log(`server started at port ${PORT}`));

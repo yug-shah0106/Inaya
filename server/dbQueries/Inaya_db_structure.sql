@@ -197,3 +197,5 @@ CREATE TABLE "option_type_values_variants" (
   "created_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
   "updated_at" timestamptz DEFAULT CURRENT_TIMESTAMP
 );
+
+ create table product_ratings( id integer PRIMARY KEY, rating integer CHECK( rating > 0 AND rating <= 10 ));
