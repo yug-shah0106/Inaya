@@ -63,9 +63,10 @@ export default class ProductListing extends React.Component {
     getDisplayeProduct = () =>{
       let params=Util.queryParamtoObject(this.props.location.search);
       let url = this.getProductFromURL();
+      params.designable_type = url;
       axios({
         method: 'get',
-        url: `/api/products/${url}`,
+        url: `/api/products/listing`,
         params
       }).then((res)=>{
         this.setState({
@@ -102,22 +103,35 @@ export default class ProductListing extends React.Component {
                         <div className="filter-list">
 
                         {
-                          navbarHeader.map((o)=>{
-                            return (<Card key={o.id}>
-                            <Accordion.Collapse eventKey={0}>
-                              <Card.Body>
-                              <h5>{o.label}</h5>
-                              <ul className="category-selector">
-                                {this.state[o.name] ?
-                                  this.state[o.name].map((type)=>{
-                                    return (<li key={type[o.name]} className={this.state.selectedCategory === o.name ? "active" : ""} onClick={this.setCategory.bind(this)}><a>{type[o.name]}</a></li>)
-                                  })
-                                  : null
-                                }
-                                <li><a onClick={()=>{this.getCategory()}}>More Clothing</a></li>
-                              </ul>
-                              </Card.Body>
-                            </Accordion.Collapse>
+                          navbarHeader.map((o,i)=>{
+                            return (
+                              <Card key={o.id}>
+                              <Accordion.Toggle as={Card.Header} eventKey={i}>
+                                <Row>
+                                  <Col sm={8}>
+                                    <h5>{o.label}</h5>
+                                  </Col>
+                                  <Col sm={4}>
+                                    <span className=""><i className="fa fa-angle-down m-t-md"></i></span>
+                                  </Col>
+                                </Row>
+                              </Accordion.Toggle>
+                                <Accordion.Collapse eventKey={i}>
+                                  <Card.Body>
+                                    <div>
+                                      <ul className="category-selector">
+                                        {this.state[o.name] ?
+                                          this.state[o.name].map((type)=>{
+                                            return (<li key={type[o.name]} className={this.state.selectedCategory === o.name ? "active" : ""} onClick={this.setCategory.bind(this)}><a>{type[o.name]}</a></li>)
+                                          })
+                                          : null
+                                        }
+                                          <li>
+                                          <a onClick={()=>{this.getCategory()}}>More Clothing</a></li>
+                                      </ul>
+                                    </div>
+                                  </Card.Body>
+                                </Accordion.Collapse>
                             </Card>)
                           })
                         }

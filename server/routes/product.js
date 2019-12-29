@@ -41,4 +41,19 @@ router.get('/details',(req,res) => { product.findOne({
 }
 );
 
+router.get('/listing',(req,res) => {
+  product.findOne({
+    include:[{
+  model: req.query.designable_type,
+  through: { where: req.query}
+}]
+  }).then( specificProduct =>{
+    res.status(200).send(specificProduct);
+  })
+.catch( error =>{
+  console.log(error);
+  res.status(400).send(error)
+});
+});
+
 module.exports = router;
