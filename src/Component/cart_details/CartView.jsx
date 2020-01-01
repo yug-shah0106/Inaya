@@ -9,6 +9,7 @@ import {
 import { cloneDeep } from "lodash";
 import axios from 'axios';
 import Select from 'react-select';
+import Notification from '../Util/Notification.jsx';
 
 export default class CartView extends React.Component {
   constructor(props){
@@ -49,26 +50,23 @@ export default class CartView extends React.Component {
 //       console.log(error);
 //     })
 
-axios({
-  method:'get',
-  url:"/api/cart/getItems",
-  queryParams:{filter:{id:2}}
-}).then((res)=>{
-  console.log(res.data);
-  res.data.map((o)=>{
-    this.state.designIds.push(o.design_id);
-  })
-},(err)=>{console.log(err)});
+  this.getAllLineItem();
+  }
 
-axios({
-  method:'get',
-  url:"/api/products",
-  params:{filters:{id:this.state.designIds}}
-}).then((res)=>{this.setState({
-  cartItem:res.data
-})
-},(err)=>{console.log(err)});
-
+  getAllLineItem = () =>{
+    this.state.designIds = [];
+    axios({
+      method:'get',
+      url:"/api/cart/getItems",
+      params:{filter:{user_id:2}}
+    }).then((res)=>{
+      console.log(res.data);
+      this.state.cartId = res.data[0].cart_id;
+      res.data.map((o)=>{
+        this.state.designIds.push(o.design_id);
+      })
+      this.getAllCartProduct();
+    },(err)=>{console.log(err)});
   }
 
 //   componentDidMount(){
@@ -96,6 +94,17 @@ axios({
 
   handleRemoveQty = (obj) =>{
 
+  }
+
+  getAllCartProduct = () =>{
+    axios({
+      method:'get',
+      url:"/api/products",
+      params:{filters:{id:this.state.designIds}}
+    }).then((res)=>{this.setState({
+      cartItem:res.data
+    })
+    },(err)=>{console.log(err)});
   }
   //  handleAddQty = (obj) => {
   //   obj.qty += 1;
@@ -126,6 +135,17 @@ axios({
     let discount = this.getDiscountPrice();
     let payableValue = totalPrice - discount;
     return payableValue;
+  }
+
+  removeDesingFromCart = (id) =>{
+    let body = {filter :{cart_id:this.state.cartId,
+      design_id:id}};
+    axios.delete('/api/cart/delete',{data:body}).then(()=>{
+        Notification.notifyError("Removed From Cart");
+          this.getAllLineItem();
+      },()=>{
+        Notification.notifyError("Something went wrong");
+      })
   }
 
   render(){
@@ -167,13 +187,12 @@ axios({
                                   <i className="icon_rupee">
                                   </i>
                                   &nbsp;{
-                                    o.discount_price + " ₹"
-                                  }
+                                    (o.discount_price || 0) + " ₹"}
                                 </span>
                                 <span className="cartProductMrp">
                                   <i className="icon_rupee">
                                   </i>
-                                  {o.price + " ₹"}
+                                  {(o.price || 0) + " ₹" }
                                 </span>
                               </div>
                               <div className="cartProductSize">
@@ -195,7 +214,8 @@ axios({
                             </div>
                             <div className="cartBottomAction">
                               <div className="cartProductActions">
-                                <span id="testRemoveCart" className="removeOnly" style={{"cursor":" pointer"}}> Remove
+                                <span id="testRemoveCart" className="removeOnly" style={{"cursor":" pointer"}}>
+                                <button onClick={this.removeDesingFromCart.bind(this,o.id)}> Remove </button>
                                 </span>
                               </div>
                             </div>

@@ -11,11 +11,12 @@ req.body
 })
 .catch(err => console.log(err)));
 
-router.delete('/delete',(req,res) => cart.destroy(
-{where:req.body && req.body.filter}
-).then(cart => {
-  res.status(200).send(cart);
-}).catch(err => console.log(err)));
+router.delete('/delete',(req,res) =>{
+  console.log(req.body);
+  lineItems.destroy({where:req.body && req.body.filter}).then(() => {
+  res.status(200).send();
+}).catch(err => console.log(err))
+});
 
 router.put('/update',(req,res) => cart.update(res.body.data,{
     where: req.body && req.body.filter
@@ -38,11 +39,15 @@ router.get('/checkFromId',(req,res) => cart.findOne(
 }).catch(err => console.log(err)));
 
 router.get('/getItems',(req,res) =>{
+  let filters = JSON.parse(req.query.filter);
   cart.findOne({
-    where:req.query && req.query.filter
+    where:filters
   }).then((success)=>{
+    let cart_id = success.get({
+        plain: true // Important
+      });
     lineItems.findAll(
-      {where:{cart_id:success.id}
+      {where:{cart_id:cart_id.id}
     }).then((lineItems)=>{
       res.status(200).send(lineItems);
     },(err)=>{

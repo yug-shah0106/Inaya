@@ -10,11 +10,18 @@ import {
 import InputRange from "react-input-range";
 import "react-input-range/lib/css/index.css";
 import Util from './Util/Util.jsx';
+import Notification from './Util/Notification.jsx';
 
-const navbarHeader = [{label:"Saree Type",name:"type"},
+const navbarHeader = [{label:"Saree",name:"saree",url:'/api/products/sarees/getOptions',category:[
+  {label:"Saree Type",name:"type"},
 {label:"Ocassion",name:"ocassion"},
 {label:"Ornamentation",name:"ornamentation"},
-{label:"Saree Fabric",name:"saree_fabric"}];
+{label:"Saree Fabric",name:"saree_fabric"}]}  ,
+{label:"Jewellery",name:"jewellery",url:'/api/products/jewellery/getOptions',category:[
+  {label:"Jewellery Type",name:"type"},
+{label:"ocassion",name:"ocassion"},
+{label:"Base Metal",name:"base_metal"},
+{label:"Trends",name:"trends"}]}];
 
 
 export default class ProductListing extends React.Component {
@@ -28,7 +35,8 @@ export default class ProductListing extends React.Component {
         max: 9000,
       },
       maxPrice:10000,
-      minPrice:400
+      minPrice:400,
+      url:this.getProductFromURL()
         }
     }
 
@@ -37,21 +45,85 @@ export default class ProductListing extends React.Component {
     }
 
     async componentDidMount(){
-      await navbarHeader.map(async(o)=>{
-    try{
-      let res = await axios.get('/api/products/sarees/getOptions',{
-          params:{
-            column:o.name
+      await navbarHeader.map(async(header)=>{
+        if(this.state.url === header.name)
+        {
+          header.category.map(async(o) =>{
+            try{
+              let res = await axios.get(`/api/products/${this.state.url}/getOptions`,{
+                  params:{
+                    column:o.name
+                }
+              });
+              this.state[o.name] = res.data;
+              this.setState(this.state);
+              this.forceUpdate();
+            }
+            catch(err){
+              console.log(err);
+            }
+          });
         }
-      });
-      this.state[o.name] = res.data;
-      this.setState(this.state);
-      this.forceUpdate();
-    }
-    catch(err){
-      console.log(err);
-    }
     });
+    }
+
+    createCart = async (params) =>{
+      let res = await axios({
+        method:'post',
+        url:"/api/cart/add",
+        data:  {id:1,user_id:2,created_at:"12-22-2019", updated_at:"2019-12-22"}
+      });
+      return res.data;
+    }
+
+    postLineItem = (params,o) =>{
+      console.log(o);
+      axios({
+        method:'post',
+        url:"/api/lineItems/add",
+        data: {
+          design_id:o.id,
+          status:o.status,
+          quantity:1,
+          total:o.price,
+          discount:o.discount_price,
+          coupon_id:null,
+          cart_id:params.id}
+      }).then((res) => {
+        Notification.notifySuccess("Added in Cart");
+      },(err) => {
+        Notification.notifyError("Not Added in Cart");
+        console.log(err);
+      });
+    }
+
+    // addInCart = () =>{
+    //   axios({
+    //     method:'get',
+    //     url:"/api/cart/checkFromId",
+    //     queryParams:{filter:{id:2}},
+    //   }).then((res)=>{
+    //     console.log(res);
+    //     if(res.data !== "")
+    // }
+
+    addInCart = async (o) =>{
+      axios({
+        method:'get',
+        url:"/api/cart/checkFromId",
+        queryParams:{id:2}
+      }).then(async (res)=>{
+        console.log(res);
+        if(res.data !== "")
+        {
+          this.postLineItem(res.data,o);
+        }else{
+          let cart = await this.createCart();
+          this.postLineItem(cart,o);
+         }
+      },(err)=>{
+        console.log(err);
+      });
     }
 
     getProductFromURL = () =>{
@@ -61,9 +133,14 @@ export default class ProductListing extends React.Component {
 
     getAllParams = () =>{
       let params = {};
-      navbarHeader.map((o)=>{
+      navbarHeader.map((header)=>{
+        if(this.state.url === header.name)
+        {
+          header.category.map((o) =>{
         params[o.name] = this.state["selected"+o.name];
-      });
+        });
+      }
+    });
       return params;
     }
 
@@ -115,40 +192,46 @@ export default class ProductListing extends React.Component {
                         <div className="filter-list">
 
                         {
-                          navbarHeader.map((o,i)=>{
-                            return (
-                              <Card key={o.id}>
-                              <Accordion.Toggle as={Card.Header} eventKey={i}>
-                                <Row>
-                                  <Col sm={8}>
-                                    <h5>{o.label}</h5>
-                                  </Col>
-                                  <Col sm={4}>
-                                    <span className=""><i className="fa fa-angle-down m-t-md"></i></span>
-                                  </Col>
-                                </Row>
-                              </Accordion.Toggle>
-                                <Accordion.Collapse eventKey={i}>
-                                  <Card.Body>
-                                    <div>
-                                      <ul className="category-selector">
-                                        {this.state[o.name] ?
-                                          this.state[o.name].map((type)=>{
-                                            return (<li key={type[o.name]} className={this.state.selectedCategory === o.name ? "active" : ""} onClick={this.setCategory.bind(this,o.name)}><a>{type[o.name]}</a></li>)
-                                          })
-                                          : null
-                                        }
-                                          <li>
-                                          <a onClick={()=>{this.getCategory()}}>More Clothing</a></li>
-                                      </ul>
-                                    </div>
-                                  </Card.Body>
-                                </Accordion.Collapse>
-                            </Card>)
+                          navbarHeader.map((header)=>{
+                            return (<>
+                            {header.name === this.state.url ?
+                              <>
+                              {header.category.map((o,i)=>{
+                              return (
+                                <Card key={o.id}>
+                                <Accordion.Toggle as={Card.Header} eventKey={i}>
+                                  <Row>
+                                    <Col sm={8}>
+                                      <h5>{o.label}</h5>
+                                    </Col>
+                                    <Col sm={4}>
+                                      <span className=""><i className="fa fa-angle-down m-t-md"></i></span>
+                                    </Col>
+                                  </Row>
+                                </Accordion.Toggle>
+                                  <Accordion.Collapse eventKey={i}>
+                                    <Card.Body>
+                                      <div>
+                                        <ul className="category-selector">
+                                          {this.state[o.name] ?
+                                            this.state[o.name].map((type)=>{
+                                              return (<li key={type[o.name]} className={this.state.selectedCategory === o.name ? "active" : ""} onClick={this.setCategory.bind(this,o.name)}><a>{type[o.name]}</a></li>)
+                                            })
+                                            : null
+                                          }
+                                            <li>
+                                            <a onClick={()=>{this.getCategory()}}>More Clothing</a></li>
+                                        </ul>
+                                      </div>
+                                    </Card.Body>
+                                  </Accordion.Collapse>
+                              </Card>)
+                            })
+                          }
+                          </> : null}
+                            </>)
                           })
                         }
-
-
                             <h5>Filter By</h5>
                               <h6>Price</h6>
                             <div className="price-selector">
@@ -242,7 +325,7 @@ export default class ProductListing extends React.Component {
                                                 </a>
                                                 <div className="hover-buttons">
                                                     <a className="plp-wishlist btn btn-default pull-left btn-sm">Wishlist</a>
-                                                    <a className="plp-atc btn btn-primary pull-right btn-sm">Add to Cart</a>
+                                                    <a className="plp-atc btn btn-primary pull-right btn-sm" onClick={()=>{this.addInCart(o)}}>Add to Cart</a>
                                                 </div>
                                                 </div>
                                                 <div className="product-desc">
