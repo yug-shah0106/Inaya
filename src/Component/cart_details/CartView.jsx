@@ -14,7 +14,7 @@ export default class CartView extends React.Component {
   constructor(props){
     super(props);
     this.state={
-
+      designIds:[]
     }
   }
 
@@ -53,27 +53,42 @@ axios({
   method:'get',
   url:"/api/cart/getItems",
   queryParams:{filter:{id:2}}
-}).then((res)=>{console.log(res)},(err)=>{console.log(err)})
+}).then((res)=>{
+  console.log(res.data);
+  res.data.map((o)=>{
+    this.state.designIds.push(o.design_id);
+  })
+},(err)=>{console.log(err)});
+
+axios({
+  method:'get',
+  url:"/api/products",
+  params:{filters:{id:this.state.designIds}}
+}).then((res)=>{this.setState({
+  cartItem:res.data
+})
+},(err)=>{console.log(err)});
+
   }
 
-  componentDidMount(){
-    this.setState({
-      cartItem:[{
-        color: "Red",
-description: "",
-design_code: "10AB20",
-designer_id: 12793,
-discount_percent: 15,
-discount_price: 850,
-id: 1,
-price: 999,
-quantity: 2,
-size: "S",
-title: "red plain festival danglers drops",
-weight: 200,
-}]
-    })
-  }
+//   componentDidMount(){
+//     this.setState({
+//       cartItem:[{
+//         color: "Red",
+// description: "",
+// design_code: "10AB20",
+// designer_id: 12793,
+// discount_percent: 15,
+// discount_price: 850,
+// id: 1,
+// price: 999,
+// quantity: 2,
+// size: "S",
+// title: "red plain festival danglers drops",
+// weight: 200,
+// }]
+//     })
+//   }
 
   handleAddQty = (obj) =>{
 
@@ -139,12 +154,12 @@ weight: 200,
                           <div className="cartProductInner">
                             <div className="cartProductImg">
                               <a aria-current="false" href={`/product/${o.id}`}>
-                                <img src="o.path" title={o.title} alt={o.title}/>
+                                <img src={o.path} title={o.name} alt={o.name}/>
                               </a>
                             </div>
                             <div className="cartProductRight">
                               <span>
-                                <a className="cartProductName" aria-current="false" href={`/product/${o.id}`}>{o.title}
+                                <a className="cartProductName" aria-current="false" href={`/product/${o.id}`}>{o.name}
                                 </a>
                               </span>
                               <div className="productPriceDetails clearfix">

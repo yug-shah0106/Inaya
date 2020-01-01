@@ -9,7 +9,7 @@ import Util from '../Util/Util.jsx';
 // The Header creates links that can be used to navigate
 // between routes.
 
-const headers = [{label:"Saree",name:"sarees",url:'/api/products/sarees/getOptions',category:[
+const headers = [{label:"Saree",name:"saree",url:'/api/products/sarees/getOptions',category:[
   {label:"Saree Type",name:"type"},
 {label:"Ocassion",name:"ocassion"},
 {label:"Ornamentation",name:"ornamentation"},

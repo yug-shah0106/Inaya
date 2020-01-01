@@ -9,17 +9,19 @@ const jewellery = require('../models/jewellery');
 product.belongsTo(sarees, {targetKey:'id',foreignKey: 'id'});
 product.belongsTo(jewellery, {targetKey:'id',foreignKey: 'id'});
 
-router.get('/',(req,res) => product.findAll(
-  {
-    where: (res.query && res.query.filters) || {},
-    limit: (res.query && res.query.limit) || 40,
-    page: (res.query && res.query.page) || 0
+router.get('/',(req,res) => {
+let filters = JSON.parse(req.query.filters);
+  product.findAll({
+    where: (filters) || {},
+    limit: (req.query && req.query.limit) || 40,
+    page: (req.query && req.query.page) || 0
   }
 )
 .then( products => {
   res.status(200).send(products)
 })
-.catch(err => console.log(err)));
+.catch(err => console.log(err))
+});
 
 router.get('/details',(req,res) => { product.findOne({
   where: req.query
@@ -42,11 +44,15 @@ router.get('/details',(req,res) => { product.findOne({
 );
 
 router.get('/listing',(req,res) => {
-  product.findOne({
+let db = Util.getProductTable(req.query);
+let filter = JSON.parse(req.query.filters);
+  product.findAll({
     include:[{
-  model: req.query.designable_type,
-  through: { where: req.query}
-}]
+        model: db,
+        where : filter,
+        required:true
+      }],
+      required:true
   }).then( specificProduct =>{
     res.status(200).send(specificProduct);
   })
@@ -55,5 +61,6 @@ router.get('/listing',(req,res) => {
   res.status(400).send(error)
 });
 });
+
 
 module.exports = router;

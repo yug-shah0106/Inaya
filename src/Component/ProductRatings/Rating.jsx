@@ -10,12 +10,14 @@ export default class Rating extends React.Component {
             options:[1,2,3,4,5,6,7,8,9,10],
         }
     }
-    handleonClick=(e)=>{
+    handleOnClick=(e)=>{
         //e.preventDefault();
         this.setState({
-            selectedOption:e.target.value,
+            selectedOption:e.target.value
+        },()=>{
+            console.log(this.state.selectedOption);
         })
-        console.log(e.target.value);
+        console.log(this.state.selectedOption);
     }
     render(){
         return(
@@ -25,8 +27,8 @@ export default class Rating extends React.Component {
                 return(
                     <span key={rdbId} className="col-xs-12">
                         <label for={rdbId} className="ratings-content-icon">{option}</label>
-                        <input type="radio" name="rating" id={rdbId} value={option} className="ratings-radio-button"
-                        onChange={this.handleonClick} checked={this.state.selectedOption == option}></input>
+                        <input type="radio" name="rating" value={option} className="ratings-radio-button"
+                        onChange={this.handleOnClick} checked={this.state.selectedOption == option}></input>
                     </span>
                 )
             })}

@@ -249,18 +249,11 @@ h1 {
     font-size: 1.5em;
     font-weight: 900;
     text-transform: uppercase;
-    color: #666;
     margin: 15px auto;
     width: 500px;
     height: 30px;
 }
 
-h5{
-  color: #666;
-}
-h6{
-  color: #666;
-}
 
 .container {
     width: 96%;
@@ -1491,7 +1484,6 @@ input.light-grey-bg {
 
 .box-2 {
     width: calc(100% - 50px);
-    font-family: Montserrat-Regular;
     font-size: 12px;
     color: rgb(45, 45, 45);
 }
@@ -1517,7 +1509,6 @@ input.light-grey-bg {
     border-color: rgb(111, 186, 30);
     background-color: rgb(255, 255, 255);
     color: rgb(45, 45, 45);
-    font-family: Montserrat-Regular;
     padding: 5px 15px;
 }
 
@@ -1550,7 +1541,6 @@ input.light-grey-bg {
     border-radius: 4px;
     background-color: rgb(255, 255, 255);
     font-size: 12px;
-    font-family: Montserrat-Bold;
     letter-spacing: 0.5px;
     font-weight: bold;
     color: rgb(81, 204, 204);
@@ -1561,7 +1551,6 @@ input.light-grey-bg {
     width: 100%;
     margin-bottom: 0px;
     font-size: 12px;
-    font-family: Montserrat;
     color: rgb(0, 0, 0);
     background-color: rgb(255, 255, 255);
     float: left;
@@ -1588,7 +1577,6 @@ input.light-grey-bg {
 }
 
 .box-11 {
-    font-family: Montserrat-Bold;
     font-size: 14px;
     font-weight: bold;
     color: rgb(69, 69, 69);
@@ -1609,14 +1597,12 @@ input.light-grey-bg {
 }
 
 .box-13 {
-    font-family: Montserrat-Regular;
     font-size: 12px;
     color: rgb(69, 69, 69);
     float: left;
 }
 
 .box-14 {
-    font-family: Montserrat-Regular;
     font-size: 12px;
     color: rgb(69, 69, 69);
     float: right;
@@ -1636,14 +1622,12 @@ input.light-grey-bg {
 }
 
 .box-16 {
-    font-family: Montserrat-Regular;
     font-size: 12px;
     color: rgb(69, 69, 69);
     float: left;
 }
 
 .box-17 {
-    font-family: Montserrat-Bold;
     font-size: 12px;
     font-weight: bold;
     color: rgb(111, 186, 49);
@@ -1664,11 +1648,9 @@ input.light-grey-bg {
 }
 
 .box-19 {
-    font-family: Montserrat-Regular;
     font-size: 12px;
     color: rgb(69, 69, 69);
     float: left;
-    font-family: Montserrat-Bold;
     font-size: 12px;
     font-weight: bold;
     color: rgb(111, 186, 49);
@@ -1676,7 +1658,6 @@ input.light-grey-bg {
 }
 
 .box-20 {
-    font-family: Montserrat-Bold;
     font-size: 12px;
     font-weight: bold;
     color: rgb(111, 186, 49);
@@ -1697,7 +1678,6 @@ input.light-grey-bg {
 }
 
 .box-22 {
-    font-family: Montserrat-Bold;
     font-size: 12px;
     font-weight: bold;
     color: rgb(69, 69, 69);
@@ -1705,7 +1685,6 @@ input.light-grey-bg {
 }
 
 .box-23 {
-    font-family: Montserrat-Bold;
     font-size: 12px;
     font-weight: bold;
     color: rgb(69, 69, 69);
@@ -1714,7 +1693,6 @@ input.light-grey-bg {
 
 .box-24 {
     width: 100%;
-    font-family: Montserrat-Bold;
     font-size: 12px;
     background-color: rgb(255, 255, 255);
     border-left: 1px solid rgb(234, 234, 234);
@@ -1743,7 +1721,6 @@ input.light-grey-bg {
 
 .box-26 {
     color: rgb(24, 24, 24);
-    font-family: Montserrat-Bold;
     font-size: 14px;
     font-weight: bold;
     float: left;
@@ -1751,7 +1728,6 @@ input.light-grey-bg {
 
 .box-27 {
     color: rgb(24, 24, 24);
-    font-family: Montserrat-Bold;
     font-size: 14px;
     font-weight: bold;
     float: right;
@@ -1803,7 +1779,6 @@ input.light-grey-bg {
 
 .qty {
     font-size: 14px;
-    font-family: montserrat-regular, sans-serif;
     color: #181818;
     padding-left: 5px;
 }
@@ -1832,7 +1807,6 @@ input.light-grey-bg {
 
 .cartProductName {
     display: block;
-    font-family: montserrat-regular, sans-serif;
     color: #000;
     text-transform: capitalize;
     margin-bottom: 8px;
@@ -1844,9 +1818,6 @@ input.light-grey-bg {
     margin-bottom: 16px;
 }
 
-.cartProductPrice {
-    font-family: montserrat, sans-serif;
-}
 
 .productPriceDetails span {
     margin-right: 15px;
@@ -1862,7 +1833,6 @@ input.light-grey-bg {
     margin-right: 8px;
     line-height: 18px;
     color: #2d2d2d;
-    font-family: montserrat-regular, sans-serif;
     padding-bottom: 7px;
 }
 
@@ -1877,7 +1847,6 @@ input.light-grey-bg {
 
 [class*=" icon_"],
 [class*=icon_] {
-    font-family: icomoon !important;
     speak: none;
     font-style: normal;
     font-weight: 400;
@@ -1915,7 +1884,6 @@ input.light-grey-bg {
     margin-right: 8px;
     line-height: 18px;
     color: #2d2d2d;
-    font-family: montserrat-regular, sans-serif;
     padding-bottom: 7px;
 }
 
@@ -1935,13 +1903,9 @@ input.light-grey-bg {
     float: left;
     margin-right: 16px;
     font-size: 12px;
-    font-family: montserrat-regular, sans-serif;
     padding: 0;
 }
 
-.cartProductSize .cartSizeQtyHolder b {
-    font-family: montserrat-bold, sans-serif;
-}
 
 cartProductSize .cartSizeQtyHolder .icon_down {
     vertical-align: middle;
@@ -1951,7 +1915,6 @@ cartProductSize .cartSizeQtyHolder .icon_down {
 
 [class*=" icon_"],
 [class*=icon_] {
-    font-family: icomoon !important;
     speak: none;
     font-style: normal;
     font-weight: 400;
@@ -1969,7 +1932,6 @@ cartProductSize .cartSizeQtyHolder .icon_down {
     float: left;
     margin-right: 16px;
     font-size: 12px;
-    font-family: montserrat-regular, sans-serif;
     padding: 0;
 }
 
@@ -1980,7 +1942,6 @@ cartProductSize .cartSizeQtyHolder .icon_down {
 .cartErrorAction {
     color: #db3236;
     font-size: 12px;
-    font-family: montserrat-regular, sans-serif;
     line-height: 13px;
     padding-bottom: 6px;
     clear: both;
@@ -2009,7 +1970,6 @@ cartProductSize .cartSizeQtyHolder .icon_down {
 @media only screen and (min-width: 769px) {
     .cartBottomAction span {
         font-size: 10px;
-        font-family: montserrat, sans-serif;
         color: #464646;
         text-transform: uppercase;
         display: inline-block;
@@ -2144,7 +2104,6 @@ select {
 
 .membershipPriceInner ul li .planPackage h4 {
     font-size: 13px;
-    font-family: montserrat, sans-serif;
     line-height: 15px;
     color: #fec226;
 }
@@ -2160,7 +2119,6 @@ select {
 
 .membershipPriceBox p {
     font-size: 11px;
-    font-family: montserrat, sans-serif;
     color: #fff;
     line-height: 15px;
 }

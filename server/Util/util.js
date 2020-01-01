@@ -7,11 +7,11 @@ const Util = {
     switch(data.designable_type)
     {
       case "saree":
-      db = sarees;
+      return sarees;
       break;
 
       case "Jewellery":
-      db = jewellery;
+      return jewellery;
       break;
 
       default:

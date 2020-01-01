@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import ProductRatingPage from "./ProductRatingPage.css";
-import Rating from "./Rating";
+import Rating from "./Rating.jsx";
 
 export default class ProductRating extends React.Component {
     constructor(props){
@@ -85,7 +85,7 @@ export default class ProductRating extends React.Component {
                                         <div className="product-text">
                                             <h3>{product.type}</h3>
                                         </div>
-                                        <Rating></Rating>
+                                        <Rating key={product.id}></Rating>
                                     </div>
                                 </div>
                             )

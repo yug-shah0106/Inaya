@@ -11,11 +11,10 @@ import InputRange from "react-input-range";
 import "react-input-range/lib/css/index.css";
 import Util from './Util/Util.jsx';
 
-const navbarHeader = [{label:"Saree Fabric",name:"saree_fabric"},
-{label:"Pattern",name:"print_or_pattern_type"},
-{label:"Blouse Color",name:"blouse_color"},
-{label:"Blouse Fabric",name:"blouse_fabric"},
-{label:"Saree Color",name:"saree_color"}];
+const navbarHeader = [{label:"Saree Type",name:"type"},
+{label:"Ocassion",name:"ocassion"},
+{label:"Ornamentation",name:"ornamentation"},
+{label:"Saree Fabric",name:"saree_fabric"}];
 
 
 export default class ProductListing extends React.Component {
@@ -60,8 +59,19 @@ export default class ProductListing extends React.Component {
       return url[url.length-1];
     }
 
+    getAllParams = () =>{
+      let params = {};
+      navbarHeader.map((o)=>{
+        params[o.name] = this.state["selected"+o.name];
+      });
+      return params;
+    }
+
     getDisplayeProduct = () =>{
-      let params=Util.queryParamtoObject(this.props.location.search);
+      let params={};
+      params.filters = Util.queryParamtoObject(this.props.location.search);
+      console.log(this.getAllParams());
+      Object.assign(params.filters,this.getAllParams());
       let url = this.getProductFromURL();
       params.designable_type = url;
       axios({
@@ -77,10 +87,12 @@ export default class ProductListing extends React.Component {
     }
 
 
-    setCategory = (e) =>{
+    setCategory = (categoryName,e) =>{
       this.setState({
-        selectedCategory:e.target.text
-      })
+        ["selected" + categoryName]:e.target.text
+      },()=>{
+        this.getDisplayeProduct();
+      });
     }
 
     onRangeChanged = (value) =>{
@@ -122,7 +134,7 @@ export default class ProductListing extends React.Component {
                                       <ul className="category-selector">
                                         {this.state[o.name] ?
                                           this.state[o.name].map((type)=>{
-                                            return (<li key={type[o.name]} className={this.state.selectedCategory === o.name ? "active" : ""} onClick={this.setCategory.bind(this)}><a>{type[o.name]}</a></li>)
+                                            return (<li key={type[o.name]} className={this.state.selectedCategory === o.name ? "active" : ""} onClick={this.setCategory.bind(this,o.name)}><a>{type[o.name]}</a></li>)
                                           })
                                           : null
                                         }
@@ -234,10 +246,10 @@ export default class ProductListing extends React.Component {
                                                 </div>
                                                 </div>
                                                 <div className="product-desc">
-                                                    <h5>{o.title}</h5>
+                                                    <h5>{o.name}</h5>
                                                     <div className="small m-t-sm">
-                                                        <div className="strikethrough text-grey">₹{o.price}</div>
-                                                        <b className="pricing">₹{o.discount_price}</b><span className="label-primary text-left ml-1">50% off</span>
+                                                        <div className="strikethrough text-grey">₹{o.price || 0}</div>
+                                                        <b className="pricing">₹{o.discount_price || 0}</b><span className="label-primary text-left ml-1">{Util.calculatePercent(o.price,o.discount_price)}  </span>
                                                     </div>
                                                 </div>
                                             </div>

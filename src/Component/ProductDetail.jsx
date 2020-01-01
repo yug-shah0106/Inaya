@@ -41,28 +41,6 @@ componentWillMount(){
       selectedImage:res.data.imagePath[0]
     })
   },(err)=>{
-    let res = {};
-    res.data =
-    {color: "Red",
-      coupon_id: 2,
-      description: "",
-      design_code: "10AB20",
-      designer_id: 12793,
-      discount_percent: 15,
-      discount_price: 850,
-      id: 1,
-      price: 999,
-      quantity: 2,
-      sell_count: 0,
-      size: '{"size":["S","L","XL"]}',
-      title: "red plain festival danglers drops",
-      weight: 200};
-      res.data.imagePath = [unsplash,floral,fashion,lehenga];
-      res.data.size = JSON.parse(res.data.size);
-      this.setState({
-        data:res.data,
-        selectedImage:res.data.imagePath[0]
-      })
     console.log(err);
   })
 }
@@ -217,7 +195,7 @@ addInCart = async () =>{
                       <div className="row">
                           <div className="col-md-12">
                               <h1 className="product-heading">
-                              {this.state.data.title}
+                              {this.state.data.name}
                               </h1>
                               <hr />
                           </div>
@@ -227,10 +205,10 @@ addInCart = async () =>{
                             <table className="table noborder condensed product-cost-table">
                               <tbody>
                                 <tr>
-                                  <td><div className="strikethrough text-grey"><small>₹{this.state.data.price}</small></div></td>
+                                  <td><div className="strikethrough text-grey"><small>₹{this.state.data.price || 0}</small></div></td>
                                 </tr>
                                 <tr>
-                                  <td><b className="pricing">₹{this.state.data.discount_price}</b><span className="label-primary text-left ml-1">50% off</span></td>
+                                  <td><b className="pricing">₹{this.state.data.discount_price || 0}</b><span className="label-primary text-left ml-1">{Util.calculatePercent(this.state.data.price,this.state.data.discount_price)}</span></td>
                                 </tr>
                               </tbody>
                             </table>
