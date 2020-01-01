@@ -1,5 +1,5 @@
-/*Possible font for later
-@font-face {
+Possible font for later
+/*@font-face {
     font-family: AkzidenzGrotesk;
     src: url(styles/fonts/AkzidenzGrotesk-Medium.woff);
 }*/
@@ -2283,4 +2283,44 @@ border:2px solid black;
 }
 .red{
   color:"red" !important;
+}
+
+.thank-you-heading {
+    margin: 0;
+    margin-bottom: 5px;
+    width: 100%;
+    font-weight: 400;
+    text-transform: inherit;
+}
+
+.thank-you-subheading {
+    margin-bottom: 20px;
+}
+
+.thank-you-box{
+    padding: 15px;
+    border-color: #adb5bd;
+}
+
+.visible-xs {
+    display: none;
+}
+
+@media (max-width:750px){
+    .visible-xs {
+        display: block;
+    }    
+}
+
+.thank-you-box p {
+    font-size: 1em;
+    color: #666;
+}
+
+.thank-you-box h5 {
+    font-size: 18px;
+}
+
+.thank-you-box .review{
+    font-size: 85%;
 }
