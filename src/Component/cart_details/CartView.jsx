@@ -117,6 +117,7 @@ export default class CartView extends React.Component {
   //     setCartItem(cloneDeep(cartItem));
   //   }
   // }
+  
 
   redirectCheckout = () =>{
     this.props.history.push("/checkout");
