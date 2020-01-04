@@ -148,7 +148,7 @@ export default class ProductListing extends React.Component {
       let params={};
       params.filters = Util.queryParamtoObject(this.props.location.search);
       console.log(this.getAllParams());
-      Object.assign(params.filters,this.getAllParams());
+      params.filters = Object.assign(params.filters,this.getAllParams());//,{"price":{$Between:[this.state.rangeValue.min,this.state.rangeValue.max]}}
       let url = this.getProductFromURL();
       params.designable_type = url;
       axios({
@@ -165,8 +165,12 @@ export default class ProductListing extends React.Component {
 
 
     setCategory = (categoryName,e) =>{
+      let value = e.target.text;
+      if(this.state["selected" + categoryName] === value){
+        value = undefined;
+      }
       this.setState({
-        ["selected" + categoryName]:e.target.text
+        ["selected" + categoryName]:value
       },()=>{
         this.getDisplayeProduct();
       });
@@ -215,7 +219,7 @@ export default class ProductListing extends React.Component {
                                         <ul className="category-selector">
                                           {this.state[o.name] ?
                                             this.state[o.name].map((type)=>{
-                                              return (<li key={type[o.name]} className={this.state.selectedCategory === o.name ? "active" : ""} onClick={this.setCategory.bind(this,o.name)}><a>{type[o.name]}</a></li>)
+                                              return (<li key={type[o.name]} className={this.state["selected" + o.name] === type[o.name] ? "active" : ""} onClick={this.setCategory.bind(this,o.name)}><a>{type[o.name]}</a></li>)
                                             })
                                             : null
                                           }
