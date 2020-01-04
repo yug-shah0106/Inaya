@@ -28,6 +28,6 @@ app.use(express.static(root));
 app.get("*", (req, res) => {
   res.sendFile('index.html', { root });
 })
-const PORT = 3000;
+const PORT = 80;
 
 app.listen(PORT,console.log(`server started at port ${PORT}`));
