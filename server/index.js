@@ -10,10 +10,6 @@ db.authenticate().then(()=> console.log('Database connected ....'))
 
 const app = express();
 
-app.get('/',(req,res) => {
-res.send('INDEX');
-})
-
 // Body Parser
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -27,6 +23,11 @@ app.use('/api/products/jewellery', require('./routes/jewellery'));
 app.use('/api/lineItems', require('./routes/lineItems'));
 app.use('/api/productRating', require('./routes/productRating'));
 app.use('/api/orders', require('./routes/orders'));
+const root = path.join(__dirname, '..', 'build/');
+app.use(express.static(root));
+app.get("*", (req, res) => {
+  res.sendFile('index.html', { root });
+})
 const PORT = 3001;
 
 app.listen(PORT,console.log(`server started at port ${PORT}`));

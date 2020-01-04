@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.7d13f749.chunk.css",
+    "main.js": "/static/js/main.6ea770c0.chunk.js",
+    "main.js.map": "/static/js/main.6ea770c0.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.f38c68c7.js",
+    "runtime-main.js.map": "/static/js/runtime-main.f38c68c7.js.map",
+    "static/css/2.7ef7611d.chunk.css": "/static/css/2.7ef7611d.chunk.css",
+    "static/js/2.ed6c1af1.chunk.js": "/static/js/2.ed6c1af1.chunk.js",
+    "static/js/2.ed6c1af1.chunk.js.map": "/static/js/2.ed6c1af1.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.927f62c030992c46c36e4e2f0ee01878.js": "/precache-manifest.927f62c030992c46c36e4e2f0ee01878.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.7ef7611d.chunk.css.map": "/static/css/2.7ef7611d.chunk.css.map",
+    "static/css/main.7d13f749.chunk.css.map": "/static/css/main.7d13f749.chunk.css.map",
+    "static/media/fashion.jpg": "/static/media/fashion.803023a7.jpg",
+    "static/media/floralwoman.jpg": "/static/media/floralwoman.d898618a.jpg",
+    "static/media/lehenga.jpg": "/static/media/lehenga.7c64fb69.jpg",
+    "static/media/lehengastore.jpg": "/static/media/lehengastore.c88c7656.jpg",
+    "static/media/model.jpg": "/static/media/model.f73e1980.jpg",
+    "static/media/saree_banner.jpg": "/static/media/saree_banner.293ee0e8.jpg",
+    "static/media/unsplash.jpg": "/static/media/unsplash.5efd6796.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f38c68c7.js",
+    "static/css/2.7ef7611d.chunk.css",
+    "static/js/2.ed6c1af1.chunk.js",
+    "static/css/main.7d13f749.chunk.css",
+    "static/js/main.6ea770c0.chunk.js"
+  ]
+}
