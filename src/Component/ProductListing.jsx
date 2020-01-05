@@ -236,7 +236,8 @@ export default class ProductListing extends React.Component {
                             </>)
                           })
                         }
-                            <h5>Filter By</h5>
+                        <div className="m-t-md">
+                            <h5 className="m-t-md m-b-md">Filter By</h5>
                               <h6>Price</h6>
                             <div className="price-selector">
                                 <InputRange
@@ -246,6 +247,7 @@ export default class ProductListing extends React.Component {
                                     value={this.state.rangeValue}
                                     onChange={value => {this.onRangeChanged(value)}}
                                     onChangeComplete={value => console.log(value)} />
+                            </div>
                             </div>
                         {  /*  <div className="discount-selector">
                                 <h6>Discounts</h6>

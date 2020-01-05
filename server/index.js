@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
+
 //Database
 const db = require('./config/database');
 
@@ -15,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(bodyParser.json());
 
-app.use('/users', require('./routes/users'));
+app.use('/api/users', require('./routes/users'));
 app.use('/api/products', require('./routes/product'));
 app.use('/api/cart', require('./routes/cart'));
 app.use('/api/products/saree', require('./routes/saree'));

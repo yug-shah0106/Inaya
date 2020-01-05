@@ -5,6 +5,7 @@ const product = require('../models/designs');
 const Util = require('../Util/util');
 const sarees = require('../models/sarees');
 const jewellery = require('../models/jewellery');
+const _ = require('lodash');
 
 product.belongsTo(sarees, {targetKey:'id',foreignKey: 'id'});
 product.belongsTo(jewellery, {targetKey:'id',foreignKey: 'id'});

@@ -9,6 +9,13 @@ import model from './model.jpg';
 import banner from './saree_banner.jpg';
 // import womanoutdoors from './womanoutdoors.jpg';
 import floralwoman from './floralwoman.jpg';
+import {
+  Button,
+  Table,
+  Row,
+  Col,
+  Form
+} from "react-bootstrap";
 
 
 class Home extends React.Component {
@@ -128,31 +135,99 @@ class Home extends React.Component {
                 </div>
 
                 <div className="container-fluid mb-5">
-                  <div className="row bg-black text-white">
+                  <div className="row bg-black text-white container-fluid">
                     <div className="col"><img alt="gift for me" src={banner} className="img-responsive" width="100%" /></div>
                   </div>
                 </div>
-                
+
                 <div className="container-fluid mb-5 product-type">
                   <h3 className="product-type-heading">Sarees by Ocassion</h3>
                   <div className="row">
                     <div className="col">
+                    <Row>
+                    <Col md={6}>
                       <img src={unsplash} alt="" className="img-responsive"></img>
                       <div className="product-type-desc">Ethnic motives</div>
+                      </Col>
+                      <Col md={6}>
+                      <span>Lorem Ipsum is simply dummy
+                              text of the printing and
+                              typesetting industry. Lorem
+                              Ipsum has been the industry's
+                              standard dummy text ever since
+                              the 1500s, when an unknown
+                              printer took a galley of type and
+                              scrambled it to make a type
+                              specimen book. It has survived
+                              not only five centuries, but also
+                              the leap into electronic </span>
+                      </Col>
+                      </Row>
                     </div>
                     <div className="col">
+                    <Row>
+                    <Col md={6}>
                       <img src={unsplash} alt="" className="img-responsive"></img>
                       <div className="product-type-desc">Ethnic motives</div>
+                      </Col>
+                      <Col md={6}>
+                      <span>Lorem Ipsum is simply dummy
+                              text of the printing and
+                              typesetting industry. Lorem
+                              Ipsum has been the industry's
+                              standard dummy text ever since
+                              the 1500s, when an unknown
+                              printer took a galley of type and
+                              scrambled it to make a type
+                              specimen book. It has survived
+                              not only five centuries, but also
+                              the leap into electronic </span>
+                      </Col>
+                      </Row>
                     </div>
                   </div>
                   <div className="row">
                     <div className="col">
+                    <Row>
+                    <Col md={6}>
                       <img src={unsplash} alt="" className="img-responsive"></img>
                       <div className="product-type-desc">Ethnic motives</div>
+                      </Col>
+                      <Col md={6}>
+                      <span>Lorem Ipsum is simply dummy
+                              text of the printing and
+                              typesetting industry. Lorem
+                              Ipsum has been the industry's
+                              standard dummy text ever since
+                              the 1500s, when an unknown
+                              printer took a galley of type and
+                              scrambled it to make a type
+                              specimen book. It has survived
+                              not only five centuries, but also
+                              the leap into electronic </span>
+                      </Col>
+                      </Row>
                     </div>
                     <div className="col">
+                    <Row>
+                    <Col md={6}>
                       <img src={unsplash} alt="" className="img-responsive"></img>
                       <div className="product-type-desc">Ethnic motives</div>
+                      </Col>
+                      <Col md={6}>
+                      <span>Lorem Ipsum is simply dummy
+                              text of the printing and
+                              typesetting industry. Lorem
+                              Ipsum has been the industry's
+                              standard dummy text ever since
+                              the 1500s, when an unknown
+                              printer took a galley of type and
+                              scrambled it to make a type
+                              specimen book. It has survived
+                              not only five centuries, but also
+                              the leap into electronic </span>
+                      </Col>
+                      </Row>
                     </div>
                   </div>
                 </div>
